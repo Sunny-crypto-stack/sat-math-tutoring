@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Consultation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Schedule a Free Consultation</h1>
+      <a href="index.html" style="color:#ffffff;text-decoration:underline;">&larr; Back to Home</a>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <h2>Book Your Time</h2>
+      <p>Please choose a suitable time for your consultation and provide your details. After submitting the form, we'll receive your request and confirm via email. Times are shown in Eastern Time (US &amp; Canada).</p>
+      <form id="booking-form">
+        <div style="margin-bottom:1rem;">
+          <label for="fullName">Full Name:</label><br>
+          <input type="text" id="fullName" name="fullName" required style="width:100%;padding:0.5rem;">
+        </div>
+        <div style="margin-bottom:1rem;">
+          <label for="email">Email:</label><br>
+          <input type="email" id="email" name="email" required style="width:100%;padding:0.5rem;">
+        </div>
+        <div style="margin-bottom:1rem;">
+          <label for="phone">Phone Number:</label><br>
+          <input type="tel" id="phone" name="phone" required style="width:100%;padding:0.5rem;">
+        </div>
+        <div style="margin-bottom:1rem;">
+          <label for="datetime">Preferred Date &amp; Time:</label><br>
+          <input type="datetime-local" id="datetime" name="datetime" required style="width:100%;padding:0.5rem;">
+        </div>
+        <button type="submit" class="btn">Request Consultation</button>
+      </form>
+      <div id="booking-message" style="margin-top:1rem;"></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 SAT Math Tutoring by Sanmay Reddy Pachika. All rights reserved.</p>
+    </div>
+  </footer>
+<script>
+document.getElementById('booking-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const datetime = document.getElementById('datetime').value;
+    if (!name || !email || !phone || !datetime) {
+      alert('Please fill in all fields.');
+      return;
+    }
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nPreferred Date & Time: ${datetime}`);
+    // Compose mailto link to send booking request
+    window.location.href = `mailto:sanmay.pachika@gmail.com?subject=Consultation%20Booking&body=${body}`;
+    const messageEl = document.getElementById('booking-message');
+    messageEl.innerHTML = '<p>Thank you for your request! A mail draft has been opened in your email client. Please send it to complete your booking.</p>';
+    this.reset();
+});
+</script>
+</html>   
+
