@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free SAT Math Practice</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Additional styling specific to the practice page */
+    .quiz-container {
+      max-width: 700px;
+      margin: auto;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .question {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .choices {
+      list-style: none;
+      padding: 0;
+    }
+    .choices li {
+      margin-bottom: 0.5rem;
+    }
+    .choices li label {
+      cursor: pointer;
+    }
+    .feedback {
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Free SAT Math Practice</h1>
+      <a href="index.html" style="color: #ffffff; text-decoration: underline;">\u2190 Back to Home</a>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <div id="quiz" class="quiz-container">
+        <!-- Quiz content is generated with JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 SAT Math Tutoring by Sanmay Reddy Pachika. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+  // Array of practice questions covering fundamental SAT Math topics
+  const questions = [
+    {
+      question: 'If 3x + 7 = 22, what is the value of x?',
+      choices: ['5','6','7','9'],
+      answer: 0,
+      explanation: 'Subtract 7 from both sides to get 3x = 15. Divide by 3 to find x = 5.'
+    },
+    {
+      question: 'A right triangle has legs of lengths 5 and 12. What is the length of the hypotenuse?',
+      choices: ['11','12','13','17'],
+      answer: 2,
+      explanation: 'Use the Pythagorean theorem: \u221a(5^2 + 12^2) = \u221a169 = 13.'
+    },
+    {
+      question: 'Solve the system: x + y = 10 and x \u2212 y = 2.',
+      choices: ['x=4, y=6','x=6, y=4','x=3, y=7','x=5, y=5'],
+      answer: 1,
+      explanation: 'Add the equations to get 2x = 12, so x = 6. Substitute into x + y = 10 to get y = 4.'
+    },
+    {
+      question: 'Simplify \u221a50 \u2212 \u221a18.',
+      choices: ['\u221a2','\u221a32','2\u221a8','\u221a8'],
+      answer: 3,
+      explanation: '\u221a50 = 5\u221a2 and \u221a18 = 3\u221a2. Subtract to get 2\u221a2, which is equivalent to \u221a8.'
+    },
+    {
+      question: 'If f(x) = 2x^2 \u2212 3x + 1, what is f(4)?',
+      choices: ['21','29','25','31'],
+      answer: 0,
+      explanation: 'f(4) = 2(16) \u2212 3(4) + 1 = 32 \u2212 12 + 1 = 21.'
+    },
+    {
+      question: 'Which is the equation of the line with slope 2 passing through (1,3)?',
+      choices: ['y = 2x + 1','y = 2x + 2','y = 2x + 3','y = 2x'],
+      answer: 0,
+      explanation: 'Use point-slope form: y \u2212 3 = 2(x \u2212 1) \u2192 y = 2x + 1.'
+    },
+    {
+      question: 'What is the median of the data set {4, 8, 15, 16, 23, 42}?',
+      choices: ['15.5','16','19','17.5'],
+      answer: 0,
+      explanation: 'With an even number of values, the median is the average of the two middle numbers: (15 + 16)/2 = 15.5.'
+    },
+    {
+      question: 'If sin(\u03b8) = 3/5 in a right triangle, what is cos(\u03b8)?',
+      choices: ['4/5','5/4','3/4','4/3'],
+      answer: 0,
+      explanation: 'In a right triangle with opposite/hypotenuse = 3/5, the adjacent side is 4, so cos(\u03b8) = 4/5.'
+    },
+    {
+      question: 'Solve for x: 2^x = 8.',
+      choices: ['1','2','3','4'],
+      answer: 2,
+      explanation: 'Since 2^3 = 8, x = 3.'
+    },
+    {
+      question: 'Solve for x: 1/x + 1/3 = 5/6.',
+      choices: ['2','3','6','4'],
+      answer: 0,
+      explanation: 'Subtract 1/3 from 5/6 to obtain 1/2. Therefore 1/x = 1/2, so x = 2.'
+    }
+  ];
+
+  let currentQuestion = 0;
+
+  // Display the current question and answer choices
+  function showQuestion() {
+    const q = questions[currentQuestion];
+    const quizEl = document.getElementById('quiz');
+    quizEl.innerHTML = `
+      <div class='question'><strong>Question ${currentQuestion + 1} of ${questions.length}</strong><br>${q.question}</div>
+      <ul class='choices'>
+        ${q.choices.map((choice, i) => `<li><label><input type='radio' name='answer' value='${i}'/> ${choice}</label></li>`).join('')}
+      </ul>
+      <button class='btn' onclick='checkAnswer()'>Submit</button>
+    `;
+  }
+
+  // Check the selected answer and show feedback
+  function checkAnswer() {
+    const selected = document.querySelector('input[name="answer"]:checked');
+    const quizEl = document.getElementById('quiz');
+    if (!selected) {
+      alert('Please select an answer.');
+      return;
+    }
+    const answer = parseInt(selected.value);
+    const q = questions[currentQuestion];
+    const correct = answer === q.answer;
+    quizEl.innerHTML += `<div class='feedback'><strong>${correct ? 'Correct!' : 'Incorrect.'}</strong> ${q.explanation}</div>`;
+    if (currentQuestion < questions.length - 1) {
+      quizEl.innerHTML += `<button class='btn' onclick='nextQuestion()'>Next Question</button>`;
+    } else {
+      quizEl.innerHTML += `<button class='btn' onclick='restartQuiz()'>Start Over</button>`;
+    }
+  }
+
+  // Move to the next question
+  function nextQuestion() {
+    currentQuestion++;
+    showQuestion();
+  }
+
+  // Restart the quiz from the beginning
+  function restartQuiz() {
+    currentQuestion = 0;
+    showQuestion();
+  }
+
+  // Initialize the quiz when the page loads
+  document.addEventListener('DOMContentLoaded', showQuestion);
+  </script>
+</body>
+</html>
