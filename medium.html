@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medium Course – Payment</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Enroll in the Medium Course</h1>
+      <a href="index.html" style="color:#ffffff;text-decoration:underline;">← Back to Home</a>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <h2>Course Details</h2>
+      <p>The Medium Course includes small-group online sessions held three times per week plus full access to the self‑paced course. You’ll receive practice tests, detailed score reports, and instructor feedback to keep you accountable.</p>
+      <p class="price">Course Fee: <strong>$599</strong></p>
+
+      <h3>Secure Checkout (Coming Soon)</h3>
+      <p>To reserve your seat, please fill in your details below. A secure payment link will be sent to you to complete your purchase.</p>
+      <form id="medium-payment-form">
+        <div style="margin-bottom:1rem;">
+          <label for="name">Full Name:</label><br>
+          <input type="text" id="name" name="name" required style="width:100%;padding:0.5rem;">
+        </div>
+        <div style="margin-bottom:1rem;">
+          <label for="email">Email:</label><br>
+          <input type="email" id="email" name="email" required style="width:100%;padding:0.5rem;">
+        </div>
+        <div style="margin-bottom:1rem;">
+          <label for="phone">Phone Number:</label><br>
+          <input type="tel" id="phone" name="phone" required style="width:100%;padding:0.5rem;">
+        </div>
+        <button type="submit" class="btn">Submit &amp; Receive Payment Link</button>
+      </form>
+      <div id="payment-message" style="margin-top:1rem;"></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 SAT Math Tutoring by Sanmay Reddy Pachika. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('medium-payment-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // In a real implementation, you would integrate with a payment provider (e.g. Stripe)
+      // and send an invoice link. For now, display a confirmation message.
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const messageEl = document.getElementById('payment-message');
+      messageEl.innerHTML = `<p>Thank you, ${name}. A payment link has been sent to <strong>${email}</strong>. Please check your inbox to complete enrollment.</p>`;
+      // Reset the form
+      this.reset();
+    });
+  </script>
+</body>
+</html>
