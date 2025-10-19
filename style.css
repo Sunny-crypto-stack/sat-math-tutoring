@@ -1,0 +1,118 @@
+/*
+ * Global styles for the SAT Math Tutoring website.
+ * Designed to be clean, modern and responsive without external
+ * dependencies. Cards and sections are clearly delineated and
+ * colours are chosen to evoke trust and confidence.
+ */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background: #fafafa;
+  color: #333;
+}
+
+header, footer {
+  background: #0e1e40;
+  color: #ffffff;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+  padding: 1rem 0;
+}
+
+section {
+  padding: 2rem 0;
+}
+
+/* Card component used for course descriptions */
+.card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.card .price {
+  font-size: 1.5rem;
+  color: #1a73e8;
+  margin-top: 0.5rem;
+}
+
+.btn {
+  display: inline-block;
+  background: #1a73e8;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-top: 1rem;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #0e5ec7;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.col {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* Hero section with gradient background */
+.hero {
+  background: linear-gradient(135deg, #1e3a8a, #0e1e40);
+  color: #ffffff;
+  text-align: center;
+  padding: 6rem 2rem;
+  position: relative;
+}
+
+/* Optional dark overlay to improve text contrast */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.4);
+}
+
+.hero > div {
+  position: relative;
+  z-index: 1;
+}
+
+a {
+  color: #1a73e8;
+}
+
+/* Make hero section more compact on smaller screens */
+@media (max-width: 600px) {
+  .hero {
+    padding: 4rem 1rem;
+  }
+}
