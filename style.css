@@ -91,6 +91,19 @@ section {
   margin-top: 1rem;
 }
 
+/* Controls for filtering quiz questions by topic and difficulty */
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.filter label {
+  margin-right: 0.5rem;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;
