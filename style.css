@@ -5,6 +5,11 @@
  * colours are chosen to evoke trust and confidence.
  */
 
+html {
+  /* Enable smooth scrolling when jumping between anchor links */
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -43,6 +48,13 @@ section {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   padding: 1.5rem;
   margin: 1rem 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Lift cards slightly on hover for a tactile feel */
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
 
 .card h3 {
@@ -63,11 +75,12 @@ section {
   border-radius: 4px;
   text-decoration: none;
   margin-top: 1rem;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .btn:hover {
   background: #0e5ec7;
+  transform: translateY(-2px);
 }
 
 /*
@@ -115,26 +128,33 @@ section {
   min-width: 250px;
 }
 
-/* Hero section with a colourful gradient background.
- * We avoid referencing an external image here because GitHub Pages does
- * not support uploading binary files through this repository interface.
- * Instead, a linear gradient creates a vibrant backdrop without any
- * additional assets. */
+/* Hero section using a friendly illustration. The hero image lives in
+ * assets/hero_small.jpg. We overlay a subtle dark tint to ensure text
+ * remains readable regardless of the underlying artwork. */
 .hero {
-  background: linear-gradient(135deg, #1a237e, #0d47a1, #1a73e8);
+  background-image: url('assets/hero_small.jpg');
+  background-size: cover;
+  background-position: center;
   color: #ffffff;
   text-align: center;
   padding: 6rem 2rem;
   position: relative;
+  overflow: hidden;
 }
 
-/* For gradient hero, we remove the dark overlay because the gradient
- * already provides enough contrast. */
-.hero::before {
+/* Dark overlay on the hero to improve text contrast */
+.hero::after {
   content: '';
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
 }
 
+/* Ensure hero content sits above the overlay */
 .hero > div {
   position: relative;
   z-index: 1;
