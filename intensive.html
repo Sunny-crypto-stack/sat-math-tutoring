@@ -27,7 +27,7 @@
         <li>By the end of the course you will have completed over <strong>3,000</strong> problems and will recognize patterns in SAT questions, knowing exactly how to solve them</li>
       </ul>
       <p>After purchasing the Intensive Course, we’ll contact you to schedule your first session and build a custom study calendar around your availability. Because it’s one‑on‑one, you’ll receive real‑time feedback and targeted guidance every step of the way.</p>
-      <p class="price">Course Fee: <strong>$1,099</strong></p>
+      <p class="price" data-usd="1099">Course Fee: <strong>$1,099</strong></p>
       <!-- Payment button for the Intensive Course -->
       <p>Ready to enroll? Use the secure button below to complete your purchase via PayPal.</p>
       <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:1rem;">
@@ -46,6 +46,37 @@
       <p>&copy; 2025 SAT Math Tutoring by Sanmay Pachika. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Local currency conversion script for Intensive course page -->
+  <script>
+  (function() {
+    const rates = { USD: 1, EUR: 0.94, GBP: 0.82, CAD: 1.36, AUD: 1.56, INR: 83.0, JPY: 149.0 };
+    const locale = navigator.language || navigator.userLanguage || 'en-US';
+    let currency = 'USD';
+    if (locale.startsWith('en-GB')) currency = 'GBP';
+    else if (locale.startsWith('fr')) currency = 'EUR';
+    else if (locale.startsWith('de')) currency = 'EUR';
+    else if (locale.startsWith('es')) currency = 'EUR';
+    else if (locale.startsWith('en-CA')) currency = 'CAD';
+    else if (locale.startsWith('en-AU')) currency = 'AUD';
+    else if (locale.startsWith('hi') || locale.startsWith('en-IN')) currency = 'INR';
+    else if (locale.startsWith('ja')) currency = 'JPY';
+    const rate = rates[currency] || 1;
+    const formatter = new Intl.NumberFormat(locale, { style: 'currency', currency: currency });
+    document.querySelectorAll('.price').forEach(function(el) {
+      const usdValue = parseFloat(el.getAttribute('data-usd'));
+      if (!usdValue) return;
+      const converted = usdValue * rate;
+      const formatted = formatter.format(converted);
+      const strong = el.querySelector('strong');
+      if (strong) {
+        strong.textContent = formatted;
+      } else {
+        el.textContent = formatted;
+      }
+    });
+  })();
+  </script>
 
 </body>
 </html>
