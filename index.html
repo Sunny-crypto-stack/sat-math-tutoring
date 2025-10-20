@@ -36,7 +36,7 @@
           <div class="card">
             <h3>Beginner Course</h3>
             <p>A self‑paced program with a structured lesson plan covering all SAT Math subtopics. Each day you’ll focus on a specific concept, with a scientifically backed number of practice problems per topic. Practice questions are generated in real time to match your progress, and all material is unique to this course—you won’t find it anywhere else.</p>
-            <p class="price">$199</p>
+            <p class="price" data-usd="199"><strong>$199</strong></p>
             <a href="beginner.html" class="btn">Buy&nbsp;Now</a>
           </div>
         </div>
@@ -44,7 +44,7 @@
           <div class="card">
             <h3>Medium Course</h3>
             <p>Classes are taught in a classroom style four times per week (2&nbsp;hours each) over a three‑month schedule, replicating the experience of an in‑person classroom of around 30 students. The course runs just like a classroom: announcements are posted on Slack, homework is assigned and checked regularly, and practice tests are administered and reviewed. All material is original to this program. By the end of the course you’ll have completed over 3,000 problems, recognized recurring patterns in SAT Math, and will know exactly what to do when you see them.</p>
-            <p class="price">$599</p>
+            <p class="price" data-usd="599"><strong>$599</strong></p>
             <a href="medium.html" class="btn">Buy&nbsp;Now</a>
           </div>
         </div>
@@ -52,7 +52,7 @@
           <div class="card">
             <h3>Intensive Course</h3>
             <p>One‑on‑one coaching with flexible scheduling—up to four sessions per week over a three‑month period leading up to your SAT. Lessons are rigorous, with homework and practice customized for you. You’ll receive constant feedback, tips and tricks, and advanced strategies to master every question type. Because it’s one‑on‑one, you’ll be closely watched so you get all the help and materials you need. By the end of the course you will have worked through over 3,000 problems, recognized patterns, and developed a repeatable approach for every topic.</p>
-            <p class="price">$1,099</p>
+            <p class="price" data-usd="1099"><strong>$1,099</strong></p>
             <a href="intensive.html" class="btn">Buy&nbsp;Now</a>
           </div>
         </div>
@@ -107,5 +107,54 @@
       <p>&copy; 2025 SAT Math Tutoring by Sanmay Pachika. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Script to convert course prices into the visitor’s local currency.  The prices
+       are stored in each .price element’s data-usd attribute. On page load we
+       detect the browser locale, determine an appropriate currency code, look
+       up a conversion rate, format the value using Intl.NumberFormat, and then
+       update either the <strong> amount inside the price paragraph or the
+       entire price text if no <strong> is present. Only the display price is
+       converted; the underlying PayPal checkout remains in USD. -->
+  <script>
+  (function() {
+    // Approximate exchange rates relative to USD. These values can be updated
+    // periodically to reflect current market conditions.
+    const rates = {
+      USD: 1,
+      EUR: 0.94,
+      GBP: 0.82,
+      CAD: 1.36,
+      AUD: 1.56,
+      INR: 83.0,
+      JPY: 149.0
+    };
+    const locale = navigator.language || navigator.userLanguage || 'en-US';
+    // Map common locales to their currency codes. Fallback to USD.
+    let currency = 'USD';
+    if (locale.startsWith('en-GB')) currency = 'GBP';
+    else if (locale.startsWith('fr')) currency = 'EUR';
+    else if (locale.startsWith('de')) currency = 'EUR';
+    else if (locale.startsWith('es')) currency = 'EUR';
+    else if (locale.startsWith('en-CA')) currency = 'CAD';
+    else if (locale.startsWith('en-AU')) currency = 'AUD';
+    else if (locale.startsWith('hi') || locale.startsWith('en-IN')) currency = 'INR';
+    else if (locale.startsWith('ja')) currency = 'JPY';
+    const rate = rates[currency] || 1;
+    const formatter = new Intl.NumberFormat(locale, { style: 'currency', currency: currency });
+    document.querySelectorAll('.price').forEach(function(el) {
+      const usdValue = parseFloat(el.getAttribute('data-usd'));
+      if (!usdValue) return;
+      const converted = usdValue * rate;
+      const formatted = formatter.format(converted);
+      // If there is a <strong> element inside the price paragraph, update only its text
+      const strong = el.querySelector('strong');
+      if (strong) {
+        strong.textContent = formatted;
+      } else {
+        el.textContent = formatted;
+      }
+    });
+  })();
+  </script>
 </body>
 </html>
