@@ -1,37 +1,191 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sunnypreps — Education, Elevated.</title>
-  <meta name="description" content="Elite SAT tutoring, powered by calm design, 99th percentile instructors, and data-driven practice.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>sunnypreps. — SAT math mentoring without noise</title>
+  <meta name="description" content="sunnypreps. delivers calm, high-intent SAT math tutoring with 99th percentile mentors, structured practice, and measurable score gains." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="progress-tracker" aria-hidden="true"></div>
-
-  <header class="navbar transparent" id="top">
-    <div class="navbar-content">
-      <a class="logo" href="#top" aria-label="Sunnypreps home">Sunnypreps</a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#courses">Courses</a>
-        <a href="#mission">Mission</a>
-        <a href="#results">Results</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="nav-actions">
-        <button class="btn outline" type="button" data-open-modal>Book consultation</button>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false" type="button">
-          <span class="toggle-icon" aria-hidden="true"></span>
-        </button>
+  <header class="site-header">
+    <div class="shell">
+      <div class="header-bar">
+        <a class="brand" href="index.html" aria-label="sunnypreps. home">sunnypreps.</a>
+        <nav class="primary-nav" aria-label="Primary navigation">
+          <a href="#courses">Courses</a>
+          <a href="#mission">Approach</a>
+          <a href="#results">Results</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="header-actions">
+          <a class="btn btn-muted" href="practice.html">Practice sets</a>
+          <button class="btn btn-outline" type="button" data-open-modal>Book a call</button>
+        </div>
       </div>
     </div>
   </header>
 
   <main>
+    <section class="hero" id="top">
+      <div class="shell hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">SAT math · est. 2025</p>
+          <h1>Calm, exacting prep with mentors who listen.</h1>
+          <p>We teach ambitious students how to think like exam setters. Every plan is diagnostic-led, feedback-rich, and designed to keep your schedule breathable.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" type="button" data-open-modal>Schedule a consultation</button>
+            <a class="btn btn-outline" href="booking.html">Pick a time directly</a>
+          </div>
+          <div class="stats-row">
+            <div class="stat">
+              <span>Average score lift</span>
+              <strong>+210</strong>
+            </div>
+            <div class="stat">
+              <span>Weekly mentoring</span>
+              <strong>Slack &amp; 1:1</strong>
+            </div>
+            <div class="stat">
+              <span>Practice archive</span>
+              <strong>3,000+ qs</strong>
+            </div>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Program snapshot">
+          <h3>What sets sunnypreps. apart</h3>
+          <p>Transparent progress dashboards, adaptive assignments, and coaches who only teach SAT math—no clutter, just mastery.</p>
+          <ul>
+            <li>Personalized weekly roadmaps</li>
+            <li>Exam-grade diagnostics every 4 weeks</li>
+            <li>Score reporting that parents actually understand</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="courses">
+      <div class="shell">
+        <div class="section-header">
+          <p class="eyebrow">Courses</p>
+          <h2>Three tracks, one standard of excellence.</h2>
+          <p>Choose the rhythm that matches your goals. Every option includes instructor access, targeted homework, and data-backed review cycles.</p>
+        </div>
+        <div class="course-grid">
+          <article class="course-card">
+            <div class="tag">Beginner · $199</div>
+            <h3>Beginner track</h3>
+            <p>Build fundamentals with calm, self-paced lessons delivered through our private Slack workspace.</p>
+            <ul>
+              <li>Foundational concepts, clearly explained</li>
+              <li>Daily problem sets with instant feedback</li>
+              <li>Weekly check-ins to keep momentum</li>
+            </ul>
+            <div class="card-actions">
+              <a class="btn btn-primary" href="payment-beginner.html">Enroll for $199</a>
+              <a class="btn btn-outline" href="beginner.html">See syllabus</a>
+            </div>
+          </article>
+          <article class="course-card">
+            <div class="tag">Medium · $599</div>
+            <h3>Medium track</h3>
+            <p>Blend live instruction with structured practice. Ideal for students chasing 1300–1450 scores.</p>
+            <ul>
+              <li>Live sessions four times per week</li>
+              <li>Graded assignments &amp; instructor feedback</li>
+              <li>Monthly parent briefings with insights</li>
+            </ul>
+            <div class="card-actions">
+              <a class="btn btn-primary" href="payment-medium.html">Enroll for $599</a>
+              <a class="btn btn-outline" href="medium.html">See syllabus</a>
+            </div>
+          </article>
+          <article class="course-card">
+            <div class="tag">Intensive · $1,099</div>
+            <h3>Intensive track</h3>
+            <p>Dedicated 1:1 mentorship, pressure-tested exams, and deep dives into elite-level problem solving.</p>
+            <ul>
+              <li>Olympiad-grade workshops and labs</li>
+              <li>Custom scoring analytics for each session</li>
+              <li>Concierge access to your lead coach</li>
+            </ul>
+            <div class="card-actions">
+              <a class="btn btn-primary" href="payment-intensive.html">Enroll for $1,099</a>
+              <a class="btn btn-outline" href="intensive.html">See syllabus</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="mission">
+      <div class="shell">
+        <div class="section-header">
+          <p class="eyebrow">Approach</p>
+          <h2>Minimal noise. Maximum clarity.</h2>
+          <p>We keep the interface simple so the work feels focused. Students know exactly what to tackle, when to ask for help, and how to measure progress.</p>
+        </div>
+        <div class="pillars-grid">
+          <article class="pillar">
+            <h3>Personal diagnostics</h3>
+            <p>We start with a full-length SAT to map strengths, gaps, and timing habits—then recalibrate every four weeks.</p>
+            <span>Data first</span>
+          </article>
+          <article class="pillar">
+            <h3>Slack-first mentorship</h3>
+            <p>Students chat directly with their mentor, submit work, and receive voice or Loom walkthroughs without waiting days.</p>
+            <span>Responsive coaches</span>
+          </article>
+          <article class="pillar">
+            <h3>Designed for calm focus</h3>
+            <p>Clean dashboards, thoughtfully paced assignments, and reflection prompts keep stress down and clarity up.</p>
+            <span>Intentional pacing</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="shell">
+        <div class="section-header">
+          <p class="eyebrow">Results</p>
+          <h2>Outcomes that speak louder than hype.</h2>
+          <p>From diagnostic to final score, every milestone is tracked and shared with both student and family.</p>
+        </div>
+        <div class="results-grid">
+          <article class="result-card">
+            <h3>Score lift in 12 weeks</h3>
+            <p>Students average a 210-point rise after three months of structured coaching and purposeful practice.</p>
+            <span>Score data · 2024-2025</span>
+          </article>
+          <article class="result-card">
+            <h3>97% weekly completion</h3>
+            <p>Our minimal, checklist-based workspace keeps students on track with little to no parent prompting.</p>
+            <span>Accountability</span>
+          </article>
+          <article class="result-card">
+            <h3>Transparent parent reports</h3>
+            <p>We deliver concise recaps highlighting wins, sticking points, and next steps after every cycle.</p>
+            <span>Clarity first</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="shell">
+        <div class="callout">
+          <h3>Let’s build a plan that fits your student.</h3>
+          <p>Pick a time that works, or tell us about your goals and we’ll recommend the right track. We respond within one business day.</p>
+          <div class="callout-actions">
+            <button class="btn btn-primary" type="button" data-open-modal>Book a consultation</button>
+            <a class="btn btn-outline" href="mailto:sanmay.pachika@gmail.com">Email sanmay.pachika@gmail.com</a>
+          </div>
+        </div>
     <section class="hero" id="hero">
       <div class="hero-visual" aria-hidden="true">
         <div class="hero-gradient"></div>
@@ -201,6 +355,17 @@
     </section>
   </main>
 
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div>
+        <a class="brand" href="#top">sunnypreps.</a>
+        <p>&copy; 2025 sunnypreps. — founded by Sanmay Pachika &amp; co-founder Aswanth Nair.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#courses">Courses</a>
+        <a href="#mission">Approach</a>
+        <a href="#results">Results</a>
+        <a href="booking.html">Consultation</a>
   <footer class="footer">
     <div class="footer-grid">
       <div>
@@ -216,6 +381,16 @@
     </div>
   </footer>
 
+  <div class="consult-modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="consult-title">
+      <button class="modal-close" type="button" aria-label="Close" data-close-modal>&times;</button>
+      <h2 id="consult-title">Schedule with sunnypreps.</h2>
+      <p>Select a time below and we’ll confirm instantly. Prefer email? Write to <a href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a>.</p>
+      <div class="calendly-inline-widget" data-url="https://calendly.com/sanmay-pachika/30min" style="min-width:320px;height:630px;"></div>
+    </div>
+  </div>
+
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
   <div class="consult-modal sourcing-modal" aria-hidden="true">
     <div class="modal-bg" data-close-modal aria-hidden="true"></div>
     <div class="modal-card modal-animate" role="dialog" aria-modal="true" aria-labelledby="consult-title">
@@ -233,6 +408,5 @@
   </div>
 
   <script src="script.js" defer></script>
-  <noscript><style>#progress-tracker{display:none}</style></noscript>
 </body>
 </html>

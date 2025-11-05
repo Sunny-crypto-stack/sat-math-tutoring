@@ -3,93 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Secure Payment | Sunnypreps Beginner Course</title>
+  <title>Secure Payment | sunnypreps. Beginner Course</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      font-family: "Inter", Arial, sans-serif;
-      background-color: #f8fafc;
-      color: #222;
-      margin: 0;
-      text-align: center;
-    }
-    header {
-      background: linear-gradient(135deg, #0070ba, #005c96);
-      color: white;
-      padding: 2rem 0;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-    main {
-      max-width: 700px;
-      margin: 2.5rem auto;
-      background: white;
-      padding: 2.5rem;
-      border-radius: 12px;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-    }
-    p {
-      font-size: 1rem;
-      color: #444;
-      line-height: 1.6;
-    }
-    .btn-paypal {
-      display: inline-block;
-      background-color: #0070ba;
-      color: white;
-      font-weight: 600;
-      padding: 14px 26px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 18px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-      transition: all 0.2s ease;
-    }
-    .btn-paypal:hover {
-      background-color: #005c96;
-      transform: translateY(-2px);
-    }
-    footer {
-      margin-top: 3rem;
-      color: #666;
-      font-size: 0.9rem;
-    }
-  </style>
 </head>
-
 <body>
-  <header>
-    <h1>Sunnypreps Beginner Course Payment</h1>
+  <header class="site-header">
+    <div class="shell">
+      <div class="header-bar">
+        <a class="brand" href="index.html">sunnypreps.</a>
+        <nav class="primary-nav" aria-label="Primary navigation">
+          <a href="index.html#courses">Courses</a>
+          <a href="index.html#mission">Approach</a>
+          <a href="index.html#results">Results</a>
+          <a href="booking.html">Consultation</a>
+        </nav>
+        <div class="header-actions">
+          <a class="btn btn-outline" href="beginner.html">Course details</a>
+        </div>
+      </div>
+    </div>
   </header>
 
   <main>
-    <h2>Secure Checkout</h2>
-    <p>
-      You are about to purchase the <strong>Sunnypreps Beginner Course</strong>.
-      This is a one-time payment of <strong>$199 USD</strong>.  
-      Once your payment is complete, you’ll receive access instructions
-      within 24 hours to the student portal and Slack workspace.
-    </p>
+    <div class="shell">
+      <section class="page-hero">
+        <span class="tag">Payment</span>
+        <h1>Complete your Beginner track enrollment.</h1>
+        <p>PayPal handles checkout securely. After payment, we’ll email access instructions for the student portal and Slack workspace within 24 hours.</p>
+      </section>
 
-    <div style="margin:2rem 0;">
-      <a href="https://www.paypal.com/ncp/payment/4Q7Y5JKAJMRML"
-         target="_blank"
-         rel="noopener"
-         class="btn-paypal">
-         Pay Securely via PayPal
-      </a>
+      <section class="page-section highlight-card">
+        <h2>Pay $199 USD</h2>
+        <p>Use the button below to pay via PayPal. You’ll receive a confirmation receipt immediately.</p>
+        <div class="page-actions">
+          <a class="btn btn-primary" href="https://www.paypal.com/ncp/payment/4Q7Y5JKAJMRML" target="_blank" rel="noopener">Pay securely via PayPal</a>
+          <span class="inline-note">Need help? Email <a href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a>.</span>
+        </div>
+      </section>
     </div>
-
-    <p>All payments are processed through PayPal’s secure checkout system.</p>
-    <p>If you experience any issue during checkout, please contact us at 
-       <a href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a>.
-    </p>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Sunnypreps by founder Sanmay Pachika &amp; co-founder Aswanth Nair. All rights reserved.</p>
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div>
+        <a class="brand" href="index.html">sunnypreps.</a>
+        <p>&copy; 2025 sunnypreps. — founded by Sanmay Pachika &amp; co-founder Aswanth Nair.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="index.html#courses">Courses</a>
+        <a href="index.html#mission">Approach</a>
+        <a href="index.html#results">Results</a>
+        <a href="booking.html">Consultation</a>
+      </nav>
+    </div>
   </footer>
 </body>
 </html>
