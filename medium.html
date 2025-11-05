@@ -3,8 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Medium Course | Sunny Preps</title>
+  <title>Medium Course | Sunnypreps</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .btn-paypal {
+      display: inline-block;
+      background-color: #0070ba;
+      color: white;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 17px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.15);
+      transition: all .2s ease;
+    }
+    .btn-paypal:hover {
+      background-color: #005c96;
+      transform: translateY(-2px);
+    }
+    .btn-paypal:active {
+      transform: translateY(0);
+    }
+    .paynote {
+      font-size: 13px;
+      color: #444;
+      opacity: 0.85;
+      margin-top: 6px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -13,71 +41,72 @@
       <a href="index.html" style="color:#ffffff;text-decoration:underline;">← Back to Home</a>
     </div>
   </header>
-
+  
   <section>
     <div class="container">
       <h2>Course Details</h2>
+      <p>This medium-level course takes you further with advanced problems, personalized feedback, and powerful learning tools. More focus on algebraic manipulation, geometric reasoning, and data analysis along with hands-on quizzes and live solution walkthroughs.</p>
       <ul>
-        <li>Classes are taught in a classroom style four times per week (2&nbsp;hours each), replicating the experience of an in‑person course</li>
-        <li>Runs like a classroom: announcements posted on Slack, homework assigned and regularly checked, and practice tests administered and reviewed</li>
-        <li>Program duration: 3&nbsp;months (approximately 48 classes)</li>
-        <li>Course materials are entirely original and cannot be found anywhere else</li>
-        <li>By the end of the course you will have completed over <strong>3,000</strong> problems and will recognize patterns in SAT questions, knowing exactly how to approach each one</li>
+        <li>Topics: advanced algebra, geometric constructions, function behavior, probability, and statistics.</li>
+        <li>Assignments with instant grading, feedback, and review sessions for mistakes.</li>
+        <li>Interactive challenge problems and live group sessions included.</li>
       </ul>
-      <p>Once you enroll, you’ll be added to our next cohort. We’ll send you the detailed class schedule and Slack workspace invitation, where you’ll receive announcements, submit homework, and take practice tests. This intensive experience mirrors a real classroom but gives you the flexibility to learn from anywhere.</p>
-      <p class="price" data-usd="599">Course Fee: <strong>$599</strong></p>
-      <!-- Payment button for the Medium Course -->
-      <p>Ready to enroll? Use the secure button below to complete your purchase via PayPal.</p>
-      <a href="https://www.paypal.com/ncp/payment/SATM5QB8DS7E4" target="_blank" rel="noopener"
-    class="btn-paypal" ...>
-    Pay Securely via PayPal
-</a>
-        <input type="hidden" name="cmd" value="_xclick">
-        <input type="hidden" name="business" value="sanmay.pachika@gmail.com">
-        <input type="hidden" name="item_name" value="Sunny Preps Medium Course">
-        <input type="hidden" name="amount" value="599.00">
-        <input type="hidden" name="currency_code" value="USD">
-        <button type="submit" class="btn">Pay $599 Now</button>
-      </form>
+      <p class="price" data-usd="249">Course Fee: <strong>$249</strong></p>
+
+      <!-- Payment Button Block -->
+      <div style="margin-top:1.5rem; text-align:center;">
+        <a href="payment-medium.html" class="btn-paypal" rel="noopener">
+          Proceed to Payment
+        </a>
+        <p class="paynote">
+          Secure checkout through PayPal — you’ll receive course access within 24 hours after payment.
+        </p>
+      </div>
+      <!-- Optional backup PayPal button -->
+      <div style="margin-top:.75rem;text-align:center;">
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline-block;">
+          <input type="hidden" name="cmd" value="_xclick" />
+          <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL_OR_MERCHANT_ID" />
+          <input type="hidden" name="item_name" value="Sunnypreps Medium Course" />
+          <input type="hidden" name="amount" value="249.00" />
+          <input type="hidden" name="currency_code" value="USD" />
+          <button type="submit" class="btn-paypal">Pay $249 (Backup)</button>
+        </form>
+      </div>
     </div>
   </section>
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 Sunny Preps by founder Sanmay Pachika &amp; co‑founder Aswanth Nair. All rights reserved.</p>
+      <p>&copy; 2025 Sunnypreps by founder Sanmay Pachika &amp; co-founder Aswanth Nair. All rights reserved.</p>
     </div>
   </footer>
-
-  <!-- Local currency conversion script for Medium course page -->
+  
+  <!-- Currency auto-adjustment script -->
   <script>
   (function() {
     const rates = { USD: 1, EUR: 0.94, GBP: 0.82, CAD: 1.36, AUD: 1.56, INR: 83.0, JPY: 149.0 };
     const locale = navigator.language || navigator.userLanguage || 'en-US';
     let currency = 'USD';
     if (locale.startsWith('en-GB')) currency = 'GBP';
-    else if (locale.startsWith('fr')) currency = 'EUR';
-    else if (locale.startsWith('de')) currency = 'EUR';
-    else if (locale.startsWith('es')) currency = 'EUR';
+    else if (locale.startsWith('fr') || locale.startsWith('de') || locale.startsWith('es')) currency = 'EUR';
     else if (locale.startsWith('en-CA')) currency = 'CAD';
     else if (locale.startsWith('en-AU')) currency = 'AUD';
     else if (locale.startsWith('hi') || locale.startsWith('en-IN')) currency = 'INR';
     else if (locale.startsWith('ja')) currency = 'JPY';
+
     const rate = rates[currency] || 1;
     const formatter = new Intl.NumberFormat(locale, { style: 'currency', currency: currency });
+
     document.querySelectorAll('.price').forEach(function(el) {
       const usdValue = parseFloat(el.getAttribute('data-usd'));
       if (!usdValue) return;
       const converted = usdValue * rate;
       const formatted = formatter.format(converted);
       const strong = el.querySelector('strong');
-      if (strong) {
-        strong.textContent = formatted;
-      } else {
-        el.textContent = formatted;
-      }
+      if (strong) strong.textContent = formatted;
     });
   })();
   </script>
-
 </body>
 </html>
