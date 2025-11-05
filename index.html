@@ -1,162 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sunny Preps | SAT Tutoring by Sanmay Pachika &amp; Aswanth Nair</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sunnypreps — Education, Elevated.</title>
+  <meta name="description" content="Elite SAT tutoring, powered by AI-inspired minimalism and expert instructors.">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://rsms.me/inter/inter.css" crossorigin/>
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>Sunny Preps</h1>
+  <div id="progress-tracker"></div>
+  <header class="navbar transparent">
+    <div class="navbar-content">
+      <div class="logo">Sunnypreps</div>
+      <nav>
+        <a href="#courses">Courses</a>
+        <a href="#mission">Our Mission</a>
+        <a href="#stats">Stats</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="cta-btn glow" onclick="document.querySelector('.consult-modal').classList.add('open')">Book Consultation</button>
+      <button id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="toggle-icon"></span>
+      </button>
     </div>
   </header>
-
   <section class="hero">
-    <div class="container">
-      <h2>Crush SAT Math &amp; Reading with Confidence</h2>
-      <p>Welcome to Sunny Preps—your partner for mastering both the Math and Reading sections of the Digital SAT. We provide personalized guidance, proven strategies, and comprehensive resources tailored to your unique strengths and weaknesses.</p>
-      <a href="#courses" class="btn">Explore Courses</a>
-    </div>
+    <div class="ambient-glow"></div>
+    <h1 class="hero-title">Personalized SAT Mastery</h1>
+    <p class="hero-tagline">Learn from 99th percentile tutors. Excel with calm precision. <br>
+      <span class="hero-cta-ambient"></span>
+    </p>
+    <button class="cta-btn glow large" onclick="document.querySelector('.consult-modal').classList.add('open')">Start Learning</button>
   </section>
-
-      <section id="about">
-        <div class="container">
-          <h2>Meet Your Tutors</h2>
-          <p>Hi, I’m <strong>Sanmay Pachika</strong>, founder of Sunny Preps. I’ll personally guide you through the SAT Reading portion. I work at Georgia Tech and scored in the <strong>99th percentile</strong> on both the Reading and Math sections of the SAT. In building this program, I focus on reading comprehension strategies, vocabulary mastery and test‑taking techniques that lead to consistent high scores.</p>
-          <p>And I’m <strong>Aswanth Nair</strong>, co‑founder of Sunny Preps and your SAT Math tutor. I earned a perfect <strong>800/800</strong> on the SAT Math section and have experience tutoring students through corporate training programs in the United States. During high school I volunteered in hospitals in India at <em>KIMSHealth Trivandrum</em> and the <em>Kozhikode Institute of Palliative Medicine</em>. In our program I focus on pattern recognition, heuristics and rigorous practice to make complex topics simple.</p>
-        </div>
-      </section>
-
-  <section id="courses">
-    <div class="container">
-      <h2>Courses</h2>
-      <div class="row">
-        <div class="col">
-          <div class="card">
-            <h3>Beginner Course</h3>
-            <p>An asynchronous, self‑paced program delivered via our Slack workspace. Each day we post new lesson material and practice sets for a specific subtopic. You decide when to study, work through the lessons at your own pace, and complete the assigned practice. All assignments are graded automatically and progress is tracked, but there is no direct instructor feedback. All material is unique to this course—you won’t find it anywhere else.</p>
-            <p class="price" data-usd="199"><strong>$199</strong></p>
-            <a href="beginner.html" class="btn">Buy&nbsp;Now</a>
+  <div id="stats" class="stats-strip fade-in">
+    <span>⭐ 99th percentile tutors</span>
+    <span>🎯 3,000+ SAT problems completed</span>
+    <span>💬 Real-time Slack mentoring</span>
+  </div>
+  <main>
+    <section id="courses" class="courses">
+      <div class="courses-heading fade-up">Choose your SAT journey</div>
+      <div class="courses-cards">
+        <!-- Course Card: Beginner -->
+        <div class="course-card slide-in">
+          <div class="card-icon animate-icon">
+            <svg width="44" height="44"><circle cx="22" cy="22" r="12" fill="#3b82f6" opacity="0.15"/><circle cx="22" cy="22" r="8" fill="#3b82f6" opacity="0.32"/></svg>
+          </div>
+          <h3>Beginner</h3>
+          <p class="card-desc">Kickstart your SAT preparation with daily adaptive lessons and personalized practice. Track your growth in a supportive, tech-forward environment.</p>
+          <ul>
+            <li>Foundations & Concepts</li>
+            <li>Slack-based lessons</li>
+            <li>Auto-graded assignments</li>
+          </ul>
+          <div class="card-actions">
+            <a href="payment-beginner.html" class="btn-paypal elevated">Pay $199</a>
           </div>
         </div>
-        <div class="col">
-          <div class="card">
-            <h3>Medium Course</h3>
-            <p>Classes are taught in a classroom style four times per week (2&nbsp;hours each) over a three‑month schedule, replicating the experience of an in‑person classroom of around 30 students. The course runs just like a classroom: announcements are posted on Slack, homework is assigned and checked regularly, and practice tests are administered and reviewed. All material is original to this program. By the end of the course you’ll have completed over 3,000 problems, recognized recurring patterns in SAT Math, and will know exactly what to do when you see them.</p>
-            <p class="price" data-usd="599"><strong>$599</strong></p>
-            <a href="medium.html" class="btn">Buy&nbsp;Now</a>
+        <!-- Course Card: Medium -->
+        <div class="course-card slide-in" style="animation-delay: .07s;">
+          <div class="card-icon animate-icon">
+            <svg width="44" height="44"><rect x="10" y="10" width="24" height="24" rx="8" fill="#3b82f6" opacity="0.15"/><rect x="14" y="14" width="16" height="16" rx="6" fill="#3b82f6" opacity="0.32"/></svg>
+          </div>
+          <h3>Medium</h3>
+          <p class="card-desc">Advance with live solution walkthroughs, real-time feedback, and challenge sets designed to unlock higher scores.</p>
+          <ul>
+            <li>Advanced problems</li>
+            <li>Live group sessions</li>
+            <li>Instructor feedback</li>
+          </ul>
+          <div class="card-actions">
+            <a href="payment-medium.html" class="btn-paypal elevated">Pay $599</a>
           </div>
         </div>
-        <div class="col">
-          <div class="card">
-            <h3>Intensive Course</h3>
-            <p>One‑on‑one coaching with flexible scheduling—up to four sessions per week over a three‑month period leading up to your SAT. Lessons are rigorous, with homework and practice customized for you. You’ll receive constant feedback, tips and tricks, and advanced strategies to master every question type. Because it’s one‑on‑one, you’ll be closely watched so you get all the help and materials you need. By the end of the course you will have worked through over 3,000 problems, recognized patterns, and developed a repeatable approach for every topic.</p>
-            <p class="price" data-usd="1099"><strong>$1,099</strong></p>
-            <a href="intensive.html" class="btn">Buy&nbsp;Now</a>
+        <!-- Course Card: Intensive -->
+        <div class="course-card slide-in" style="animation-delay: .14s;">
+          <div class="card-icon animate-icon">
+            <svg width="44" height="44"><ellipse cx="22" cy="22" rx="13" ry="10" fill="#3b82f6" opacity="0.18"/><ellipse cx="22" cy="22" rx="9" ry="7" fill="#3b82f6" opacity="0.32"/></svg>
+          </div>
+          <h3>Intensive</h3>
+          <p class="card-desc">Elite, olympiad-style training with 1:1 mentorship, exam simulations, and deep-dive workshops for highest achievers.</p>
+          <ul>
+            <li>Olympiad-level questions</li>
+            <li>1:1 mentoring</li>
+            <li>Live webinars</li>
+          </ul>
+          <div class="card-actions">
+            <a href="payment-intense.html" class="btn-paypal elevated">Pay $1,099</a>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Global consultation button below the course cards -->
-    <div style="text-align:center; margin-top:2rem;">
-      <a href="booking.html" class="btn">Book 15‑min Free Consultation</a>
-    </div>
-  </section>
-
-  <section id="curriculum">
-    <div class="container">
-      <h2>Curriculum Overview</h2>
-      <p>The Digital SAT Math section is divided into two modules and focuses on the areas of math that play the biggest role in college and career success. You will master:</p>
-      <ul>
-        <li><strong>Algebra:</strong> Linear equations, inequalities, and functions.</li>
-        <li><strong>Advanced Math:</strong> Nonlinear expressions, quadratic and exponential functions, rational functions, and manipulating expressions.</li>
-        <li><strong>Problem Solving &amp; Data Analysis:</strong> Ratios, rates, percentages, descriptive statistics, and analyzing tables and graphs.</li>
-        <li><strong>Geometry &amp; Trigonometry:</strong> Lines, angles, circles, triangles, area/volume, right triangle trigonometry, and radian measure.</li>
-      </ul>
-      <p>Approximately 13–15 questions test Algebra and Advanced Math, and 5–7 questions each test Problem Solving &amp; Data Analysis and Geometry &amp; Trigonometry.</p>
-    </div>
-  </section>
-
-  <!-- Comparison section replacing recommended resources -->
-  <section id="comparison">
-    <div class="container">
-      <h2>Why Our Program Stands Out</h2>
-      <ul>
-        <li><strong>Personalized Instruction:</strong> We replicate a classroom environment with around 30 students in the Medium Course and offer one‑on‑one sessions in the Intensive Course, whereas national test prep companies often place dozens of students in a single class without personalized guidance.</li>
-        <li><strong>Comprehensive Practice:</strong> Our course includes interactive lessons, multiple‑choice questions, and detailed explanations. Many competitors rely on canned video lectures with limited practice.</li>
-        <li><strong>Competitive Pricing:</strong> Major companies charge around $799–$949 for live online courses of 18–36 hours. Our Medium Course is just $599 and includes more sessions per week plus unlimited practice, and our Beginner Course is only $199 for full digital access.</li>
-        <li><strong>Expert Leadership:</strong> Our founders teach you directly. I, Sanmay, scored in the 99th percentile on both Math and Reading and have honed powerful reading strategies. My co‑founder, Aswanth, scored a perfect 800/800 on SAT Math and brings corporate tutoring and real‑world volunteer experience. Together we ensure you master every section.</li>
-        <li><strong>Flexible Curriculum:</strong> Students can choose topics and difficulty levels to target their weaknesses, while large classes follow a rigid syllabus.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="container">
-      <h2>Contact &amp; Booking</h2>
-      <p>Have questions or ready to enroll? Book a free 15‑minute consultation or send us an email.</p>
-      <p><strong>Email:</strong> <a href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a><br>
-      <strong>Phone / WhatsApp:</strong> <a href="tel:+14703381677">+1&nbsp;470‑338‑1677</a></p>
-      <a href="booking.html" class="btn">Book a Consultation</a>
-    </div>
-  </section>
-
+    </section>
+    <section id="mission" class="mission-card fade-up">
+      <h2 class="mission-title">Our Mission — <span class="gradient-text">Education, Elevated.</span></h2>
+      <p>We believe learning should be precise, intelligent, and purposeful. Sunnypreps is committed to creating an elite, tech-forward tutoring experience—calm, modern, and optimized for your SAT success.</p>
+    </section>
+  </main>
   <footer>
-    <div class="container">
-      <!-- Updated branding in footer: reflect "Sunny Preps" and the founder/co‑founder relationship -->
-      <p>&copy; 2025 Sunny Preps by founder Sanmay Pachika &amp; co‑founder Aswanth Nair. All rights reserved.</p>
+    <div class="footer-content">
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="#courses">Courses</a>
+        <a href="#mission">Our Mission</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="footer-brand">&copy; 2025 Sunnypreps by founder Sanmay Pachika & co-founder Aswanth Nair.</div>
     </div>
   </footer>
 
-  <!-- Script to convert course prices into the visitor’s local currency.  The prices
-       are stored in each .price element’s data-usd attribute. On page load we
-       detect the browser locale, determine an appropriate currency code, look
-       up a conversion rate, format the value using Intl.NumberFormat, and then
-       update either the <strong> amount inside the price paragraph or the
-       entire price text if no <strong> is present. Only the display price is
-       converted; the underlying PayPal checkout remains in USD. -->
-  <script>
-  (function() {
-    // Approximate exchange rates relative to USD. These values can be updated
-    // periodically to reflect current market conditions.
-    const rates = {
-      USD: 1,
-      EUR: 0.94,
-      GBP: 0.82,
-      CAD: 1.36,
-      AUD: 1.56,
-      INR: 83.0,
-      JPY: 149.0
-    };
-    const locale = navigator.language || navigator.userLanguage || 'en-US';
-    // Map common locales to their currency codes. Fallback to USD.
-    let currency = 'USD';
-    if (locale.startsWith('en-GB')) currency = 'GBP';
-    else if (locale.startsWith('fr')) currency = 'EUR';
-    else if (locale.startsWith('de')) currency = 'EUR';
-    else if (locale.startsWith('es')) currency = 'EUR';
-    else if (locale.startsWith('en-CA')) currency = 'CAD';
-    else if (locale.startsWith('en-AU')) currency = 'AUD';
-    else if (locale.startsWith('hi') || locale.startsWith('en-IN')) currency = 'INR';
-    else if (locale.startsWith('ja')) currency = 'JPY';
-    const rate = rates[currency] || 1;
-    const formatter = new Intl.NumberFormat(locale, { style: 'currency', currency: currency });
-    document.querySelectorAll('.price').forEach(function(el) {
-      const usdValue = parseFloat(el.getAttribute('data-usd'));
-      if (!usdValue) return;
-      const converted = usdValue * rate;
-      const formatted = formatter.format(converted);
-      // If there is a <strong> element inside the price paragraph, update only its text
-      const strong = el.querySelector('strong');
-      if (strong) {
-        strong.textContent = formatted;
-      } else {
-        el.textContent = formatted;
-      }
-    });
-  })();
-  </script>
+  <!-- Book Consultation Modal -->
+  <div class="consult-modal">
+    <div class="modal-bg" onclick="document.querySelector('.consult-modal').classList.remove('open')"></div>
+    <div class="modal-card modal-animate">
+      <h2>Book a Consultation</h2>
+      <p>Connect with our top SAT tutors for a free, personalized plan.</p>
+      <form>
+        <input type="text" placeholder="Name" required />
+        <input type="email" placeholder="Email" required />
+        <button type="submit" class="cta-btn glow large">Request Call</button>
+      </form>
+      <button class="modal-close" onclick="document.querySelector('.consult-modal').classList.remove('open')">&times;</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
