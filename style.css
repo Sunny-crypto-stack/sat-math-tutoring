@@ -1,180 +1,913 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sunnypreps — Education, Elevated.</title>
-  <meta name="description" content="Elite SAT tutoring, powered by a minimal, modern UI and 99th percentile instructors.">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-</head>
+:root {
+  --bg: #07090b;
+  --surface: rgba(13, 18, 24, 0.72);
+  --surface-strong: rgba(17, 24, 32, 0.85);
+  --surface-soft: rgba(255, 255, 255, 0.05);
+  --text: #f5f7fb;
+  --text-soft: rgba(245, 247, 251, 0.72);
+  --accent: #5af5c7;
+  --accent-strong: #35ffc1;
+  --accent-soft: rgba(90, 245, 199, 0.18);
+  --outline: rgba(255, 255, 255, 0.18);
+  --stroke: rgba(255, 255, 255, 0.08);
+  --shadow: 0 18px 60px rgba(4, 8, 12, 0.4);
+  --font-display: "Clash Display", "Space Grotesk", sans-serif;
+  --font-body: "Plus Jakarta Sans", "Inter", sans-serif;
+}
 
-<body>
-  <!-- Top progress line -->
-  <div id="progress-tracker" aria-hidden="true"></div>
+[data-theme="light"] {
+  --bg: #f5f8f6;
+  --surface: rgba(255, 255, 255, 0.86);
+  --surface-strong: rgba(255, 255, 255, 0.96);
+  --surface-soft: rgba(25, 35, 30, 0.08);
+  --text: #1d2720;
+  --text-soft: rgba(29, 39, 32, 0.7);
+  --accent: #0b9b63;
+  --accent-strong: #097c4e;
+  --accent-soft: rgba(11, 155, 99, 0.16);
+  --outline: rgba(9, 124, 78, 0.22);
+  --stroke: rgba(12, 21, 16, 0.09);
+  --shadow: 0 22px 80px rgba(7, 16, 12, 0.18);
+}
 
-  <!-- Navbar -->
-  <header class="navbar transparent">
-    <div class="navbar-content">
-      <a class="logo" href="#top" aria-label="Sunnypreps home">Sunnypreps</a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#courses">Courses</a>
-        <a href="#mission">Our Mission</a>
-        <a href="#stats">Stats</a>
-        <a href="#contact">Contact</a>
-      </nav>
+* {
+  box-sizing: border-box;
+}
 
-      <div class="nav-actions">
-        <button class="cta-btn glow" type="button"
-                onclick="document.querySelector('.consult-modal')?.classList.add('open')">
-          Book Consultation
-        </button>
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
 
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false" type="button">
-          <span class="toggle-icon" aria-hidden="true"></span>
-        </button>
-      </div>
-    </div>
-  </header>
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--bg);
+  position: relative;
+  overflow-x: hidden;
+}
 
-  <!-- Hero -->
-  <section class="hero" id="top">
-    <div class="ambient-glow" aria-hidden="true"></div>
-    <h1 class="hero-title">Personalized SAT Mastery</h1>
-    <p class="hero-tagline">
-      Learn from 99th percentile tutors. Excel with calm precision.
-      <span class="hero-cta-ambient" aria-hidden="true"></span>
-    </p>
-    <button class="cta-btn glow large" type="button"
-            onclick="document.querySelector('.consult-modal')?.classList.add('open')">
-      Start Learning
-    </button>
-  </section>
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(120% 120% at 0% 0%, rgba(54, 109, 87, 0.48), transparent 55%),
+              radial-gradient(90% 90% at 80% 0%, rgba(31, 60, 136, 0.35), transparent 60%),
+              radial-gradient(60% 60% at 20% 80%, rgba(41, 100, 81, 0.3), transparent 55%);
+  opacity: 0.9;
+  z-index: -2;
+}
 
-  <!-- Live stats -->
-  <div id="stats" class="stats-strip fade-in" role="region" aria-label="Program highlights">
-    <span>⭐ 99th percentile tutors</span>
-    <span>🎯 3,000+ SAT problems completed</span>
-    <span>💬 Real-time Slack mentoring</span>
-  </div>
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"%3E%3Cpath fill="rgba(255,255,255,0.02)" d="M0 0h160v160H0z"/%3E%3Ccircle cx="0" cy="0" r="2" fill="rgba(255,255,255,0.05)"/%3E%3C/svg%3E');
+  mix-blend-mode: screen;
+  z-index: -1;
+  opacity: 0.6;
+}
 
-  <main>
-    <!-- Courses -->
-    <section id="courses" class="courses">
-      <h2 class="courses-heading fade-up">Choose your SAT journey</h2>
+#progress-tracker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, rgba(108, 255, 203, 0.95), rgba(82, 133, 255, 0.9));
+  z-index: 1000;
+  transition: width 0.3s ease;
+}
 
-      <div class="courses-cards">
-        <!-- Beginner -->
-        <article class="course-card slide-in">
-          <div class="card-icon animate-icon" aria-hidden="true">
-            <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-              <circle cx="22" cy="22" r="12" fill="#3b82f6" opacity="0.15"/>
-              <circle cx="22" cy="22" r="8"  fill="#3b82f6" opacity="0.32"/>
-            </svg>
-          </div>
-          <h3>Beginner</h3>
-          <p class="card-desc">Kickstart your SAT prep with adaptive daily lessons and focused practice. Calm, structured, and data-driven.</p>
-          <ul>
-            <li>Foundations & concepts</li>
-            <li>Slack-based lessons</li>
-            <li>Auto-graded assignments</li>
-          </ul>
-          <div class="card-actions">
-            <a href="payment-beginner.html" class="btn-paypal elevated" aria-label="Pay $199 for Beginner">Pay $199</a>
-          </div>
-        </article>
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 22px 32px;
+  transition: background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease, transform 0.4s ease;
+  z-index: 900;
+}
 
-        <!-- Medium -->
-        <article class="course-card slide-in" style="animation-delay:.07s">
-          <div class="card-icon animate-icon" aria-hidden="true">
-            <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-              <rect x="10" y="10" width="24" height="24" rx="8" fill="#3b82f6" opacity="0.15"/>
-              <rect x="14" y="14" width="16" height="16" rx="6" fill="#3b82f6" opacity="0.32"/>
-            </svg>
-          </div>
-          <h3>Medium</h3>
-          <p class="card-desc">Classroom-style program with live walkthroughs, rigorous homework, and regular practice tests.</p>
-          <ul>
-            <li>Advanced problems</li>
-            <li>Live sessions (4×/week)</li>
-            <li>Instructor feedback</li>
-          </ul>
-          <div class="card-actions">
-            <a href="payment-medium.html" class="btn-paypal elevated" aria-label="Pay $599 for Medium">Pay $599</a>
-          </div>
-        </article>
+.navbar.transparent {
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom: 1px solid transparent;
+}
 
-        <!-- Intensive -->
-        <article class="course-card slide-in" style="animation-delay:.14s">
-          <div class="card-icon animate-icon" aria-hidden="true">
-            <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-              <ellipse cx="22" cy="22" rx="13" ry="10" fill="#3b82f6" opacity="0.18"/>
-              <ellipse cx="22" cy="22" rx="9"  ry="7"  fill="#3b82f6" opacity="0.32"/>
-            </svg>
-          </div>
-          <h3>Intensive</h3>
-          <p class="card-desc">Elite 1:1 training, exam simulations, and deep-dive workshops tailored to top scorers.</p>
-          <ul>
-            <li>Olympiad-level questions</li>
-            <li>Dedicated 1:1 mentoring</li>
-            <li>Live masterclasses</li>
-          </ul>
-          <div class="card-actions">
-            <a href="payment-intensive.html" class="btn-paypal elevated" aria-label="Pay $1,099 for Intensive">Pay $1,099</a>
-          </div>
-        </article>
-      </div>
-    </section>
+.navbar.opaque {
+  background: var(--surface);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--stroke);
+}
 
-    <!-- Mission -->
-    <section id="mission" class="mission-card fade-up" aria-labelledby="mission-title">
-      <h2 id="mission-title" class="mission-title">Our Mission — <span class="gradient-text">Education, Elevated.</span></h2>
-      <p>We believe learning should be precise, intelligent, and purposeful. Sunnypreps delivers a calm, modern, and elite tutoring experience—optimized for SAT success.</p>
-    </section>
+.navbar-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
 
-    <!-- Contact -->
-    <section id="contact" class="contact-card fade-up" aria-labelledby="contact-title">
-      <h2 id="contact-title">Contact</h2>
-      <p>Questions? Email <a href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a></p>
-    </section>
-  </main>
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <nav aria-label="Footer">
-        <a href="#top">Home</a>
-        <a href="#courses">Courses</a>
-        <a href="#mission">Our Mission</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="footer-brand">
-        &copy; 2025 Sunnypreps by founder Sanmay Pachika &amp; co-founder Aswanth Nair.
-      </div>
-    </div>
-  </footer>
+.nav-links {
+  display: flex;
+  gap: 24px;
+  margin-left: auto;
+}
 
-  <!-- Book Consultation Modal -->
-  <div class="consult-modal" aria-hidden="true">
-    <div class="modal-bg" onclick="document.querySelector('.consult-modal')?.classList.remove('open')" aria-hidden="true"></div>
-    <div class="modal-card modal-animate" role="dialog" aria-modal="true" aria-labelledby="consult-title">
-      <button class="modal-close" type="button" aria-label="Close"
-              onclick="document.querySelector('.consult-modal')?.classList.remove('open')">&times;</button>
-      <h2 id="consult-title">Book a Consultation</h2>
-      <p>Connect with our top SAT tutors for a free, personalized plan.</p>
-      <form>
-        <label class="sr-only" for="consult-name">Name</label>
-        <input id="consult-name" type="text" placeholder="Name" required />
-        <label class="sr-only" for="consult-email">Email</label>
-        <input id="consult-email" type="email" placeholder="Email" required />
-        <button type="submit" class="cta-btn glow large">Request Call</button>
-      </form>
-    </div>
-  </div>
+.nav-links a {
+  color: var(--text-soft);
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  font-size: 0.95rem;
+  transition: color 0.25s ease;
+}
 
-  <!-- Scripts -->
-  <script src="script.js" defer></script>
-  <noscript><style>#progress-tracker{display:none}</style></noscript>
-</body>
-</html>
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--text);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-toggle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--stroke);
+  background: var(--surface-soft);
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border 0.3s ease, background 0.3s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--outline);
+}
+
+.toggle-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), rgba(255, 255, 255, 0.45));
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 120px;
+}
+
+header .container,
+section .container,
+footer .container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+header {
+  background: transparent;
+  color: var(--text);
+}
+
+header h1 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+section {
+  color: var(--text);
+}
+
+section h2 {
+  font-family: var(--font-display);
+}
+
+footer {
+  color: var(--text);
+}
+
+.hero {
+  min-height: 92vh;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 0.6fr);
+  align-items: center;
+  gap: 56px;
+  padding: 140px 0 120px;
+  position: relative;
+}
+
+.hero-visual {
+  position: relative;
+  height: clamp(380px, 64vh, 560px);
+  border-radius: 36px;
+  overflow: hidden;
+  border: 1px solid var(--stroke);
+  background: rgba(8, 12, 16, 0.55);
+  display: none;
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(101, 255, 204, 0.45), transparent 60%),
+              radial-gradient(circle at 80% 30%, rgba(95, 168, 255, 0.5), transparent 65%),
+              radial-gradient(circle at 50% 80%, rgba(53, 196, 174, 0.4), transparent 60%);
+  filter: saturate(1.2);
+}
+
+.hero-noise {
+  position: absolute;
+  inset: 0;
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"%3E%3Cpath fill="rgba(255,255,255,0.02)" d="M0 0h160v160H0z"/%3E%3C/svg%3E');
+  mix-blend-mode: screen;
+  opacity: 0.7;
+}
+
+.hero-sphere {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.65), rgba(90, 245, 199, 0.1));
+  filter: blur(0px);
+  animation: float 16s ease-in-out infinite;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.8rem, 4vw, 4.2rem);
+  letter-spacing: -0.01em;
+  margin: 0 0 22px;
+}
+
+.lead {
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: var(--text-soft);
+  margin-bottom: 32px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 42px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 14px 26px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
+  text-decoration: none;
+}
+
+.btn.glow {
+  color: #06100c;
+  background: linear-gradient(120deg, var(--accent), rgba(136, 232, 255, 0.95));
+  box-shadow: 0 12px 34px rgba(42, 212, 165, 0.35);
+}
+
+.btn.glow:hover,
+.btn.glow:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(42, 212, 165, 0.45);
+}
+
+.btn.subtle {
+  background: transparent;
+  border-color: var(--outline);
+  color: var(--text);
+}
+
+.btn.subtle:hover,
+.btn.subtle:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn.outline {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: var(--outline);
+  color: var(--text);
+}
+
+.btn.outline:hover,
+.btn.outline:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn.large {
+  padding: 16px 30px;
+  font-size: 1rem;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 0;
+}
+
+.hero-stats dt {
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  margin-bottom: 6px;
+}
+
+.hero-stats dd {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.stats-strip {
+  margin: 36px auto 0;
+  padding: 18px 28px;
+  border-radius: 999px;
+  border: 1px solid var(--stroke);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  max-width: 980px;
+  font-weight: 500;
+}
+
+.stats-strip span {
+  color: var(--text-soft);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.section {
+  padding: 90px 0;
+}
+
+.section-header {
+  max-width: 720px;
+}
+
+.section-lead {
+  margin-top: 18px;
+  color: var(--text-soft);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+  margin-top: 48px;
+}
+
+.pillar {
+  padding: 32px;
+  border-radius: 28px;
+  background: var(--surface);
+  border: 1px solid var(--stroke);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(24px);
+}
+
+.pillar h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+
+.pillar p {
+  color: var(--text-soft);
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+  margin-top: 48px;
+}
+
+.collection-card {
+  display: grid;
+  gap: 26px;
+  padding: 28px;
+  border-radius: 32px;
+  border: 1px solid var(--stroke);
+  background: var(--surface-strong);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(20px);
+  grid-template-rows: 180px 1fr;
+}
+
+.card-media {
+  position: relative;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  border: 1px solid var(--stroke);
+}
+
+.card-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(90, 245, 199, 0.45), rgba(82, 133, 255, 0.35));
+  opacity: 0.75;
+}
+
+.card-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.65), transparent 60%),
+              radial-gradient(circle at 75% 70%, rgba(90, 245, 199, 0.4), transparent 55%);
+  mix-blend-mode: screen;
+}
+
+.card-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  margin: 0 0 12px;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.card-content p {
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+.card-content ul {
+  margin: 18px 0 22px 0;
+  padding-left: 20px;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.card-actions .btn {
+  flex-shrink: 0;
+}
+
+.secondary-link {
+  color: var(--text-soft);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.secondary-link:hover,
+.secondary-link:focus-visible {
+  color: var(--accent);
+}
+
+.card-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card-link::after {
+  content: "→";
+  transition: transform 0.3s ease;
+}
+
+.card-link:hover::after,
+.card-link:focus-visible::after {
+  transform: translateX(4px);
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+  margin-top: 48px;
+}
+
+.impact-card {
+  padding: 32px;
+  border-radius: 28px;
+  border: 1px solid var(--stroke);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(24px);
+}
+
+.impact-card h3 {
+  font-family: var(--font-display);
+  margin-top: 0;
+}
+
+.metric {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 12px 0 18px;
+}
+
+.impact-card p {
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+.contact {
+  padding-bottom: 120px;
+}
+
+.contact-card {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 48px;
+  border-radius: 32px;
+  border: 1px solid var(--stroke);
+  background: var(--surface-strong);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(24px);
+  text-align: center;
+  display: grid;
+  gap: 18px;
+}
+
+.contact-card p {
+  color: var(--text-soft);
+  margin: 0;
+  line-height: 1.7;
+}
+
+.contact-card a {
+  color: var(--accent);
+}
+
+.journal-list {
+  display: grid;
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.journal-card {
+  padding: 32px;
+  border-radius: 26px;
+  border: 1px solid var(--stroke);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(20px);
+}
+
+.journal-date {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  margin-bottom: 16px;
+}
+
+.journal-card h3 {
+  margin: 0 0 14px;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+}
+
+.cta-card {
+  padding: 42px;
+  border-radius: 32px;
+  border: 1px solid var(--stroke);
+  background: var(--surface-strong);
+  box-shadow: var(--shadow);
+  display: flex;
+  gap: 32px;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cta-form {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+input, textarea {
+  font-family: var(--font-body);
+  border-radius: 16px;
+  border: 1px solid var(--stroke);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  padding: 14px 18px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  width: clamp(240px, 30vw, 320px);
+}
+
+textarea {
+  width: 100%;
+  resize: vertical;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.footer {
+  padding: 80px 24px;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(18px);
+}
+
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.footer p,
+.footer a {
+  color: var(--text-soft);
+  text-decoration: none;
+  line-height: 1.6;
+}
+
+.footer a:hover,
+.footer a:focus-visible {
+  color: var(--accent);
+}
+
+.footer-meta {
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sourcing-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1001;
+}
+
+.sourcing-modal.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-bg {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 6, 8, 0.65);
+  backdrop-filter: blur(18px);
+}
+
+.modal-card {
+  position: relative;
+  padding: 36px;
+  border-radius: 32px;
+  background: var(--surface-strong);
+  border: 1px solid var(--stroke);
+  max-width: 460px;
+  width: 100%;
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 22px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.modal-form input,
+.modal-form textarea {
+  width: 100%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: var(--delay, 0s);
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-52%, -48%) scale(1.06); }
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    display: block;
+  }
+
+  .hero {
+    gap: 32px;
+    padding-top: 160px;
+  }
+
+  .navbar-content {
+    gap: 16px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 0 20px 100px;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stats-strip {
+    flex-wrap: wrap;
+    gap: 16px;
+    border-radius: 32px;
+  }
+
+  .stats-strip span {
+    white-space: normal;
+  }
+
+  .pillars-grid,
+  .collection-grid,
+  .impact-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .cta-card {
+    padding: 32px;
+  }
+}
+
+@media (max-width: 540px) {
+  .navbar {
+    padding: 16px 20px;
+  }
+
+  .hero {
+    padding: 140px 0 80px;
+  }
+
+  .stats-strip {
+    padding: 16px 20px;
+  }
+
+  .hero-actions {
+    width: 100%;
+  }
+
+  .btn,
+  input,
+  textarea {
+    width: 100%;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .card-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact-card {
+    padding: 36px 24px;
+  }
+
+  .cta-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
