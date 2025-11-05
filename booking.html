@@ -1,34 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book a Consultation | Sunny Preps</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Consultation | sunnypreps.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>Schedule a Free Consultation</h1>
-      <a href="index.html" style="color:#ffffff;text-decoration:underline;">← Back to Home</a>
+  <header class="site-header is-transparent" data-nav>
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">sunnypreps.</a>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation" data-nav-toggle>
+        <span></span>
+      </button>
+      <nav class="primary-nav" id="primary-navigation" aria-label="Primary">
+        <a href="index.html#courses">Programs</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#results">Outcomes</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="practice.html">Practice</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-muted" href="index.html#contact">Back to site</a>
+      </div>
     </div>
   </header>
 
-  <section>
+  <main class="page">
     <div class="container">
-      <h2>Book Your Consultation</h2>
-      <p>Select a time that works for you. The calendar below updates automatically to reflect availability. Once scheduled, you'll receive a confirmation email.</p>
-      <div class="calendly-inline-widget" data-url="https://calendly.com/sanmay-pachika/30min" style="min-width:320px;height:630px;"></div>
-      <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
-      <p>If the calendar doesn't load, please <a href="mailto:sanmay.pachika@gmail.com">email us</a> or call <a href="tel:+14703381677">+1&nbsp;470‑338‑1677</a> to schedule.</p>
-    </div>
-  </section>
+      <section class="page-hero" data-animate>
+        <span class="tag">Consultation</span>
+        <h1>Choose a time that fits.</h1>
+        <p>Consultations are 30 minutes. We’ll explore goals, walk through the Midnight Coral experience, and recommend the right track.</p>
+      </section>
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Sunny Preps by founder Sanmay Pachika &amp; co‑founder Aswanth Nair. All rights reserved.</p>
+      <section class="page-section highlight" data-animate>
+        <div class="calendly-inline-widget" data-url="https://calendly.com/sanmay-pachika/30min" style="min-width: 320px; height: 680px;"></div>
+        <p class="inline-note">Calendar not loading? Email <a href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a> or call <a href="tel:+14703381677">+1&nbsp;470‑338‑1677</a>.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="index.html">sunnypreps.</a>
+        <p class="footer-note">&copy; 2025 sunnypreps. — Midnight Coral design system.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="index.html#courses">Programs</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#results">Outcomes</a>
+        <a href="booking.html">Consultation</a>
+      </nav>
     </div>
   </footer>
 
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

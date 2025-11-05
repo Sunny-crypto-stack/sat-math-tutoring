@@ -3,26 +3,78 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Secure Payment | Sunnypreps Medium Course</title>
+  <title>Secure Payment · Momentum Studio | sunnypreps.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body style="margin:0;background:#f8fafc;color:#222;">
-  <header style="background:linear-gradient(135deg,#0070ba,#005c96);color:#fff;padding:2rem 0;text-align:center;">
-    <h1 style="margin:0;font-size:2rem;">Sunnypreps Medium Course Payment</h1>
-  </header>
-  <main style="max-width:700px;margin:2.5rem auto;background:#fff;padding:2.5rem;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,.1);text-align:center;">
-    <h2>Secure Checkout</h2>
-    <p>You are about to purchase the <strong>Sunnypreps Medium Course</strong> (one-time fee <strong>$599 USD</strong>).</p>
-    <div style="margin:2rem 0;">
-      <a href="https://www.paypal.com/ncp/payment/SATM5QB8DS7E4" target="_blank" rel="noopener"
-         class="btn-paypal" style="display:inline-block;background:#0070ba;color:#fff;font-weight:600;padding:14px 26px;border-radius:10px;text-decoration:none;font-size:18px;box-shadow:0 6px 18px rgba(0,0,0,.15);">
-        Pay Securely via PayPal
-      </a>
+<body>
+  <header class="site-header is-transparent" data-nav>
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">sunnypreps.</a>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation" data-nav-toggle>
+        <span></span>
+      </button>
+      <nav class="primary-nav" id="primary-navigation" aria-label="Primary">
+        <a href="index.html#courses">Programs</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#results">Outcomes</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="practice.html">Practice</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-muted" href="medium.html">Back to details</a>
+        <button class="btn btn-outline" type="button" data-open-modal>Book a call</button>
+      </div>
     </div>
-    <p>If you experience any issues, email <a href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a>.</p>
+  </header>
+
+  <main class="page">
+    <div class="container">
+      <section class="page-hero" data-animate>
+        <span class="tag">Secure checkout</span>
+        <h1>Confirm your Momentum Studio enrollment.</h1>
+        <p>PayPal processes all payments. We’ll follow up with scheduling links, placement diagnostics, and onboarding resources within 24 hours.</p>
+      </section>
+
+      <section class="page-section highlight" data-animate>
+        <h2>Pay <span class="price" data-usd="599">$599</span></h2>
+        <p>Secure your seat in the next cohort. Payment confirms your spot and unlocks the prep kit.</p>
+        <div class="page-actions">
+          <a class="btn btn-primary" href="https://www.paypal.com/ncp/payment/3KP7YL8GXUM6A" target="_blank" rel="noopener">Pay securely via PayPal</a>
+          <span class="inline-note">Need to chat? Email <a href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a>.</span>
+        </div>
+      </section>
+    </div>
   </main>
-  <footer style="text-align:center;margin:2rem 0;color:#666;font-size:.9rem;">
-    &copy; 2025 Sunnypreps by founder Sanmay Pachika &amp; co-founder Aswanth Nair. All rights reserved.
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="index.html">sunnypreps.</a>
+        <p class="footer-note">&copy; 2025 sunnypreps. — Midnight Coral design system.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="index.html#courses">Programs</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#results">Outcomes</a>
+        <a href="booking.html">Consultation</a>
+      </nav>
+    </div>
   </footer>
+
+  <div class="consult-modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="consult-title">
+      <button class="modal-close" type="button" aria-label="Close" data-close-modal>&times;</button>
+      <h2 id="consult-title">Connect with a sunnypreps. mentor</h2>
+      <p>Reserve a discovery call or email <a href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a> for quick questions.</p>
+      <div class="calendly-inline-widget" data-url="https://calendly.com/sanmay-pachika/30min" style="min-width: 320px; height: 630px;"></div>
+    </div>
+  </div>
+
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

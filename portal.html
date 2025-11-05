@@ -1,118 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sunny Preps Portal</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal Preview | sunnypreps.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>Sunny Preps Portal</h1>
-      <a href="index.html" style="color:#ffffff;text-decoration:underline;">← Back to Home</a>
+  <header class="site-header is-transparent" data-nav>
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">sunnypreps.</a>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation" data-nav-toggle>
+        <span></span>
+      </button>
+      <nav class="primary-nav" id="primary-navigation" aria-label="Primary">
+        <a href="index.html#courses">Programs</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#results">Outcomes</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="practice.html">Practice</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-muted" href="practice.html">Practice sets</a>
+        <button class="btn btn-outline" type="button" data-open-modal>Book a call</button>
+      </div>
     </div>
   </header>
 
-  <section id="overview">
+  <main class="page">
     <div class="container">
-      <h2>Welcome to the Sunny Preps Portal</h2>
-      <p>Our portal is designed to keep tutors, students and parents connected. Tutors can post homework, assignments and tests; students can view and complete their tasks; and parents can monitor progress and see what their child is learning. We currently manage assignments and communication through Slack and other third‑party tools, but this portal provides a single place to view the latest information.</p>
-    </div>
-  </section>
+      <section class="page-hero" data-animate>
+        <span class="tag">Portal preview</span>
+        <h1>A tranquil hub for students and parents.</h1>
+        <p>The sunnypreps. portal mirrors our Midnight Coral aesthetic: airy layouts, coral highlights, and focused checklists.</p>
+        <div class="page-actions">
+          <a class="btn btn-primary" href="booking.html">Request a live tour</a>
+          <a class="btn btn-outline" href="practice.html">Explore practice sets</a>
+        </div>
+      </section>
 
-  <section id="tutors">
-    <div class="container">
-      <h2>For Tutors</h2>
-      <p>As a tutor, you can post new homework assignments, announcements and tests in our Slack workspace. Use the forms below to draft posts and then copy them into Slack:</p>
-      <div class="card">
-        <h3>Create Assignment</h3>
-        <form onsubmit="alert('This is a demo form. Please post your assignment in Slack.'); return false;">
-          <label>Title:<br><input type="text" required></label><br><br>
-          <label>Description:<br><textarea rows="4" required></textarea></label><br><br>
-          <label>Due Date:<br><input type="date" required></label><br><br>
-          <button type="submit" class="btn">Generate Post</button>
-        </form>
+      <section class="page-section" data-animate>
+        <h2>Workspace highlights</h2>
+        <div class="portal-preview">
+          <img src="https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=1600&q=80" alt="Student dashboard preview" />
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h3>Dynamic checklist</h3>
+              <p>Assignments expand as students master concepts so focus remains on the next best step.</p>
+            </div>
+            <div class="detail-card">
+              <h3>Progress spotlight</h3>
+              <p>Charts and coral badges celebrate wins and point families toward the next area of emphasis.</p>
+            </div>
+            <div class="detail-card">
+              <h3>Mentor threads</h3>
+              <p>Slack-powered messaging, Loom walkthroughs, and quick polls keep feedback loops short and personal.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-section" data-animate>
+        <h2>Parent view</h2>
+        <p>Parents can log in anytime to see momentum, celebrate milestones, and note upcoming diagnostics. Alerts surface when mentorship would benefit from a quick family sync.</p>
+        <div class="page-actions">
+          <button class="btn btn-outline" type="button" data-open-modal>Schedule a walkthrough</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="index.html">sunnypreps.</a>
+        <p class="footer-note">&copy; 2025 sunnypreps. — Midnight Coral design system.</p>
       </div>
-      <div class="card">
-        <h3>Post Announcement</h3>
-        <form onsubmit="alert('This is a demo form. Please post your announcement in Slack.'); return false;">
-          <label>Announcement:<br><textarea rows="3" required></textarea></label><br><br>
-          <button type="submit" class="btn">Generate Post</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <section id="students">
-    <div class="container">
-      <h2>For Students</h2>
-      <p>Below is an example of how your current assignments and tests might be displayed. Please visit our Slack workspace to access the full details and submit your work.</p>
-      <table style="width:100%;border-collapse:collapse;">
-        <thead>
-          <tr style="background:#f0f0f0;">
-            <th style="border:1px solid #ddd;padding:8px;text-align:left;">Task</th>
-            <th style="border:1px solid #ddd;padding:8px;text-align:left;">Due Date</th>
-            <th style="border:1px solid #ddd;padding:8px;text-align:left;">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="border:1px solid #ddd;padding:8px;">Algebra practice set #5</td>
-            <td style="border:1px solid #ddd;padding:8px;">Oct&nbsp;25, 2025</td>
-            <td style="border:1px solid #ddd;padding:8px;">Not Started</td>
-          </tr>
-          <tr>
-            <td style="border:1px solid #ddd;padding:8px;">Reading comprehension quiz</td>
-            <td style="border:1px solid #ddd;padding:8px;">Oct&nbsp;27, 2025</td>
-            <td style="border:1px solid #ddd;padding:8px;">In Progress</td>
-          </tr>
-          <tr>
-            <td style="border:1px solid #ddd;padding:8px;">Geometry &amp; Trigonometry test</td>
-            <td style="border:1px solid #ddd;padding:8px;">Nov&nbsp;2, 2025</td>
-            <td style="border:1px solid #ddd;padding:8px;">Completed</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <section id="parents">
-    <div class="container">
-      <h2>For Parents</h2>
-      <p>This section provides a snapshot of your child’s progress. For real‑time data, sign into the portal using your parent account or consult the reports we share via email. Note: this page is illustrative and does not display live data.</p>
-      <table style="width:100%;border-collapse:collapse;">
-        <thead>
-          <tr style="background:#f0f0f0;">
-            <th style="border:1px solid #ddd;padding:8px;text-align:left;">Student Name</th>
-            <th style="border:1px solid #ddd;padding:8px;text-align:left;">Average Score</th>
-            <th style="border:1px solid #ddd;padding:8px;text-align:left;">Strengths</th>
-            <th style="border:1px solid #ddd;padding:8px;text-align:left;">Areas for Improvement</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="border:1px solid #ddd;padding:8px;">Student A</td>
-            <td style="border:1px solid #ddd;padding:8px;">88%</td>
-            <td style="border:1px solid #ddd;padding:8px;">Algebra, Reading comprehension</td>
-            <td style="border:1px solid #ddd;padding:8px;">Geometry, Trigonometry</td>
-          </tr>
-          <tr>
-            <td style="border:1px solid #ddd;padding:8px;">Student B</td>
-            <td style="border:1px solid #ddd;padding:8px;">75%</td>
-            <td style="border:1px solid #ddd;padding:8px;">Data Analysis, Vocabulary</td>
-            <td style="border:1px solid #ddd;padding:8px;">Algebra, Advanced Math</td>
-          </tr>
-        </tbody>
-      </table>
-      <p style="margin-top:1rem;">We encourage parents to join our Slack announcements channel and review the weekly progress reports we send via email.</p>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Sunny Preps by founder Sanmay Pachika &amp; co‑founder Aswanth Nair. All rights reserved.</p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="index.html#courses">Programs</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#results">Outcomes</a>
+        <a href="booking.html">Consultation</a>
+      </nav>
     </div>
   </footer>
+
+  <div class="consult-modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="consult-title">
+      <button class="modal-close" type="button" aria-label="Close" data-close-modal>&times;</button>
+      <h2 id="consult-title">Connect with a sunnypreps. mentor</h2>
+      <p>Reserve a discovery call or email <a href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a> for quick questions.</p>
+      <div class="calendly-inline-widget" data-url="https://calendly.com/sanmay-pachika/30min" style="min-width: 320px; height: 630px;"></div>
+    </div>
+  </div>
+
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

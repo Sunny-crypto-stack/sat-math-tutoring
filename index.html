@@ -1,180 +1,285 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sunnypreps — Education, Elevated.</title>
-  <meta name="description" content="Elite SAT tutoring, powered by a minimal, modern UI and 99th percentile instructors.">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>sunnypreps. — Learning Without Limits</title>
+  <meta name="description" content="sunnypreps. pairs 99th percentile SAT math mentors with inspired design to help students and parents navigate testing with calm, clarity, and measurable gains." />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <!-- Calendly styles for inline widget -->
+  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
+  <!-- Core styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <!-- Top progress line -->
-  <div id="progress-tracker" aria-hidden="true"></div>
-
-  <!-- Navbar -->
-  <header class="navbar transparent">
-    <div class="navbar-content">
-      <a class="logo" href="#top" aria-label="Sunnypreps home">Sunnypreps</a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#courses">Courses</a>
-        <a href="#mission">Our Mission</a>
-        <a href="#stats">Stats</a>
+  <!-- Global navigation -->
+  <header class="site-header is-transparent" data-nav>
+    <div class="container nav-inner">
+      <a class="brand" href="index.html" aria-label="sunnypreps. home">sunnypreps.</a>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation" data-nav-toggle>
+        <span></span>
+      </button>
+      <nav class="primary-nav" id="primary-navigation" aria-label="Primary">
+        <a href="#courses">Programs</a>
+        <a href="#approach">Approach</a>
+        <a href="#results">Outcomes</a>
         <a href="#contact">Contact</a>
+        <a href="practice.html">Practice</a>
       </nav>
-
-      <div class="nav-actions">
-        <button class="cta-btn glow" type="button"
-                onclick="document.querySelector('.consult-modal')?.classList.add('open')">
-          Book Consultation
-        </button>
-
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false" type="button">
-          <span class="toggle-icon" aria-hidden="true"></span>
-        </button>
+      <div class="header-actions">
+        <a class="btn btn-muted" href="practice.html">Practice sets</a>
+        <button class="btn btn-outline" type="button" data-open-modal>Book a call</button>
       </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero" id="top">
-    <div class="ambient-glow" aria-hidden="true"></div>
-    <h1 class="hero-title">Personalized SAT Mastery</h1>
-    <p class="hero-tagline">
-      Learn from 99th percentile tutors. Excel with calm precision.
-      <span class="hero-cta-ambient" aria-hidden="true"></span>
-    </p>
-    <button class="cta-btn glow large" type="button"
-            onclick="document.querySelector('.consult-modal')?.classList.add('open')">
-      Start Learning
-    </button>
-  </section>
-
-  <!-- Live stats -->
-  <div id="stats" class="stats-strip fade-in" role="region" aria-label="Program highlights">
-    <span>⭐ 99th percentile tutors</span>
-    <span>🎯 3,000+ SAT problems completed</span>
-    <span>💬 Real-time Slack mentoring</span>
-  </div>
-
   <main>
-    <!-- Courses -->
-    <section id="courses" class="courses">
-      <h2 class="courses-heading fade-up">Choose your SAT journey</h2>
-
-      <div class="courses-cards">
-        <!-- Beginner -->
-        <article class="course-card slide-in">
-          <div class="card-icon animate-icon" aria-hidden="true">
-            <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-              <circle cx="22" cy="22" r="12" fill="#3b82f6" opacity="0.15"/>
-              <circle cx="22" cy="22" r="8"  fill="#3b82f6" opacity="0.32"/>
-            </svg>
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="container hero-grid" data-animate>
+        <div class="hero-copy">
+          <span class="badge">SAT Math Mentoring · Midnight Coral Edition</span>
+          <h1>Learning Without Limits.</h1>
+          <p>We combine elite SAT math mentors, cinematic UI, and compassionate coaching so ambitious students thrive—and parents stay confident every step of the journey.</p>
+          <div class="cta-group">
+            <button class="btn btn-primary" type="button" data-open-modal>I’m a Student</button>
+            <a class="btn btn-outline" href="booking.html">I’m a Parent</a>
+            <a class="btn btn-muted" href="#courses">Explore programs</a>
           </div>
-          <h3>Beginner</h3>
-          <p class="card-desc">Kickstart your SAT prep with adaptive daily lessons and focused practice. Calm, structured, and data-driven.</p>
-          <ul>
-            <li>Foundations & concepts</li>
-            <li>Slack-based lessons</li>
-            <li>Auto-graded assignments</li>
-          </ul>
-          <div class="card-actions">
-            <a href="payment-beginner.html" class="btn-paypal elevated" aria-label="Pay $199 for Beginner">Pay $199</a>
+        </div>
+        <aside class="hero-panel" aria-label="Program highlights">
+          <div class="hero-metric">
+            <span>+210</span>
+            <div>
+              <strong>Average score lift</strong>
+              <p>Measured across 12-week journeys with diagnostics every four weeks.</p>
+            </div>
           </div>
-        </article>
-
-        <!-- Medium -->
-        <article class="course-card slide-in" style="animation-delay:.07s">
-          <div class="card-icon animate-icon" aria-hidden="true">
-            <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-              <rect x="10" y="10" width="24" height="24" rx="8" fill="#3b82f6" opacity="0.15"/>
-              <rect x="14" y="14" width="16" height="16" rx="6" fill="#3b82f6" opacity="0.32"/>
-            </svg>
+          <div class="hero-metric">
+            <span>1:1</span>
+            <div>
+              <strong>Mentor access</strong>
+              <p>Slack, Loom walk-throughs, and calm accountability without overwhelm.</p>
+            </div>
           </div>
-          <h3>Medium</h3>
-          <p class="card-desc">Classroom-style program with live walkthroughs, rigorous homework, and regular practice tests.</p>
-          <ul>
-            <li>Advanced problems</li>
-            <li>Live sessions (4×/week)</li>
-            <li>Instructor feedback</li>
-          </ul>
-          <div class="card-actions">
-            <a href="payment-medium.html" class="btn-paypal elevated" aria-label="Pay $599 for Medium">Pay $599</a>
+          <div class="hero-metric">
+            <span>3K</span>
+            <div>
+              <strong>Practice archive</strong>
+              <p>Original SAT-grade problem sets, reflections, and progress dashboards.</p>
+            </div>
           </div>
-        </article>
-
-        <!-- Intensive -->
-        <article class="course-card slide-in" style="animation-delay:.14s">
-          <div class="card-icon animate-icon" aria-hidden="true">
-            <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-              <ellipse cx="22" cy="22" rx="13" ry="10" fill="#3b82f6" opacity="0.18"/>
-              <ellipse cx="22" cy="22" rx="9"  ry="7"  fill="#3b82f6" opacity="0.32"/>
-            </svg>
-          </div>
-          <h3>Intensive</h3>
-          <p class="card-desc">Elite 1:1 training, exam simulations, and deep-dive workshops tailored to top scorers.</p>
-          <ul>
-            <li>Olympiad-level questions</li>
-            <li>Dedicated 1:1 mentoring</li>
-            <li>Live masterclasses</li>
-          </ul>
-          <div class="card-actions">
-            <a href="payment-intensive.html" class="btn-paypal elevated" aria-label="Pay $1,099 for Intensive">Pay $1,099</a>
-          </div>
-        </article>
+        </aside>
       </div>
     </section>
 
-    <!-- Mission -->
-    <section id="mission" class="mission-card fade-up" aria-labelledby="mission-title">
-      <h2 id="mission-title" class="mission-title">Our Mission — <span class="gradient-text">Education, Elevated.</span></h2>
-      <p>We believe learning should be precise, intelligent, and purposeful. Sunnypreps delivers a calm, modern, and elite tutoring experience—optimized for SAT success.</p>
+    <!-- Experience pillars -->
+    <section class="section" id="approach" data-animate>
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Our ethos</p>
+          <h2>Designed to feel as thoughtful as the instruction.</h2>
+          <p>Parents praise the clarity. Students love the calm. Every pixel and lesson is crafted to honor your time and ambition.</p>
+        </div>
+        <div class="cards-grid">
+          <article class="card">
+            <div class="icon-chip" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2" opacity="0.7" />
+                <circle cx="10" cy="10" r="4" fill="currentColor" />
+              </svg>
+            </div>
+            <span class="tag">Clarity</span>
+            <h3>Dashboards parents trust</h3>
+            <p>Weekly recaps illuminate wins, wobbles, and next steps so your family always knows the plan.</p>
+          </article>
+          <article class="card">
+            <div class="icon-chip" aria-hidden="true">
+              <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 10L8.5 17L20 3" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <span class="tag">Focus</span>
+            <h3>Minimalist workspace</h3>
+            <p>Phamily-inspired UI keeps only the essentials visible, so students can concentrate on mastering each skill.</p>
+          </article>
+          <article class="card">
+            <div class="icon-chip" aria-hidden="true">
+              <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 1L13.78 7.07L20.39 7.9L15.7 12.27L16.98 18.81L11 15.4L5.02 18.81L6.3 12.27L1.61 7.9L8.22 7.07L11 1Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <span class="tag">Confidence</span>
+            <h3>Celebrations that matter</h3>
+            <p>Progress badges and subtle animations reinforce growth mindsets without distracting from deep work.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programs -->
+    <section class="section" id="courses" data-theme="cream" data-animate>
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Programs</p>
+          <h2>Pick the rhythm that fits your season.</h2>
+          <p>Each pathway pairs structured curriculum with personal mentoring. Switching tracks is simple when goals evolve.</p>
+        </div>
+        <div class="cards-grid">
+          <article class="card">
+            <span class="tag">Beginner · <span class="price" data-usd="199">$199</span></span>
+            <h3>Foundations Lab</h3>
+            <p>Gentle re-introduction to SAT math essentials inside a private digital studio.</p>
+            <ul>
+              <li>Daily lesson drops with instant checks</li>
+              <li>Guided reflections to build confidence</li>
+              <li>Optional parent summaries each Friday</li>
+            </ul>
+            <div class="card-footer">
+              <a class="btn btn-primary" href="payment-beginner.html">Enroll now</a>
+              <a class="btn btn-outline" href="beginner.html">View syllabus</a>
+            </div>
+          </article>
+          <article class="card">
+            <span class="tag">Medium · <span class="price" data-usd="599">$599</span></span>
+            <h3>Momentum Studio</h3>
+            <p>Hybrid live coaching plus deep practice for students aiming at 1300–1450 breakthroughs.</p>
+            <ul>
+              <li>Four live intensives each week</li>
+              <li>Adaptive assignments with mentor notes</li>
+              <li>Monthly roadmap review with family</li>
+            </ul>
+            <div class="card-footer">
+              <a class="btn btn-primary" href="payment-medium.html">Enroll now</a>
+              <a class="btn btn-outline" href="medium.html">View syllabus</a>
+            </div>
+          </article>
+          <article class="card">
+            <span class="tag">Intensive · <span class="price" data-usd="1099">$1,099</span></span>
+            <h3>Summit Atelier</h3>
+            <p>Concierge mentorship and elite drills tailored for 1500+ score pursuits.</p>
+            <ul>
+              <li>Olympiad-grade problem labs</li>
+              <li>Concierge progress calls for parents</li>
+              <li>Custom mock exams every two weeks</li>
+            </ul>
+            <div class="card-footer">
+              <a class="btn btn-primary" href="payment-intensive.html">Enroll now</a>
+              <a class="btn btn-outline" href="intensive.html">View syllabus</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Journey -->
+    <section class="section" data-animate>
+      <div class="container split-section">
+        <div>
+          <p class="eyebrow">Guided journey</p>
+          <h2>A calm path for students, crystal clarity for parents.</h2>
+          <p>Our midnight coral system pairs design, data, and mentorship. No busy dashboards—just thoughtful sequences that adapt to pace, energy, and confidence.</p>
+        </div>
+        <div class="accent-box">
+          <div class="hero-metric">
+            <span>01</span>
+            <div>
+              <strong>Diagnostic &amp; plan</strong>
+              <p>Full-length SAT baseline + roadmap aligning student goals and parent priorities.</p>
+            </div>
+          </div>
+          <div class="hero-metric">
+            <span>02</span>
+            <div>
+              <strong>Mentor pulse</strong>
+              <p>Slack-first support, Loom feedback, and quick nudges keep momentum high.</p>
+            </div>
+          </div>
+          <div class="hero-metric">
+            <span>03</span>
+            <div>
+              <strong>Showcase growth</strong>
+              <p>Reports with charts, highlights, and recommended next steps delivered every four weeks.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Outcomes -->
+    <section class="section" id="results" data-animate>
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Outcomes</p>
+          <h2>Proof that design-led learning moves the needle.</h2>
+          <p>Families partner with sunnypreps. because the numbers match the experience: calm coaching with measurable growth.</p>
+        </div>
+        <div class="results-grid">
+          <article class="result-card">
+            <h3>97% weekly completion</h3>
+            <p>Students finish assigned checkpoints thanks to clear sequencing and quick mentor nudges.</p>
+            <span>Consistency</span>
+          </article>
+          <article class="result-card">
+            <h3>Parent NPS 68</h3>
+            <p>Transparent dashboards and proactive recaps mean parents feel informed without micro-managing.</p>
+            <span>Trust</span>
+          </article>
+          <article class="result-card">
+            <h3>Scholarship unlocks</h3>
+            <p>Average scholarship awards of $24k for seniors who joined the Summit Atelier in 2024.</p>
+            <span>Momentum</span>
+          </article>
+        </div>
+      </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="contact-card fade-up" aria-labelledby="contact-title">
-      <h2 id="contact-title">Contact</h2>
-      <p>Questions? Email <a href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a></p>
+    <section class="section" id="contact" data-animate>
+      <div class="container">
+        <div class="callout">
+          <h3>Ready to map your student’s summit?</h3>
+          <p>Share goals, timelines, and questions—we’ll craft a custom study plan and preview the workspace live.</p>
+          <div class="cta-group">
+            <button class="btn btn-primary" type="button" data-open-modal>Book a call</button>
+            <a class="btn btn-outline" href="mailto:sanmay.pachika@gmail.com">Email sanmay.pachika@gmail.com</a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <nav aria-label="Footer">
-        <a href="#top">Home</a>
-        <a href="#courses">Courses</a>
-        <a href="#mission">Our Mission</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="footer-brand">
-        &copy; 2025 Sunnypreps by founder Sanmay Pachika &amp; co-founder Aswanth Nair.
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="#top">sunnypreps.</a>
+        <p class="footer-note">&copy; 2025 sunnypreps. — crafted by Sanmay Pachika &amp; Aswanth Nair. Midnight Coral system inspired by Phamily Pharma.</p>
       </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#courses">Programs</a>
+        <a href="#approach">Approach</a>
+        <a href="#results">Outcomes</a>
+        <a href="practice.html">Practice hub</a>
+        <a href="portal.html">Portal preview</a>
+      </nav>
     </div>
   </footer>
 
-  <!-- Book Consultation Modal -->
+  <!-- Consultation modal -->
   <div class="consult-modal" aria-hidden="true">
-    <div class="modal-bg" onclick="document.querySelector('.consult-modal')?.classList.remove('open')" aria-hidden="true"></div>
-    <div class="modal-card modal-animate" role="dialog" aria-modal="true" aria-labelledby="consult-title">
-      <button class="modal-close" type="button" aria-label="Close"
-              onclick="document.querySelector('.consult-modal')?.classList.remove('open')">&times;</button>
-      <h2 id="consult-title">Book a Consultation</h2>
-      <p>Connect with our top SAT tutors for a free, personalized plan.</p>
-      <form>
-        <label class="sr-only" for="consult-name">Name</label>
-        <input id="consult-name" type="text" placeholder="Name" required />
-        <label class="sr-only" for="consult-email">Email</label>
-        <input id="consult-email" type="email" placeholder="Email" required />
-        <button type="submit" class="cta-btn glow large">Request Call</button>
-      </form>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="consult-title">
+      <button class="modal-close" type="button" aria-label="Close" data-close-modal>&times;</button>
+      <h2 id="consult-title">Schedule your sunnypreps. session</h2>
+      <p>Pick a slot that works best and we’ll confirm instantly. Prefer a quick hello? Email <a href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a>.</p>
+      <div class="calendly-inline-widget" data-url="https://calendly.com/sanmay-pachika/30min" style="min-width: 320px; height: 630px;"></div>
     </div>
   </div>
 
-  <!-- Scripts -->
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
   <script src="script.js" defer></script>
-  <noscript><style>#progress-tracker{display:none}</style></noscript>
 </body>
 </html>

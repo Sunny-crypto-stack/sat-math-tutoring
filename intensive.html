@@ -1,112 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Intense Course | Sunnypreps</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    .btn-paypal {
-      display: inline-block;
-      background-color: #0070ba;
-      color: white;
-      font-weight: 600;
-      padding: 14px 28px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 17px;
-      box-shadow: 0 6px 18px rgba(0,0,0,.15);
-      transition: all .2s ease;
-    }
-    .btn-paypal:hover {
-      background-color: #005c96;
-      transform: translateY(-2px);
-    }
-    .btn-paypal:active {
-      transform: translateY(0);
-    }
-    .paynote {
-      font-size: 13px;
-      color: #444;
-      opacity: 0.85;
-      margin-top: 6px;
-      text-align: center;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Summit Atelier (Intensive) | sunnypreps.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>Intense Course</h1>
-      <a href="index.html" style="color:#ffffff;text-decoration:underline;">← Back to Home</a>
+  <header class="site-header is-transparent" data-nav>
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">sunnypreps.</a>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation" data-nav-toggle>
+        <span></span>
+      </button>
+      <nav class="primary-nav" id="primary-navigation" aria-label="Primary">
+        <a href="index.html#courses">Programs</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#results">Outcomes</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="practice.html">Practice</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-muted" href="practice.html">Practice sets</a>
+        <button class="btn btn-outline" type="button" data-open-modal>Book a call</button>
+      </div>
     </div>
   </header>
-  
-  <section>
-    <div class="container">
-      <h2>Course Details</h2>
-      <p>The Intense Course offers rigorous, cumulative topics and daily advanced challenges for high-level mastery. Personalized instructor support and group problem-solving sessions power a results-driven experience.</p>
-      <ul>
-        <li>Topics: advanced math, olympiad-style questions, analytics, rapid problem-solving cycles, exam simulations.</li>
-        <li>All submissions reviewed by instructors; personal feedback guaranteed.</li>
-        <li>Includes access to live webinars and deep-dive workshops.</li>
-      </ul>
-      <p class="price" data-usd="1099">Course Fee: <strong>$1,099</strong></p>
 
-      <!-- Payment Button Block -->
-      <div style="margin-top:1.5rem; text-align:center;">
-        <a href="payment-intense.html" class="btn-paypal" rel="noopener">
-          Proceed to Payment
-        </a>
-        <p class="paynote">
-          Secure checkout through PayPal — you’ll receive course access within 24 hours after payment.
-        </p>
-      </div>
-      <!-- Optional backup PayPal button -->
-      <div style="margin-top:.75rem;text-align:center;">
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline-block;">
-          <input type="hidden" name="cmd" value="_xclick" />
-          <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL_OR_MERCHANT_ID" />
-          <input type="hidden" name="item_name" value="Sunnypreps Intense Course" />
-          <input type="hidden" name="amount" value="1099.00" />
-          <input type="hidden" name="currency_code" value="USD" />
-          <button type="submit" class="btn-paypal">Pay $1,099 (Backup)</button>
-        </form>
-      </div>
+  <main class="page">
+    <div class="container">
+      <section class="page-hero" data-animate>
+        <span class="tag">Intensive · Summit Atelier</span>
+        <h1>Concierge mentorship for 1500+ ambitions.</h1>
+        <p>Summit Atelier surrounds high-achieving students with bespoke diagnostics, elite drills, and mentorship that responds in real time.</p>
+        <div class="page-actions">
+          <a class="btn btn-primary" href="payment-intensive.html">Enroll for <span class="price" data-usd="1099">$1,099</span></a>
+          <a class="btn btn-outline" href="booking.html">Design a plan</a>
+        </div>
+      </section>
+
+      <section class="page-section highlight" data-animate>
+        <h2>Inside the atelier</h2>
+        <div class="detail-grid">
+          <div class="detail-card">
+            <h3>Dedicated mentor team</h3>
+            <p>Work with a lead mentor plus specialist coaches for combinatorics, number theory, and data analysis challenges.</p>
+          </div>
+          <div class="detail-card">
+            <h3>Custom mock exams</h3>
+            <p>Bi-weekly proctored exams mirror official timing. Reports visualize accuracy, pacing, and resilience under pressure.</p>
+          </div>
+          <div class="detail-card">
+            <h3>Scholarship strategy</h3>
+            <p>Guidance on super scoring, scholarship submissions, and letters of recommendation to maximize opportunity.</p>
+          </div>
+          <div class="detail-card">
+            <h3>Parent concierge</h3>
+            <p>24-hour response guarantee plus curated resources to support wellness, nutrition, and sleep during high-intensity prep.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-section" data-animate>
+        <h2>Rhythm &amp; rituals</h2>
+        <p>Each week blends two 1:1 sessions, one strategy lab, and bespoke asynchronous assignments. Mentors update the Midnight Coral dashboard daily so every stakeholder stays aligned.</p>
+        <p>Students also join quarterly retreats (virtual or in-person) to explore mindset, leadership, and creativity beyond the exam.</p>
+      </section>
+
+      <section class="page-section" data-animate>
+        <h2>Begin your ascent</h2>
+        <p>Because Summit Atelier offers bespoke pacing, spots are limited. Secure your place or start with a consultation to map fit.</p>
+        <div class="page-actions">
+          <a class="btn btn-primary" href="payment-intensive.html">Secure enrollment</a>
+          <button class="btn btn-outline" type="button" data-open-modal>Speak with the team</button>
+        </div>
+      </section>
     </div>
-  </section>
+  </main>
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Sunnypreps by founder Sanmay Pachika &amp; co-founder Aswanth Nair. All rights reserved.</p>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="index.html">sunnypreps.</a>
+        <p class="footer-note">&copy; 2025 sunnypreps. — Midnight Coral design system.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="index.html#courses">Programs</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#results">Outcomes</a>
+        <a href="booking.html">Consultation</a>
+      </nav>
     </div>
   </footer>
-  
-  <!-- Currency auto-adjustment script -->
-  <script>
-  (function() {
-    const rates = { USD: 1, EUR: 0.94, GBP: 0.82, CAD: 1.36, AUD: 1.56, INR: 83.0, JPY: 149.0 };
-    const locale = navigator.language || navigator.userLanguage || 'en-US';
-    let currency = 'USD';
-    if (locale.startsWith('en-GB')) currency = 'GBP';
-    else if (locale.startsWith('fr') || locale.startsWith('de') || locale.startsWith('es')) currency = 'EUR';
-    else if (locale.startsWith('en-CA')) currency = 'CAD';
-    else if (locale.startsWith('en-AU')) currency = 'AUD';
-    else if (locale.startsWith('hi') || locale.startsWith('en-IN')) currency = 'INR';
-    else if (locale.startsWith('ja')) currency = 'JPY';
 
-    const rate = rates[currency] || 1;
-    const formatter = new Intl.NumberFormat(locale, { style: 'currency', currency: currency });
+  <div class="consult-modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="consult-title">
+      <button class="modal-close" type="button" aria-label="Close" data-close-modal>&times;</button>
+      <h2 id="consult-title">Connect with a sunnypreps. mentor</h2>
+      <p>Reserve a discovery call or email <a href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a> for quick questions.</p>
+      <div class="calendly-inline-widget" data-url="https://calendly.com/sanmay-pachika/30min" style="min-width: 320px; height: 630px;"></div>
+    </div>
+  </div>
 
-    document.querySelectorAll('.price').forEach(function(el) {
-      const usdValue = parseFloat(el.getAttribute('data-usd'));
-      if (!usdValue) return;
-      const converted = usdValue * rate;
-      const formatted = formatter.format(converted);
-      const strong = el.querySelector('strong');
-      if (strong) strong.textContent = formatted;
-    });
-  })();
-  </script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
