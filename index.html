@@ -2,129 +2,179 @@
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sunnypreps — Education, Elevated.</title>
-  <meta name="description" content="Elite SAT tutoring, powered by AI-inspired minimalism and expert instructors.">
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Elite SAT tutoring, powered by a minimal, modern UI and 99th percentile instructors.">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://rsms.me/inter/inter.css" crossorigin/>
-  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <div id="progress-tracker"></div>
+  <!-- Top progress line -->
+  <div id="progress-tracker" aria-hidden="true"></div>
+
+  <!-- Navbar -->
   <header class="navbar transparent">
     <div class="navbar-content">
-      <div class="logo">Sunnypreps</div>
-      <nav>
+      <a class="logo" href="#top" aria-label="Sunnypreps home">Sunnypreps</a>
+      <nav class="nav-links" aria-label="Primary">
         <a href="#courses">Courses</a>
         <a href="#mission">Our Mission</a>
         <a href="#stats">Stats</a>
         <a href="#contact">Contact</a>
       </nav>
-      <button class="cta-btn glow" onclick="document.querySelector('.consult-modal').classList.add('open')">Book Consultation</button>
-      <button id="theme-toggle" aria-label="Toggle dark mode">
-        <span class="toggle-icon"></span>
-      </button>
+
+      <div class="nav-actions">
+        <button class="cta-btn glow" type="button"
+                onclick="document.querySelector('.consult-modal')?.classList.add('open')">
+          Book Consultation
+        </button>
+
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false" type="button">
+          <span class="toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
     </div>
   </header>
-  <section class="hero">
-    <div class="ambient-glow"></div>
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="ambient-glow" aria-hidden="true"></div>
     <h1 class="hero-title">Personalized SAT Mastery</h1>
-    <p class="hero-tagline">Learn from 99th percentile tutors. Excel with calm precision. <br>
-      <span class="hero-cta-ambient"></span>
+    <p class="hero-tagline">
+      Learn from 99th percentile tutors. Excel with calm precision.
+      <span class="hero-cta-ambient" aria-hidden="true"></span>
     </p>
-    <button class="cta-btn glow large" onclick="document.querySelector('.consult-modal').classList.add('open')">Start Learning</button>
+    <button class="cta-btn glow large" type="button"
+            onclick="document.querySelector('.consult-modal')?.classList.add('open')">
+      Start Learning
+    </button>
   </section>
-  <div id="stats" class="stats-strip fade-in">
+
+  <!-- Live stats -->
+  <div id="stats" class="stats-strip fade-in" role="region" aria-label="Program highlights">
     <span>⭐ 99th percentile tutors</span>
     <span>🎯 3,000+ SAT problems completed</span>
     <span>💬 Real-time Slack mentoring</span>
   </div>
+
   <main>
+    <!-- Courses -->
     <section id="courses" class="courses">
-      <div class="courses-heading fade-up">Choose your SAT journey</div>
+      <h2 class="courses-heading fade-up">Choose your SAT journey</h2>
+
       <div class="courses-cards">
-        <!-- Course Card: Beginner -->
-        <div class="course-card slide-in">
-          <div class="card-icon animate-icon">
-            <svg width="44" height="44"><circle cx="22" cy="22" r="12" fill="#3b82f6" opacity="0.15"/><circle cx="22" cy="22" r="8" fill="#3b82f6" opacity="0.32"/></svg>
+        <!-- Beginner -->
+        <article class="course-card slide-in">
+          <div class="card-icon animate-icon" aria-hidden="true">
+            <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+              <circle cx="22" cy="22" r="12" fill="#3b82f6" opacity="0.15"/>
+              <circle cx="22" cy="22" r="8"  fill="#3b82f6" opacity="0.32"/>
+            </svg>
           </div>
           <h3>Beginner</h3>
-          <p class="card-desc">Kickstart your SAT preparation with daily adaptive lessons and personalized practice. Track your growth in a supportive, tech-forward environment.</p>
+          <p class="card-desc">Kickstart your SAT prep with adaptive daily lessons and focused practice. Calm, structured, and data-driven.</p>
           <ul>
-            <li>Foundations & Concepts</li>
+            <li>Foundations & concepts</li>
             <li>Slack-based lessons</li>
             <li>Auto-graded assignments</li>
           </ul>
           <div class="card-actions">
-            <a href="payment-beginner.html" class="btn-paypal elevated">Pay $199</a>
+            <a href="payment-beginner.html" class="btn-paypal elevated" aria-label="Pay $199 for Beginner">Pay $199</a>
           </div>
-        </div>
-        <!-- Course Card: Medium -->
-        <div class="course-card slide-in" style="animation-delay: .07s;">
-          <div class="card-icon animate-icon">
-            <svg width="44" height="44"><rect x="10" y="10" width="24" height="24" rx="8" fill="#3b82f6" opacity="0.15"/><rect x="14" y="14" width="16" height="16" rx="6" fill="#3b82f6" opacity="0.32"/></svg>
+        </article>
+
+        <!-- Medium -->
+        <article class="course-card slide-in" style="animation-delay:.07s">
+          <div class="card-icon animate-icon" aria-hidden="true">
+            <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+              <rect x="10" y="10" width="24" height="24" rx="8" fill="#3b82f6" opacity="0.15"/>
+              <rect x="14" y="14" width="16" height="16" rx="6" fill="#3b82f6" opacity="0.32"/>
+            </svg>
           </div>
           <h3>Medium</h3>
-          <p class="card-desc">Advance with live solution walkthroughs, real-time feedback, and challenge sets designed to unlock higher scores.</p>
+          <p class="card-desc">Classroom-style program with live walkthroughs, rigorous homework, and regular practice tests.</p>
           <ul>
             <li>Advanced problems</li>
-            <li>Live group sessions</li>
+            <li>Live sessions (4×/week)</li>
             <li>Instructor feedback</li>
           </ul>
           <div class="card-actions">
-            <a href="payment-medium.html" class="btn-paypal elevated">Pay $599</a>
+            <a href="payment-medium.html" class="btn-paypal elevated" aria-label="Pay $599 for Medium">Pay $599</a>
           </div>
-        </div>
-        <!-- Course Card: Intensive -->
-        <div class="course-card slide-in" style="animation-delay: .14s;">
-          <div class="card-icon animate-icon">
-            <svg width="44" height="44"><ellipse cx="22" cy="22" rx="13" ry="10" fill="#3b82f6" opacity="0.18"/><ellipse cx="22" cy="22" rx="9" ry="7" fill="#3b82f6" opacity="0.32"/></svg>
+        </article>
+
+        <!-- Intensive -->
+        <article class="course-card slide-in" style="animation-delay:.14s">
+          <div class="card-icon animate-icon" aria-hidden="true">
+            <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+              <ellipse cx="22" cy="22" rx="13" ry="10" fill="#3b82f6" opacity="0.18"/>
+              <ellipse cx="22" cy="22" rx="9"  ry="7"  fill="#3b82f6" opacity="0.32"/>
+            </svg>
           </div>
           <h3>Intensive</h3>
-          <p class="card-desc">Elite, olympiad-style training with 1:1 mentorship, exam simulations, and deep-dive workshops for highest achievers.</p>
+          <p class="card-desc">Elite 1:1 training, exam simulations, and deep-dive workshops tailored to top scorers.</p>
           <ul>
             <li>Olympiad-level questions</li>
-            <li>1:1 mentoring</li>
-            <li>Live webinars</li>
+            <li>Dedicated 1:1 mentoring</li>
+            <li>Live masterclasses</li>
           </ul>
           <div class="card-actions">
-            <a href="payment-intense.html" class="btn-paypal elevated">Pay $1,099</a>
+            <a href="payment-intensive.html" class="btn-paypal elevated" aria-label="Pay $1,099 for Intensive">Pay $1,099</a>
           </div>
-        </div>
+        </article>
       </div>
     </section>
-    <section id="mission" class="mission-card fade-up">
-      <h2 class="mission-title">Our Mission — <span class="gradient-text">Education, Elevated.</span></h2>
-      <p>We believe learning should be precise, intelligent, and purposeful. Sunnypreps is committed to creating an elite, tech-forward tutoring experience—calm, modern, and optimized for your SAT success.</p>
+
+    <!-- Mission -->
+    <section id="mission" class="mission-card fade-up" aria-labelledby="mission-title">
+      <h2 id="mission-title" class="mission-title">Our Mission — <span class="gradient-text">Education, Elevated.</span></h2>
+      <p>We believe learning should be precise, intelligent, and purposeful. Sunnypreps delivers a calm, modern, and elite tutoring experience—optimized for SAT success.</p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact-card fade-up" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <p>Questions? Email <a href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a></p>
     </section>
   </main>
+
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
-      <nav>
-        <a href="index.html">Home</a>
+      <nav aria-label="Footer">
+        <a href="#top">Home</a>
         <a href="#courses">Courses</a>
         <a href="#mission">Our Mission</a>
         <a href="#contact">Contact</a>
       </nav>
-      <div class="footer-brand">&copy; 2025 Sunnypreps by founder Sanmay Pachika & co-founder Aswanth Nair.</div>
+      <div class="footer-brand">
+        &copy; 2025 Sunnypreps by founder Sanmay Pachika &amp; co-founder Aswanth Nair.
+      </div>
     </div>
   </footer>
 
   <!-- Book Consultation Modal -->
-  <div class="consult-modal">
-    <div class="modal-bg" onclick="document.querySelector('.consult-modal').classList.remove('open')"></div>
-    <div class="modal-card modal-animate">
-      <h2>Book a Consultation</h2>
+  <div class="consult-modal" aria-hidden="true">
+    <div class="modal-bg" onclick="document.querySelector('.consult-modal')?.classList.remove('open')" aria-hidden="true"></div>
+    <div class="modal-card modal-animate" role="dialog" aria-modal="true" aria-labelledby="consult-title">
+      <button class="modal-close" type="button" aria-label="Close"
+              onclick="document.querySelector('.consult-modal')?.classList.remove('open')">&times;</button>
+      <h2 id="consult-title">Book a Consultation</h2>
       <p>Connect with our top SAT tutors for a free, personalized plan.</p>
       <form>
-        <input type="text" placeholder="Name" required />
-        <input type="email" placeholder="Email" required />
+        <label class="sr-only" for="consult-name">Name</label>
+        <input id="consult-name" type="text" placeholder="Name" required />
+        <label class="sr-only" for="consult-email">Email</label>
+        <input id="consult-email" type="email" placeholder="Email" required />
         <button type="submit" class="cta-btn glow large">Request Call</button>
       </form>
-      <button class="modal-close" onclick="document.querySelector('.consult-modal').classList.remove('open')">&times;</button>
     </div>
   </div>
-  <script src="script.js"></script>
+
+  <!-- Scripts -->
+  <script src="script.js" defer></script>
+  <noscript><style>#progress-tracker{display:none}</style></noscript>
 </body>
 </html>
