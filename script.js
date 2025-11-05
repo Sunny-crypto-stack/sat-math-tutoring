@@ -1,38 +1,59 @@
-// Navbar opacity transitions
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
-    const opacityValue = window.scrollY / 200;
-    navbar.style.opacity = Math.min(opacityValue + 0.5, 1);
+// Navbar opacity transition on scroll
+const navbar = document.querySelector('.navbar');
+window.addEventListener('scroll', function(){
+  if(window.scrollY > 32) navbar.classList.add('opaque');
+  else navbar.classList.remove('opaque');
 });
 
-// Dark/light mode toggle
-const toggleButton = document.querySelector('#toggle-mode');
-toggleButton.addEventListener('click', function() {
-    document.body.classList.toggle('dark-mode');
+// Dark / Light Mode Toggle
+const root = document.documentElement;
+const themeToggle = document.getElementById('theme-toggle');
+themeToggle.addEventListener('click', function(){
+  if(root.getAttribute('data-theme') === 'dark') { root.setAttribute('data-theme','light'); }
+  else { root.setAttribute('data-theme','dark'); }
 });
 
-// Scroll-based progress bar
-const progressBar = document.querySelector('.progress-bar');
-window.addEventListener('scroll', function() {
-    const totalHeight = document.body.scrollHeight - window.innerHeight;
-    const progress = (window.scrollY / totalHeight) * 100;
-    progressBar.style.width = progress + '%';
+// Progress Tracker (learning progress line fills as you scroll)
+const progressTracker = document.getElementById('progress-tracker');
+window.addEventListener('scroll', function(){
+  const height = document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled = (window.scrollY / height)*100;
+  progressTracker.style.width = scrolled + "%";
 });
 
-// Modal animations
-const modal = document.querySelector('.modal');
-const modalOpenButton = document.querySelector('#open-modal');
-const modalCloseButton = document.querySelector('#close-modal');
-
-modalOpenButton.addEventListener('click', function() {
-    modal.classList.add('show');
-});
-modalCloseButton.addEventListener('click', function() {
-    modal.classList.remove('show');
+// Parallax motion for hero ambient glow
+document.querySelector('.hero').addEventListener('mousemove', function(e){
+  const glow = this.querySelector('.ambient-glow');
+  if(glow) {
+    const x = e.clientX / window.innerWidth;
+    const y = e.clientY / window.innerHeight;
+    glow.style.backgroundPosition = `${50 + x*20}% ${22 + y*16}%`;
+  }
 });
 
-// Course card entrance animations
-const courseCards = document.querySelectorAll('.course-card');
-courseCards.forEach((card) => {
-    card.classList.add('animate');
+// Modal close on Escape key
+window.addEventListener('keydown', function(e){
+  if(e.key === "Escape") document.querySelector('.consult-modal').classList.remove('open');
+});
+
+// Courses slide-in animation on scroll
+function animateOnScroll() {
+  document.querySelectorAll('.slide-in, .fade-up, .fade-in').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 40) el.classList.add('visible');
+    else el.classList.remove('visible');
+  });
+}
+window.addEventListener('scroll', animateOnScroll); window.addEventListener('load', animateOnScroll);
+
+// Animate progress tracker on page load
+window.addEventListener('DOMContentLoaded',()=>{
+  setTimeout(()=>{progressTracker.style.width="18%";},400);
+});
+
+// Prevent form submit (demo only for modal)
+document.querySelector('.modal-card form').addEventListener('submit',function(e){
+  e.preventDefault();
+  alert("We'll be in touch soon. Thank you for booking!");
+  document.querySelector('.consult-modal').classList.remove('open');
 });
