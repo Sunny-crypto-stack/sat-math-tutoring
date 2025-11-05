@@ -1,4 +1,3 @@
-// Navbar opacity transition on scroll
 const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
   if (!navbar) return;
@@ -6,7 +5,6 @@ window.addEventListener('scroll', () => {
   else navbar.classList.remove('opaque');
 });
 
-// Dark / Light Mode Toggle
 const root = document.documentElement;
 const themeToggle = document.getElementById('theme-toggle');
 if (themeToggle) {
@@ -18,7 +16,6 @@ if (themeToggle) {
   });
 }
 
-// Progress Tracker (learning progress line fills as you scroll)
 const progressTracker = document.getElementById('progress-tracker');
 function updateProgress() {
   if (!progressTracker) return;
@@ -32,42 +29,53 @@ window.addEventListener('DOMContentLoaded', () => {
   if (progressTracker) setTimeout(() => { progressTracker.style.width = '18%'; }, 400);
 });
 
-// Parallax motion for hero ambient glow
-const hero = document.querySelector('.hero');
-if (hero) {
-  hero.addEventListener('mousemove', (e) => {
-    const glow = hero.querySelector('.ambient-glow');
-    if (!glow) return;
-    const x = e.clientX / window.innerWidth;
-    const y = e.clientY / window.innerHeight;
-    glow.style.backgroundPosition = `${50 + x * 20}% ${22 + y * 16}%`;
+const revealOnScroll = () => {
+  document.querySelectorAll('.reveal').forEach((el) => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 80) el.classList.add('visible');
+    else el.classList.remove('visible');
   });
-}
+};
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
 
-// Modal close on Escape key
+const modal = document.querySelector('.consult-modal') || document.querySelector('.sourcing-modal');
+const openModalButtons = document.querySelectorAll('[data-open-modal]');
+const closeModalTriggers = document.querySelectorAll('[data-close-modal]');
+
+openModalButtons.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    if (!modal) return;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    const firstField = modal.querySelector('input, textarea, button');
+    if (firstField instanceof HTMLElement) firstField.focus();
+  });
+});
+
+closeModalTriggers.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    if (!modal) return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+  });
+});
+
 window.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
-    document.querySelector('.consult-modal')?.classList.remove('open');
+    if (!modal) return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
   }
 });
 
-// Courses slide-in animation on scroll
-function animateOnScroll() {
-  document.querySelectorAll('.slide-in, .fade-up, .fade-in').forEach((el) => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 40) el.classList.add('visible');
-    else el.classList.remove('visible');
-  });
-}
-window.addEventListener('scroll', animateOnScroll);
-window.addEventListener('load', animateOnScroll);
-
-// Prevent form submit (demo only for modal)
-const modalForm = document.querySelector('.modal-card form');
+const modalForm = document.querySelector('.modal-form');
 if (modalForm) {
   modalForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    alert("We'll be in touch soon. Thank you for booking!");
-    document.querySelector('.consult-modal')?.classList.remove('open');
+    alert('Thank you! A Sunnypreps mentor will reach out within 48 hours.');
+    if (!modal) return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
   });
 }
