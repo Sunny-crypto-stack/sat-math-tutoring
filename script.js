@@ -61,10 +61,28 @@ function updateProgress() {
   const scrolled = height > 0 ? (window.scrollY / height) * 100 : 0;
   progressTracker.style.width = scrolled + '%';
 }
-window.addEventListener('scroll', updateProgress);
-window.addEventListener('load', updateProgress);
-window.addEventListener('DOMContentLoaded', () => {
-  if (progressTracker) setTimeout(() => { progressTracker.style.width = '18%'; }, 400);
+
+const openModal = () => {
+  if (!modal) return;
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  if (modalCard) {
+    modalCard.setAttribute('tabindex', '-1');
+    modalCard.focus();
+  }
+};
+
+const closeModal = () => {
+  if (!modal) return;
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
+  if (modalCard) {
+    modalCard.removeAttribute('tabindex');
+  }
+};
+
+openModalButtons.forEach((btn) => {
+  btn.addEventListener('click', openModal);
 });
 
 const revealOnScroll = () => {
@@ -117,3 +135,47 @@ if (modalForm) {
     modal.setAttribute('aria-hidden', 'true');
   });
 }
+
+// Tuition conversion helper
+const currencyRates = {
+  USD: 1,
+  EUR: 0.94,
+  GBP: 0.82,
+  CAD: 1.36,
+  AUD: 1.56,
+  INR: 83,
+  JPY: 149,
+};
+
+const resolveCurrency = () => {
+  const locale = navigator.language || 'en-US';
+  if (locale.startsWith('en-GB')) return 'GBP';
+  if (locale.startsWith('fr') || locale.startsWith('de') || locale.startsWith('es')) return 'EUR';
+  if (locale.startsWith('en-CA')) return 'CAD';
+  if (locale.startsWith('en-AU')) return 'AUD';
+  if (locale.startsWith('hi') || locale.startsWith('en-IN')) return 'INR';
+  if (locale.startsWith('ja')) return 'JPY';
+  return 'USD';
+};
+
+const applyCurrencyConversion = () => {
+  const currency = resolveCurrency();
+  const rate = currencyRates[currency] || 1;
+  const locale = navigator.language || 'en-US';
+  const formatter = new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency,
+    maximumFractionDigits: ['JPY', 'INR'].includes(currency) ? 0 : 2,
+  });
+
+  document.querySelectorAll('.price[data-usd]').forEach((priceEl) => {
+    const usdValue = parseFloat(priceEl.getAttribute('data-usd'));
+    if (Number.isNaN(usdValue)) return;
+    const converted = usdValue * rate;
+    priceEl.textContent = formatter.format(converted);
+  });
+};
+
+applyCurrencyConversion();
+setHeaderState();
+window.addEventListener('scroll', setHeaderState, { passive: true });
