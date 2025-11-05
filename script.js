@@ -1,62 +1,65 @@
-/*
-  sunnypreps. interaction layer
-  - Handles responsive navigation
-  - Controls consultation modal
-  - Animates sections on scroll
-  - Updates ambient gradient based on pointer position
-  - Converts tuition prices based on visitor locale
-*/
-
-const body = document.body;
-const header = document.querySelector('.site-header');
-const nav = document.querySelector('.primary-nav');
-const navToggle = document.querySelector('[data-nav-toggle]');
 const modal = document.querySelector('.consult-modal');
 const modalCard = modal ? modal.querySelector('.modal-card') : null;
 const openModalButtons = document.querySelectorAll('[data-open-modal]');
 const closeModalButtons = document.querySelectorAll('[data-close-modal]');
-const animatedSections = document.querySelectorAll('[data-animate]');
-let idleTimeout;
 
-const setHeaderState = () => {
-  if (!header) return;
-  const shouldBeSolid = window.scrollY > 12;
-  header.classList.toggle('is-transparent', !shouldBeSolid);
-};
-
-const openNav = () => {
-  if (!nav) return;
-  nav.classList.add('is-open');
-  if (navToggle) {
-    navToggle.setAttribute('aria-expanded', 'true');
+const openModal = () => {
+  if (!modal) return;
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  if (modalCard) {
+    modalCard.setAttribute('tabindex', '-1');
+    modalCard.focus();
   }
 };
 
-const closeNav = () => {
-  if (!nav) return;
-  nav.classList.remove('is-open');
-  if (navToggle) {
-    navToggle.setAttribute('aria-expanded', 'false');
-  }
+const closeModal = () => {
+  if (!modal) return;
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
 };
 
-const toggleNav = () => {
-  if (!nav) return;
-  if (nav.classList.contains('is-open')) {
-    closeNav();
-  } else {
-    openNav();
-  }
-};
+openModalButtons.forEach((btn) => {
+  btn.addEventListener('click', openModal);
+});
 
-if (navToggle) {
-  navToggle.addEventListener('click', toggleNav);
+closeModalButtons.forEach((btn) => {
+  btn.addEventListener('click', closeModal);
+});
+
+if (modal) {
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal) closeModal();
+  });
 }
 
-if (nav) {
-  nav.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', closeNav);
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeModal();
+});
+const navbar = document.querySelector('.navbar');
+window.addEventListener('scroll', () => {
+  if (!navbar) return;
+  if (window.scrollY > 32) navbar.classList.add('opaque');
+  else navbar.classList.remove('opaque');
+});
+
+const root = document.documentElement;
+const themeToggle = document.getElementById('theme-toggle');
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const curr = root.getAttribute('data-theme') || 'light';
+    const next = curr === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    themeToggle.setAttribute('aria-pressed', String(next === 'dark'));
   });
+}
+
+const progressTracker = document.getElementById('progress-tracker');
+function updateProgress() {
+  if (!progressTracker) return;
+  const height = document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled = height > 0 ? (window.scrollY / height) * 100 : 0;
+  progressTracker.style.width = scrolled + '%';
 }
 
 const openModal = () => {
@@ -82,66 +85,55 @@ openModalButtons.forEach((btn) => {
   btn.addEventListener('click', openModal);
 });
 
-closeModalButtons.forEach((btn) => {
-  btn.addEventListener('click', closeModal);
+const revealOnScroll = () => {
+  document.querySelectorAll('.reveal').forEach((el) => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 80) el.classList.add('visible');
+    else el.classList.remove('visible');
+  });
+};
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+
+const modal = document.querySelector('.consult-modal') || document.querySelector('.sourcing-modal');
+const openModalButtons = document.querySelectorAll('[data-open-modal]');
+const closeModalTriggers = document.querySelectorAll('[data-close-modal]');
+
+openModalButtons.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    if (!modal) return;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    const firstField = modal.querySelector('input, textarea, button');
+    if (firstField instanceof HTMLElement) firstField.focus();
+  });
 });
 
-if (modal) {
-  modal.addEventListener('click', (event) => {
-    if (event.target === modal) closeModal();
+closeModalTriggers.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    if (!modal) return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
   });
-}
+});
 
-window.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
-    closeModal();
-    closeNav();
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    if (!modal) return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
   }
 });
 
-// Scroll reveal animations
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.18,
-    }
-  );
-
-  animatedSections.forEach((section) => observer.observe(section));
-} else {
-  animatedSections.forEach((section) => section.classList.add('is-visible'));
-}
-
-// Gradient responsiveness
-const setIdleState = () => {
-  body.classList.add('is-idle');
-};
-
-const clearIdleState = () => {
-  body.classList.remove('is-idle');
-  window.clearTimeout(idleTimeout);
-  idleTimeout = window.setTimeout(setIdleState, 2500);
-};
-
-const updateGradient = (event) => {
-  const x = Math.round((event.clientX / window.innerWidth) * 100);
-  const y = Math.round((event.clientY / window.innerHeight) * 100);
-  body.style.setProperty('--cursor-x', x);
-  body.style.setProperty('--cursor-y', y);
-  clearIdleState();
-};
-
-if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  window.addEventListener('pointermove', updateGradient);
-  clearIdleState();
+const modalForm = document.querySelector('.modal-form');
+if (modalForm) {
+  modalForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Thank you! A Sunnypreps mentor will reach out within 48 hours.');
+    if (!modal) return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+  });
 }
 
 // Tuition conversion helper
