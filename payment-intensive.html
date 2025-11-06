@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>sunnypreps. — Book a Call</title>
-  <meta name="description" content="Schedule a consultation with sunnypreps. mentors to design a calm, Midnight Coral learning journey." />
+  <title>sunnypreps. — Summit Payment</title>
+  <meta name="description" content="Complete enrollment for the sunnypreps. Summit Atelier concierge mentorship." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -68,20 +68,41 @@
   <main>
     <!-- Hero -->
     <section class="px-6 pt-36 pb-16 lg:px-8" data-animate>
-      <div class="mx-auto max-w-4xl text-center">
-        <span class="inline-flex items-center gap-2 rounded-full border border-midnight/15 bg-white/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-midnight/70 shadow-soft backdrop-blur">Consultation</span>
-        <h1 class="mt-8 font-display text-4xl leading-tight text-midnight sm:text-5xl">Let’s co-design your learning arc.</h1>
-        <p class="mt-6 text-lg text-charcoal/80">Pick a time that works for your family. We’ll meet in our Midnight Coral workspace, explore goals, and outline a personalized plan.</p>
+      <div class="mx-auto max-w-3xl text-center">
+        <span class="inline-flex items-center gap-2 rounded-full border border-midnight/15 bg-white/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-midnight/70 shadow-soft backdrop-blur">Checkout</span>
+        <h1 class="mt-8 font-display text-4xl leading-tight text-midnight">Summit Atelier enrollment</h1>
+        <p class="mt-6 text-lg text-charcoal/80">Finalize your partnership with our concierge mentors. We’ll activate scholarship mapping and VIP onboarding immediately.</p>
       </div>
     </section>
 
-    <!-- Calendly embed -->
+    <!-- Payment form -->
     <section class="section pt-0" data-animate>
-      <div class="mx-auto max-w-5xl px-6 lg:px-8">
-        <div class="callout-card">
-          <div class="calendly-inline-widget" data-url="https://calendly.com/sanmay-pachika/30min" style="min-width: 320px; height: 750px;"></div>
+      <div class="mx-auto max-w-3xl px-6 lg:px-8">
+        <div class="callout-card space-y-6">
+          <div class="flex flex-col gap-2 text-left">
+            <h2 class="font-display text-2xl text-midnight">Summary</h2>
+            <p class="text-charcoal/70">Summit Atelier · <span class="price font-semibold" data-usd="1099">$1,099</span></p>
+          </div>
+          <form class="grid gap-4" aria-label="Payment form">
+            <label class="text-sm font-semibold text-midnight" for="parent-name">Parent or guardian name</label>
+            <input id="parent-name" type="text" required class="rounded-large border border-midnight/20 bg-white/80 px-4 py-3 text-base text-charcoal shadow-soft focus:border-midnight focus:outline-none focus:ring-2 focus:ring-coral/40" placeholder="Alex Martinez" />
+
+            <label class="text-sm font-semibold text-midnight" for="student-name">Student name</label>
+            <input id="student-name" type="text" required class="rounded-large border border-midnight/20 bg-white/80 px-4 py-3 text-base text-charcoal shadow-soft focus:border-midnight focus:outline-none focus:ring-2 focus:ring-coral/40" placeholder="Taylor Martinez" />
+
+            <label class="text-sm font-semibold text-midnight" for="email">Contact email</label>
+            <input id="email" type="email" required class="rounded-large border border-midnight/20 bg-white/80 px-4 py-3 text-base text-charcoal shadow-soft focus:border-midnight focus:outline-none focus:ring-2 focus:ring-coral/40" placeholder="you@example.com" />
+
+            <label class="text-sm font-semibold text-midnight" for="phone">Phone</label>
+            <input id="phone" type="tel" class="rounded-large border border-midnight/20 bg-white/80 px-4 py-3 text-base text-charcoal shadow-soft focus:border-midnight focus:outline-none focus:ring-2 focus:ring-coral/40" placeholder="Optional" />
+
+            <label class="text-sm font-semibold text-midnight" for="card">Card details</label>
+            <input id="card" type="text" inputmode="numeric" required class="rounded-large border border-midnight/20 bg-white/80 px-4 py-3 text-base text-charcoal shadow-soft focus:border-midnight focus:outline-none focus:ring-2 focus:ring-coral/40" placeholder="1234 5678 9012 3456" />
+
+            <button type="submit" class="btn-primary mt-4 inline-flex justify-center rounded-large px-6 py-3 text-base font-semibold text-white shadow-soft transition hover:-translate-y-1">Confirm enrollment</button>
+          </form>
+          <p class="text-xs text-charcoal/60">By submitting, you agree to our calm communication policy and session guidelines. Receipts and onboarding links arrive instantly.</p>
         </div>
-        <p class="mt-6 text-center text-sm text-charcoal/70">Need a different time? Email <a class="text-midnight underline" href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a> and we’ll arrange it.</p>
       </div>
     </section>
   </main>
