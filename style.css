@@ -1,6 +1,5 @@
 /* ===============================
    Midnight Coral — Dark (Blue) System
-   Drop-in full stylesheet
 =============================== */
 
 /* ---- Design Tokens ---- */
@@ -17,9 +16,9 @@
   --bg: var(--blue);
   --text: var(--text-primary);
   --text-soft: color-mix(in srgb, var(--text-primary) 70%, transparent);
-  --primary: var(--blue);    /* used for hero stages, outlines, etc. */
+  --primary: var(--blue);
   --accent: var(--coral);
-  --surface: color-mix(in srgb, #ffffff 6%, var(--blue)); /* glassy on blue */
+  --surface: color-mix(in srgb, #ffffff 6%, var(--blue));
   --stroke: rgba(255,255,255,.12);
 
   --radius-xl: 40px;
@@ -29,7 +28,6 @@
   --shadow: 0 24px 60px rgba(0,0,0,.25);
   --shadow-soft: 0 12px 30px rgba(0,0,0,.15);
 
-  /* ambient cursor parallax */
   --mx: 50%;
   --my: 50%;
 }
@@ -56,7 +54,7 @@ p{margin:0 0 1rem;color:var(--text)}
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
 
-/* ---- Layout helpers ---- */
+/* ---- Layout ---- */
 .shell{width:min(1120px,92vw);margin:0 auto}
 .section{padding:72px 0}
 .section-head{display:grid;gap:.4rem;margin-bottom:1.8rem}
@@ -65,16 +63,12 @@ a:hover{text-decoration:underline}
 .section-sub{color:var(--text-soft)}
 
 /* Progress bar */
-#progress-tracker{
-  position:fixed;top:0;left:0;height:3px;width:0;
-  background:linear-gradient(90deg,#8DE5FF,#FF7A70);
-  z-index:1000
-}
+#progress-tracker{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#8DE5FF,#FF7A70);z-index:1000}
 
-/* ---- Ambient gradient (optional, subtle) ---- */
+/* Ambient gradient */
 .ambient-wrapper{position:fixed;inset:0;pointer-events:none;z-index:-2}
 .ambient{
-  width:140vmax;height:140vmax;margin:auto;transform:translateZ(0);
+  width:140vmax;height:140vmax;margin:auto;transform:translateZ(0) translate(calc(var(--mx) - 50%), calc(var(--my) - 50%));
   background:
     radial-gradient(42% 42% at 35% 35%, rgba(73,100,190,.28), transparent 60%),
     radial-gradient(36% 36% at 60% 60%, rgba(255,122,112,.22), transparent 62%);
@@ -83,78 +77,66 @@ a:hover{text-decoration:underline}
   opacity:.85;border-radius:50%;
 }
 
-/* ---- Navigation ---- */
-.nav{position:fixed;inset-inline:0;top:0;z-index:900;
-  transition:background .35s ease, backdrop-filter .35s ease, border-color .35s ease}
+/* ---- Nav ---- */
+.nav{position:fixed;inset-inline:0;top:0;z-index:900;transition:background .35s ease, backdrop-filter .35s ease, border-color .35s ease}
 .nav.transparent{background:transparent;border-bottom:1px solid transparent}
-.nav.opaque{
-  background:color-mix(in srgb, var(--blue) 82%, transparent);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--stroke)
-}
-.nav-shell,.nav__row{display:flex;align-items:center;gap:18px;justify-content:space-between;padding:18px 22px;max-width:1200px;margin:0 auto}
+.nav.opaque{background:color-mix(in srgb, var(--blue) 82%, transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--stroke)}
+.nav__row{display:flex;align-items:center;gap:18px;justify-content:space-between;padding:18px 22px;max-width:1200px;margin:0 auto}
 .brand{display:inline-flex;align-items:center;gap:.6rem;font-weight:700}
 .brand-glyph{width:18px;height:18px;border-radius:50%;background:var(--accent);box-shadow:0 6px 18px rgba(255,122,112,.5)}
-.nav__links a,.nav-links a{color:var(--text-secondary);font-weight:600}
-.nav__links a:hover,.nav-links a:hover{color:var(--text)}
+.nav__links a{color:var(--text-secondary);font-weight:600}
+.nav__links a:hover{color:var(--text)}
 .nav__actions .btn{margin-left:6px}
-.nav-toggle,.nav__toggle{display:none}
+.nav__toggle{display:none}
+.nav-drawer{display:grid;gap:10px;padding:10px 22px}
+.hidden{display:none !important}
 
 /* ---- Buttons ---- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
-  padding:.75rem 1.2rem;border-radius:999px;border:2px solid transparent;
-  font-weight:700;cursor:pointer;transition:.25s}
-.btn--primary,.btn-primary{background:var(--accent);color:#2a0f0f;box-shadow:var(--shadow)}
-.btn--primary:hover,.btn-primary:hover{transform:translateY(-2px)}
-.btn--ghost,.btn-outline{border-color:var(--text-secondary);color:var(--text);background:transparent}
-.btn--ghost:hover,.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.75rem 1.2rem;border-radius:999px;border:2px solid transparent;font-weight:700;cursor:pointer;transition:.25s}
+.btn--primary{background:var(--accent);color:#2a0f0f;box-shadow:var(--shadow)}
+.btn--primary:hover{transform:translateY(-2px)}
+.btn--ghost{border-color:var(--text-secondary);color:var(--text);background:transparent}
+.btn--ghost:hover{border-color:var(--accent);color:var(--accent)}
 
-/* ---- Phamily-style hero ---- */
-.hero-edu,.hero{padding:clamp(64px,12vw,104px) 0 36px}
-.hero-edu__stage,.stage{
+/* ---- Hero ---- */
+.hero{padding:clamp(64px,12vw,104px) 0 36px}
+.stage{
   width:min(1100px,92vw);margin:0 auto;
   padding:clamp(40px,6.5vw,72px) clamp(24px,5.5vw,64px);
   background:var(--primary);color:#fff;border-radius:var(--radius-xl);
   box-shadow:var(--shadow);position:relative;overflow:hidden;
 }
-.hero-edu__stage::after,.stage::after{
+.stage::after{
   content:"";position:absolute;inset:-30% -30% auto auto;width:80%;height:140%;
   background:
     radial-gradient(60% 40% at 60% 40%, rgba(255,122,112,.22), transparent 60%),
     radial-gradient(40% 30% at 20% 70%, rgba(255,255,255,.10), transparent 60%);
   transform:rotate(8deg);pointer-events:none;
 }
-.hero-edu__eyebrow,.eyebrow--hero{font:600 .9rem/1 "Inter",system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;opacity:.9;margin:0 0 14px;color:#E8ECFF;text-align:center}
-.hero-edu__title,.hero__title{
-  font-family:"Space Grotesk","Inter",sans-serif;font-weight:800;line-height:.98;
-  letter-spacing:-.02em;margin:0 0 12px;font-size:clamp(2.2rem,7vw,4.2rem);text-align:center;
-  color:#0B101F}
-.hero-edu__highlight,.hero__banner{
-  display:inline-block;padding:10px 16px 8px;margin-top:10px;border-radius:12px;
-  background:var(--accent);color:#2D0B0B;text-transform:uppercase;letter-spacing:.04em;
-  box-shadow:0 10px 24px rgba(255,122,112,.35);font-size:clamp(1.6rem,6vw,3.2rem)
-}
-.hero__banner--dark{background:var(--cream);color:var(--blue)}
-.hero-edu__sub,.hero__lede{max-width:740px;margin:14px auto 0;text-align:center;opacity:.92;font-size:clamp(.98rem,1.8vw,1.06rem);color:#F2F5FF}
-.hero-edu__ctas,.hero__ctas{margin-top:clamp(20px,3.5vw,30px);display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn-edu,.chip{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:999px;font:700 1rem/1 "Inter",system-ui,sans-serif;text-decoration:none;transition:transform .2s, box-shadow .2s, background .2s, color .2s;border:2px solid transparent}
-.btn-edu--primary,.chip--solid{background:var(--accent);color:#2D0B0B;box-shadow:0 14px 30px rgba(255,122,112,.35)}
-.btn-edu--primary:hover,.chip--solid:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(255,122,112,.45)}
-.btn-edu--light,.chip--light{background:var(--cream);color:#2B2B2B;border-color:rgba(255,255,255,.5)}
-.btn-edu--light:hover,.chip--light:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,255,255,.25)}
+.eyebrow--hero{font:600 .9rem/1 "Inter",system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;opacity:.9;margin:0 0 14px;color:#E8ECFF;text-align:center}
+.hero__title{font-family:"Space Grotesk","Inter",sans-serif;font-weight:800;line-height:.98;letter-spacing:-.02em;margin:0 0 12px;font-size:clamp(2.2rem,7vw,4.2rem);text-align:center;color:#0B101F}
+.hero__banner{display:inline-block;padding:10px 16px 8px;margin-top:10px;border-radius:12px;background:var(--accent);color:#2D0B0B;text-transform:uppercase;letter-spacing:.04em;box-shadow:0 10px 24px rgba(255,122,112,.35);font-size:clamp(1.6rem,6vw,3.2rem)}
+.hero__lede{max-width:740px;margin:14px auto 0;text-align:center;opacity:.92;font-size:clamp(.98rem,1.8vw,1.06rem);color:#F2F5FF}
+.hero__ctas{margin-top:clamp(20px,3.5vw,30px);display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:999px;font:700 1rem/1 "Inter",system-ui,sans-serif;text-decoration:none;transition:transform .2s, box-shadow .2s, background .2s, color .2s;border:2px solid transparent}
+.chip--solid{background:var(--accent);color:#2D0B0B;box-shadow:0 14px 30px rgba(255,122,112,.35)}
+.chip--solid:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(255,122,112,.45)}
+.chip--light{background:var(--cream);color:#2B2B2B;border-color:rgba(255,255,255,.5)}
+.chip--light:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,255,255,.25)}
 .thumb{position:absolute;font-size:64px;opacity:.2}
 .thumb--left{left:24px;bottom:24px}
 .thumb--right{right:24px;top:24px}
 
-/* ---- Cream Sections (secondary surface) ---- */
-.section.section--cream,
-.section[id], /* common pattern on your pages */
-#programs ~ .section, /* optional selector help */
-.section:not(.hero){
+/* ---- Cream Sections ---- */
+.section.section--cream{
   background:var(--cream);
   color:var(--blue);
   border-radius:var(--radius-xl);
   margin:48px auto;
+  --stroke: rgba(18,28,59,.15);
+  --surface:#ffffff;
+  --text: var(--blue);
+  --text-soft: color-mix(in srgb, var(--blue) 70%, transparent);
 }
 .section.section--cream .section-title,
 .section.section--cream h2,
@@ -162,23 +144,9 @@ a:hover{text-decoration:underline}
 .section.section--cream p{color:var(--blue)}
 .section.section--cream a{color:var(--blue)}
 
-/* Local variable scoping inside cream sections for borders/shadows */
-.section.section--cream{
-  --stroke: rgba(18,28,59,.15);
-  --surface:#ffffff;
-  --text: var(--blue);
-  --text-soft: color-mix(in srgb, var(--blue) 70%, transparent);
-}
-
-/* ---- Cards / pillars / stats ---- */
+/* Cards / pillars / stats */
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-.card{
-  background:var(--surface);
-  border:1px solid var(--stroke);
-  border-radius:var(--radius-lg);
-  padding:20px;
-  box-shadow:0 16px 32px rgba(0,0,0,.06)
-}
+.card{background:var(--surface);border:1px solid var(--stroke);border-radius:var(--radius-lg);padding:20px;box-shadow:0 16px 32px rgba(0,0,0,.06)}
 .card .tag{display:inline-block;margin-bottom:8px;color:var(--text-soft);font-weight:700}
 .card h3{margin:.25rem 0 6px}
 .card-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
@@ -191,23 +159,18 @@ a:hover{text-decoration:underline}
 .stat span{display:block;color:var(--text-soft);font-size:.85rem}
 .stat strong{font-size:1.6rem}
 
-/* ---- CTA card ---- */
+/* CTA card */
 .cta-card{display:flex;gap:18px;justify-content:space-between;align-items:center;flex-wrap:wrap;background:var(--surface);border:1px solid var(--stroke);border-radius:var(--radius-lg);padding:24px;box-shadow:0 14px 30px rgba(0,0,0,.06)}
 .cta-actions{display:flex;gap:12px;flex-wrap:wrap}
 
-/* ---- Footer ---- */
-.footer{
-  border-top:1px solid var(--stroke);
-  padding:36px 0;
-  background:var(--bg);
-  color:var(--text-secondary)
-}
-.footer-grid,.footer__row{display:flex;align-items:center;justify-content:space-between;gap:18px}
+/* Footer */
+.footer{border-top:1px solid var(--stroke);padding:36px 0;background:var(--bg);color:var(--text-secondary)}
+.footer__row{display:flex;align-items:center;justify-content:space-between;gap:18px}
 .foot-note{color:var(--text-secondary);margin:.25rem 0 0}
-.foot-links a,.footer__links a{margin-right:12px;font-weight:600;color:var(--text-secondary)}
-.foot-links a:hover,.footer__links a:hover{color:var(--text)}
+.footer__links a{margin-left:12px;font-weight:600;color:var(--text-secondary)}
+.footer__links a:hover{color:var(--text)}
 
-/* ---- Modal ---- */
+/* Modal */
 .consult-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:22px;background:rgba(0,0,0,.55);z-index:1001}
 .consult-modal.open{display:flex}
 .modal-card{background:var(--surface);color:var(--text);border-radius:var(--radius-lg);padding:22px;width:min(720px,96vw);box-shadow:var(--shadow);position:relative;border:1px solid var(--stroke)}
@@ -215,20 +178,12 @@ a:hover{text-decoration:underline}
 .modal-close:hover{color:var(--text)}
 .cal-placeholder{margin-top:12px;padding:16px;border:1px dashed var(--stroke);border-radius:var(--radius);color:var(--text-soft)}
 
-/* ---- Reveal ---- */
+/* Reveal animation */
 [data-reveal], .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease}
 .visible{opacity:1;transform:translateY(0)}
 
-/* ---- Responsive nav ---- */
+/* Responsive nav */
 @media (max-width: 860px){
-  .nav__links,.nav-links{display:none}
-  .nav-toggle,.nav__toggle{
-    display:inline-flex;align-items:center;gap:8px;
-    border:1px solid var(--stroke);border-radius:12px;padding:8px 12px;
-    background:color-mix(in srgb, var(--blue) 70%, transparent);
-    color:var(--text);font-weight:700}
+  .nav__links{display:none}
+  .nav__toggle{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--stroke);border-radius:12px;padding:8px 12px;background:color-mix(in srgb, var(--blue) 70%, transparent);color:var(--text);font-weight:700}
 }
-
-/* ---- Utility: mark sections that should be cream ---- */
-/* Add class 'section--cream' in HTML where you want the cream surface.
-   Example: <section class="section section--cream"> ... </section> */
