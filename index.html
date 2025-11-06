@@ -1,197 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, viewport-fit=cover"
-  />
-  <title>Sunnypreps — SAT mentoring without noise</title>
-  <meta name="description" content="Calm, high-intent SAT math mentoring with structured practice, clear feedback, and measurable score gains." />
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Tailwind (config first, then CDN) -->
-  <script>
-    window.tailwind = {
-      config: {
-        theme: {
-          extend: {
-            colors: {
-              midnight: {
-                blue: '#1E2A5E',   /* Primary */
-                coral: '#FF7A70',  /* Accent  */
-                cream: '#FAF7F2',  /* Background */
-                charcoal: '#1B1B1B'/* Text */
-              }
-            },
-            borderRadius: {
-              xl: '16px',
-              '2xl': '24px'
-            },
-            boxShadow: {
-              soft: '0 10px 30px rgba(30,42,94,.10)',
-              card: '0 20px 50px rgba(30,42,94,.12)'
-            }
-          }
-        }
-      }
-    }
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Site tokens + effects -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Sunnypreps — Learning Without Limits</title>
+  <meta name="description" content="Calm, modern SAT math mentoring for students and parents. Learning without the noise." />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="min-h-screen bg-[var(--bg)] text-[var(--text)] antialiased">
-  <!-- Ambient gradient (cursor-reactive) -->
-  <div class="fixed inset-0 -z-10 pointer-events-none">
-    <div id="ambient"
-         class="w-[140vmax] h-[140vmax] rounded-full blur-3xl opacity-70 transition-transform duration-500 will-change-transform mx-auto"
-         style="--gx:50%; --gy:35%;"
-         aria-hidden="true"></div>
+<body>
+  <!-- progress bar -->
+  <div id="progress-tracker" aria-hidden="true"></div>
+
+  <!-- ambient gradient bg -->
+  <div class="ambient-wrapper" aria-hidden="true">
+    <div id="ambient" class="ambient"></div>
   </div>
 
   <!-- NAV -->
-  <header id="siteNav" class="nav transparent fixed top-0 inset-x-0 z-50 transition-all duration-300">
-    <nav class="max-w-7xl mx-auto px-6">
-      <div class="flex items-center gap-6 py-4">
-        <a href="#top" class="inline-flex items-center gap-2 font-semibold tracking-tight text-[var(--text-strong)]" aria-label="Sunnypreps home">
-          <span class="inline-block h-9 w-9 rounded-2xl bg-[var(--primary)]/10 grid place-items-center ring-1 ring-[var(--primary)]/20">
-            <span class="h-2.5 w-2.5 rounded-full bg-[var(--accent)]"></span>
-          </span>
-          <span class="font-[600]" style="font-family:'Space Grotesk',sans-serif;">Sunnypreps</span>
-        </a>
+  <header id="siteNav" class="nav transparent">
+    <div class="nav-shell">
+      <a class="brand" href="#home" aria-label="Sunnypreps home">
+        <span class="brand-glyph"></span>
+        Sunnypreps
+      </a>
 
-        <button id="navToggle"
-                class="ml-auto lg:hidden rounded-xl px-3 py-2 ring-1 ring-black/10 bg-white/40 text-[var(--charcoal)] hover:bg-white/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
-                aria-expanded="false" aria-controls="navMenu">
-          Menu
-        </button>
+      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
 
-        <ul id="navMenu" class="hidden lg:flex items-center gap-6 ml-auto text-sm">
-          <li><a class="nav-link" href="#programs">Programs</a></li>
-          <li><a class="nav-link" href="#approach">Approach</a></li>
-          <li><a class="nav-link" href="#results">Outcomes</a></li>
-          <li><a class="btn btn-primary" href="booking.html">Book a Consultation</a></li>
-          <li><a class="btn btn-outline" href="practice.html">Practice Sets</a></li>
-        </ul>
-      </div>
+      <nav id="navMenu" class="nav-links">
+        <a href="#programs">Programs</a>
+        <a href="#approach">Approach</a>
+        <a href="#outcomes">Outcomes</a>
+        <button class="btn btn-primary" data-open-modal>Book a Consultation</button>
+        <a class="btn btn-outline" href="practice.html">Practice Sets</a>
+      </nav>
 
       <!-- mobile drawer -->
-      <div id="navDrawer" class="hidden lg:hidden pb-4">
-        <ul class="grid gap-2">
-          <li><a class="nav-link block" href="#programs">Programs</a></li>
-          <li><a class="nav-link block" href="#approach">Approach</a></li>
-          <li><a class="nav-link block" href="#results">Outcomes</a></li>
-          <li><a class="btn btn-primary mt-2 inline-flex" href="booking.html">Book a Consultation</a></li>
-          <li><a class="btn btn-outline inline-flex" href="practice.html">Practice Sets</a></li>
-        </ul>
-      </div>
-    </nav>
+      <nav id="navDrawer" class="nav-drawer hidden">
+        <a href="#programs">Programs</a>
+        <a href="#approach">Approach</a>
+        <a href="#outcomes">Outcomes</a>
+        <button class="btn btn-primary" data-open-modal>Book a Consultation</button>
+        <a class="btn btn-outline" href="practice.html">Practice Sets</a>
+      </nav>
+    </div>
   </header>
 
-  <main id="top">
-    <!-- HERO -->
-    <section class="pt-36 lg:pt-40 pb-16" id="hero">
-      <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-10 items-center">
-        <div class="lg:col-span-7" data-reveal>
-          <p class="eyebrow">SAT Math · Est. 2025</p>
-          <h1 class="hero-title">Calm, exacting prep with mentors who listen</h1>
-          <p class="hero-sub">
-            We teach ambitious students to think like exam setters. Every plan is diagnostic-led, feedback-rich, and designed to keep your schedule breathable.
-          </p>
+  <main id="home">
+    <!-- PHAMILY-STYLE HERO -->
+    <section class="hero-edu" aria-labelledby="hero-title">
+      <div class="hero-edu__stage" data-reveal>
+        <p class="hero-edu__eyebrow">SAT math · focused & friendly</p>
 
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a class="btn btn-primary" href="booking.html">Schedule a consultation</a>
-            <a class="btn btn-outline" href="#programs">Explore programs</a>
-          </div>
+        <h1 id="hero-title" class="hero-edu__title">
+          TO GET STARTED
+          <span class="hero-edu__highlight">WITH CONFIDENCE</span>
+        </h1>
 
-          <dl class="mt-10 stats">
-            <div><dt>Avg. score lift</dt><dd>+210</dd></div>
-            <div><dt>Mentoring</dt><dd>Slack & 1:1</dd></div>
-            <div><dt>Archive</dt><dd>3,000+ qs</dd></div>
-          </dl>
+        <p class="hero-edu__sub">
+          Learning without the noise. Calm lessons, adaptive practice, and mentors who actually listen — built for students and easy for parents.
+        </p>
+
+        <div class="hero-edu__ctas">
+          <a class="btn-edu btn-edu--primary" href="booking.html">I’m a Student</a>
+          <a class="btn-edu btn-edu--light" href="#programs">I’m a Parent</a>
         </div>
-
-        <aside class="lg:col-span-5" data-reveal style="--delay:.08s" aria-label="Program snapshot">
-          <div class="surface p-6 lg:p-8 rounded-2xl shadow-card ring-1 ring-black/5">
-            <div class="grid gap-5">
-              <div class="flex items-center gap-3">
-                <span class="icon-dot bg-[var(--accent)]"></span>
-                <h3 class="card-title">What sets us apart</h3>
-              </div>
-              <p class="card-copy">
-                Transparent progress dashboards, adaptive assignments, and coaches who only teach SAT math—no clutter, just mastery.
-              </p>
-              <ul class="grid gap-2 text-[var(--text-soft)] list-disc list-inside">
-                <li>Personalized weekly roadmaps</li>
-                <li>Exam-grade diagnostics every 4 weeks</li>
-                <li>Score reports parents actually understand</li>
-              </ul>
-              <a href="#programs" class="link-accent">See programs →</a>
-            </div>
-          </div>
-        </aside>
       </div>
     </section>
 
-    <!-- PROGRAMS -->
-    <section id="programs" class="section">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="section-head" data-reveal>
+    <!-- PROGRAMS (sample, keep brief) -->
+    <section id="programs" class="section" aria-labelledby="programs-title">
+      <div class="shell">
+        <header class="section-head" data-reveal>
           <p class="eyebrow">Programs</p>
-          <h2 class="section-title">Three tracks, one standard of excellence</h2>
-          <p class="section-sub">All tracks include instructor access, targeted homework, and data-backed review cycles.</p>
-        </div>
+          <h2 id="programs-title" class="section-title">Three tracks, one standard of excellence.</h2>
+          <p class="section-sub">All include adaptive homework, analytics dashboards, and direct mentor access.</p>
+        </header>
 
-        <div class="grid md:grid-cols-3 gap-6">
-          <!-- Beginner -->
-          <article class="card group" data-reveal>
-            <span class="tag">Beginner · <span class="price" data-price="199">—</span></span>
-            <h3 class="card-title">Beginner</h3>
-            <p class="card-copy">Self-paced foundations delivered through our private Slack workspace.</p>
-            <ul class="mt-2 card-copy list-disc list-inside">
-              <li>Foundational concepts, clearly explained</li>
-              <li>Daily problem sets with instant feedback</li>
-              <li>Weekly check-ins to keep momentum</li>
-            </ul>
-            <div class="mt-5 flex flex-wrap gap-2">
+        <div class="cards" data-reveal>
+          <article class="card">
+            <span class="tag">Beginner · <span class="price" data-price="199">$199</span></span>
+            <h3>Beginner</h3>
+            <p>Calm, self-paced foundations delivered in a clean workspace.</p>
+            <div class="card-actions">
               <a class="btn btn-primary" href="payment-beginner.html">Enroll</a>
-              <a class="btn btn-outline" href="beginner.html">See syllabus</a>
+              <a class="btn btn-outline" href="beginner.html">Syllabus</a>
             </div>
           </article>
 
-          <!-- Medium -->
-          <article class="card group" data-reveal style="--delay:.04s">
-            <span class="tag">Medium · <span class="price" data-price="599">—</span></span>
-            <h3 class="card-title">Medium</h3>
-            <p class="card-copy">Live instruction + structured practice. Ideal for 1300–1450 goals.</p>
-            <ul class="mt-2 card-copy list-disc list-inside">
-              <li>Live sessions four times per week</li>
-              <li>Graded assignments & instructor feedback</li>
-              <li>Monthly parent briefings with insights</li>
-            </ul>
-            <div class="mt-5 flex flex-wrap gap-2">
+          <article class="card">
+            <span class="tag">Medium · <span class="price" data-price="599">$599</span></span>
+            <h3>Medium</h3>
+            <p>Live sessions + graded assignments for 1300–1450 goals.</p>
+            <div class="card-actions">
               <a class="btn btn-primary" href="payment-medium.html">Enroll</a>
-              <a class="btn btn-outline" href="medium.html">See syllabus</a>
+              <a class="btn btn-outline" href="medium.html">Syllabus</a>
             </div>
           </article>
 
-          <!-- Intensive -->
-          <article class="card group" data-reveal style="--delay:.08s">
-            <span class="tag">Intensive · <span class="price" data-price="1099">—</span></span>
-            <h3 class="card-title">Intensive</h3>
-            <p class="card-copy">Dedicated 1:1 mentorship, pressure-tested exams, and elite problem-solving.</p>
-            <ul class="mt-2 card-copy list-disc list-inside">
-              <li>Olympiad-grade workshops and labs</li>
-              <li>Custom scoring analytics each session</li>
-              <li>Concierge access to your lead coach</li>
-            </ul>
-            <div class="mt-5 flex flex-wrap gap-2">
+          <article class="card">
+            <span class="tag">Intensive · <span class="price" data-price="1099">$1,099</span></span>
+            <h3>Intensive</h3>
+            <p>1:1 mentorship, simulations, and elite problem-solving.</p>
+            <div class="card-actions">
               <a class="btn btn-primary" href="payment-intensive.html">Enroll</a>
-              <a class="btn btn-outline" href="intensive.html">See syllabus</a>
+              <a class="btn btn-outline" href="intensive.html">Syllabus</a>
             </div>
           </article>
         </div>
@@ -199,71 +112,67 @@
     </section>
 
     <!-- APPROACH -->
-    <section id="approach" class="section">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="section-head" data-reveal>
+    <section id="approach" class="section" aria-labelledby="approach-title">
+      <div class="shell">
+        <header class="section-head" data-reveal>
           <p class="eyebrow">Approach</p>
-          <h2 class="section-title">Minimal noise. Maximum clarity.</h2>
-          <p class="section-sub">We keep the interface simple so the work feels focused—students know what to tackle, when to ask for help, and how to measure progress.</p>
-        </div>
+          <h2 id="approach-title" class="section-title">Minimal noise. Maximum clarity.</h2>
+          <p class="section-sub">Diagnose → plan → practice → reflect. We keep the interface simple so focus stays high.</p>
+        </header>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <article class="card" data-reveal>
-            <h3 class="card-title">Personal diagnostics</h3>
-            <p class="card-copy">Start with a full digital SAT to map strengths, gaps, and timing habits; recalibrate every 4 weeks.</p>
-          </article>
-          <article class="card" data-reveal style="--delay:.04s">
-            <h3 class="card-title">Slack-first mentorship</h3>
-            <p class="card-copy">Chat with your mentor, submit work, and get Loom walkthroughs without days of delay.</p>
-          </article>
-          <article class="card" data-reveal style="--delay:.08s">
-            <h3 class="card-title">Designed for calm focus</h3>
-            <p class="card-copy">Clean dashboards, paced assignments, and reflection prompts keep stress down and clarity up.</p>
-          </article>
+        <div class="pillars" data-reveal>
+          <div class="pillar">
+            <h3>Personal diagnostics</h3>
+            <p>Full-length baseline → recalibrations every 4 weeks.</p>
+          </div>
+          <div class="pillar">
+            <h3>Slack-first mentorship</h3>
+            <p>Answers and walkthroughs when you need them.</p>
+          </div>
+          <div class="pillar">
+            <h3>Calm, focused design</h3>
+            <p>Guided sprints + visual progress keep stress down.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- RESULTS -->
-    <section id="results" class="section">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="section-head" data-reveal>
+    <!-- OUTCOMES -->
+    <section id="outcomes" class="section" aria-labelledby="outcomes-title">
+      <div class="shell">
+        <header class="section-head" data-reveal>
           <p class="eyebrow">Outcomes</p>
-          <h2 class="section-title">Proof that precision prep works</h2>
-          <p class="section-sub">From diagnostic to final score, every milestone is tracked and shared with both student and family.</p>
-        </div>
+          <h2 id="outcomes-title" class="section-title">Proof that precision prep works.</h2>
+          <p class="section-sub">Score gains, completion rates, and transparent parent reports.</p>
+        </header>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="metric-card" data-reveal>
-            <div class="metric">+210</div>
-            <div class="metric-sub">Avg. SAT lift</div>
+        <div class="stats" data-reveal>
+          <div class="stat">
+            <span>Avg. score gain</span>
+            <strong>+210</strong>
           </div>
-          <div class="metric-card" data-reveal style="--delay:.03s">
-            <div class="metric">97%</div>
-            <div class="metric-sub">Weekly completion</div>
+          <div class="stat">
+            <span>Practice bank</span>
+            <strong>3,000+</strong>
           </div>
-          <div class="metric-card" data-reveal style="--delay:.06s">
-            <div class="metric">3,000+</div>
-            <div class="metric-sub">Practice problems</div>
-          </div>
-          <div class="metric-card" data-reveal style="--delay:.09s">
-            <div class="metric">A+</div>
-            <div class="metric-sub">Parent confidence</div>
+          <div class="stat">
+            <span>Tutor percentile</span>
+            <strong>99th</strong>
           </div>
         </div>
       </div>
     </section>
 
     <!-- CTA -->
-    <section id="contact" class="section pb-24">
-      <div class="max-w-5xl mx-auto px-6">
-        <div class="surface p-8 rounded-2xl shadow-card ring-1 ring-black/5 grid lg:grid-cols-2 gap-8 items-center" data-reveal>
+    <section class="cta section" aria-labelledby="cta-title">
+      <div class="shell">
+        <div class="cta-card" data-reveal>
           <div>
-            <h3 class="section-title">Let’s build a plan that fits your student</h3>
-            <p class="section-sub">Pick a time that works, or tell us your goals and we’ll recommend the right track. We respond within one business day.</p>
+            <h2 id="cta-title" class="section-title">Let’s build a plan that fits your student.</h2>
+            <p class="section-sub">Pick a time that works. We respond within one business day.</p>
           </div>
-          <div class="flex flex-wrap gap-3 lg:justify-end">
-            <a class="btn btn-primary" href="booking.html">Book a consultation</a>
+          <div class="cta-actions">
+            <button class="btn btn-primary" data-open-modal>Book a consultation</button>
             <a class="btn btn-outline" href="mailto:sanmay.pachika@gmail.com">Email us</a>
           </div>
         </div>
@@ -272,29 +181,33 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="mt-10 border-t border-black/5 bg-white/60 backdrop-blur supports-[backdrop-filter]:bg-white/40 text-[var(--charcoal)]">
-    <div class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-6">
+  <footer class="footer">
+    <div class="shell footer-grid">
       <div>
-        <p class="font-semibold" style="font-family:'Space Grotesk',sans-serif;">Sunnypreps</p>
-        <p class="text-sm text-black/60 mt-2">Clean, modern tutoring built for outcomes.</p>
+        <a class="brand" href="#home">Sunnypreps</a>
+        <p class="foot-note">© <span id="y"></span> Sunnypreps. All rights reserved.</p>
       </div>
-      <div class="text-sm">
-        <p class="font-medium">Contact</p>
-        <p class="text-black/60 mt-1">hello@sunnypreps.example</p>
-      </div>
-      <div class="text-sm">
-        <p class="font-medium">Links</p>
-        <ul class="mt-1 space-y-1">
-          <li><a class="link-accent" href="#programs">Programs</a></li>
-          <li><a class="link-accent" href="#approach">Approach</a></li>
-          <li><a class="link-accent" href="#results">Outcomes</a></li>
-        </ul>
-      </div>
+      <nav class="foot-links" aria-label="Footer navigation">
+        <a href="#programs">Programs</a>
+        <a href="#approach">Approach</a>
+        <a href="#outcomes">Outcomes</a>
+        <a href="booking.html">Consultation</a>
+      </nav>
     </div>
-    <div class="max-w-7xl mx-auto px-6 pb-8 text-xs text-black/50">© <span id="y"></span> Sunnypreps. All rights reserved.</div>
   </footer>
 
-  <!-- Global interactions (affects EVERY page) -->
+  <!-- CONSULT MODAL -->
+  <div class="consult-modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="consult-title">
+      <button class="modal-close" type="button" aria-label="Close" data-close-modal>&times;</button>
+      <h2 id="consult-title">Schedule with Sunnypreps</h2>
+      <p>Pick a time below or email <a href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a>.</p>
+      <div class="cal-placeholder">
+        <p>(Embed Calendly here or link to <a href="booking.html">booking.html</a>)</p>
+      </div>
+    </div>
+  </div>
+
   <script src="script.js" defer></script>
 </body>
 </html>
