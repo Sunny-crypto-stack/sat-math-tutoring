@@ -2,139 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>sunnypreps. — Book a Call</title>
-  <meta name="description" content="Schedule a consultation with sunnypreps. mentors to design a calm, Midnight Coral learning journey." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Consultation | sunnypreps.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            midnight: '#1E2A5E',
-            coral: '#FF7A70',
-            cream: '#FAF7F2',
-            charcoal: '#1B1B1B',
-          },
-          fontFamily: {
-            display: ['Space Grotesk', 'Inter', 'sans-serif'],
-            body: ['Inter', 'system-ui', 'sans-serif'],
-          },
-          boxShadow: {
-            soft: '0 30px 80px -40px rgba(30, 42, 94, 0.55)',
-            panel: '0 40px 120px -50px rgba(30, 42, 94, 0.45)',
-          },
-          borderRadius: {
-            large: '24px',
-            medium: '20px',
-          },
-        },
-      },
-    };
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-cream text-charcoal font-body antialiased relative overflow-x-hidden">
-  <div class="gradient-overlay" aria-hidden="true"></div>
-  <!-- Shared navigation -->
-  <header class="site-header is-transparent" data-nav>
-    <div class="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-6 py-6 lg:px-8">
-      <a href="index.html" class="brand" aria-label="sunnypreps. home">sunnypreps.</a>
-      <nav class="primary-nav" id="primary-navigation" aria-label="Primary navigation">
-        <a href="index.html#programs">Programs</a>
-        <a href="index.html#approach">Approach</a>
-        <a href="index.html#outcomes">Outcomes</a>
-        <a href="index.html#contact">Contact</a>
-        <a href="practice.html">Practice</a>
-      </nav>
-      <div class="flex items-center gap-3">
-        <a class="btn-muted hidden rounded-large border-2 border-white/40 px-5 py-3 text-sm font-semibold text-white/90 transition hover:-translate-y-0.5 hover:text-white lg:inline-flex" href="practice.html">Practice sets</a>
-        <button class="btn-primary hidden rounded-large px-5 py-3 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-1 lg:inline-flex" type="button" data-open-modal>
-          Book a call
-        </button>
-        <button class="nav-toggle" type="button" data-nav-toggle aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+<body>
+  <header class="site-header">
+    <div class="shell">
+      <div class="header-bar">
+        <a class="brand" href="index.html">sunnypreps.</a>
+        <nav class="primary-nav" aria-label="Primary navigation">
+          <a href="index.html#courses">Courses</a>
+          <a href="index.html#mission">Approach</a>
+          <a href="index.html#results">Results</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+        <div class="header-actions">
+          <a class="btn btn-outline" href="index.html#contact">Back to site</a>
+        </div>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- Hero -->
-    <section class="hero hero--compact" data-animate>
-      <div class="hero-shell">
-        <div class="hero-card">
-          <span class="hero-badge">Consultation</span>
-          <h1 class="hero-title">Let’s co-design your learning arc</h1>
-          <p class="hero-copy">Pick a time that works for your family. We’ll meet in our Midnight Coral workspace, explore goals, and outline a personalized plan.</p>
-          <ul class="hero-highlights" role="list">
-            <li>
-              <span class="hero-icon hero-icon--target" aria-hidden="true"></span>
-              <span>30-minute call with a lead mentor and program designer</span>
-            </li>
-            <li>
-              <span class="hero-icon hero-icon--spark" aria-hidden="true"></span>
-              <span>Walk through the portal, session flow, and outcomes timeline</span>
-            </li>
-            <li>
-              <span class="hero-icon hero-icon--loop" aria-hidden="true"></span>
-              <span>Follow-up summary with next steps within 24 hours</span>
-            </li>
-          </ul>
-        </div>
-        <div class="hero-ambient" aria-hidden="true">
-          <div class="hero-orbit hero-orbit--primary"></div>
-          <div class="hero-orbit hero-orbit--accent"></div>
-          <div class="hero-glyph hero-glyph--book"></div>
-          <div class="hero-glyph hero-glyph--thumb"></div>
-        </div>
-      </div>
-    </section>
+    <div class="shell">
+      <section class="page-hero">
+        <span class="tag">Consultation</span>
+        <h1>Pick a time that fits your schedule.</h1>
+        <p>Consultations are free and last 30 minutes. We’ll understand your student’s goals, outline a roadmap, and answer questions about our tracks.</p>
+      </section>
 
-    <!-- Calendly embed -->
-    <section class="section section--no-top" data-animate>
-      <div class="surface surface--accent mx-auto max-w-5xl px-6 lg:px-8">
-        <div class="callout-card">
-          <div class="calendly-inline-widget" data-url="https://calendly.com/sanmay-pachika/30min" style="min-width: 320px; height: 750px;"></div>
-        </div>
-        <p class="mt-6 text-center text-sm text-charcoal/70">Need a different time? Email <a class="text-midnight underline" href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a> and we’ll arrange it.</p>
-      </div>
-    </section>
+      <section class="page-section highlight-card">
+        <div class="calendly-inline-widget" data-url="https://calendly.com/sanmay-pachika/30min" style="min-width:320px;height:630px;"></div>
+        <p class="inline-note">If the calendar doesn’t load, email <a href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a> or call <a href="tel:+14703381677">+1&nbsp;470‑338‑1677</a>.</p>
+      </section>
+    </div>
   </main>
 
-  <footer class="border-t border-white/40 bg-midnight/90 py-12 text-white">
-    <div class="mx-auto flex max-w-6xl flex-col gap-8 px-6 lg:flex-row lg:items-start lg:justify-between lg:px-8">
-      <div class="max-w-sm space-y-4">
-        <a href="index.html#top" class="text-lg font-semibold tracking-tight">sunnypreps.</a>
-        <p class="text-sm text-white/70">&copy; 2025 sunnypreps. Crafted with the Midnight Coral system for calm, design-led learning.</p>
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div>
+        <a class="brand" href="index.html">sunnypreps.</a>
+        <p>&copy; 2025 sunnypreps. — founded by Sanmay Pachika &amp; co-founder Aswanth Nair.</p>
       </div>
-      <div class="grid gap-2 text-sm text-white/80 sm:grid-cols-2 lg:gap-4">
-        <a class="hover:text-white" href="index.html#programs">Programs</a>
-        <a class="hover:text-white" href="index.html#approach">Approach</a>
-        <a class="hover:text-white" href="index.html#outcomes">Outcomes</a>
-        <a class="hover:text-white" href="practice.html">Practice hub</a>
-        <a class="hover:text-white" href="portal.html">Portal preview</a>
-        <a class="hover:text-white" href="booking.html">Book a consultation</a>
-      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="index.html#courses">Courses</a>
+        <a href="index.html#mission">Approach</a>
+        <a href="index.html#results">Results</a>
+        <a href="booking.html">Consultation</a>
+      </nav>
     </div>
   </footer>
 
-  <div class="consult-modal" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="consult-title">
-      <button class="modal-close" type="button" data-close-modal aria-label="Close consultation modal">&times;</button>
-      <h2 id="consult-title" class="font-display text-2xl text-midnight">Schedule your sunnypreps. session</h2>
-      <p class="mt-4 text-sm text-charcoal/80">Choose a time that works best and we’ll confirm instantly. Prefer a quick hello? Email <a class="text-midnight underline" href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a>.</p>
-      <div class="calendly-inline-widget" data-url="https://calendly.com/sanmay-pachika/30min" style="min-width: 320px; height: 620px;"></div>
-    </div>
-  </div>
-
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-  <script src="script.js" defer></script>
 </body>
 </html>
