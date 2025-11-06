@@ -2,199 +2,109 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>sunnypreps. — Beginner Studio</title>
-  <meta name="description" content="Beginner Studio by sunnypreps. rebuilds SAT math fundamentals through calm, design-led mentorship." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beginner Course | sunnypreps.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            midnight: '#1E2A5E',
-            coral: '#FF7A70',
-            cream: '#FAF7F2',
-            charcoal: '#1B1B1B',
-          },
-          fontFamily: {
-            display: ['Space Grotesk', 'Inter', 'sans-serif'],
-            body: ['Inter', 'system-ui', 'sans-serif'],
-          },
-          boxShadow: {
-            soft: '0 30px 80px -40px rgba(30, 42, 94, 0.55)',
-            panel: '0 40px 120px -50px rgba(30, 42, 94, 0.45)',
-          },
-          borderRadius: {
-            large: '24px',
-            medium: '20px',
-          },
-        },
-      },
-    };
-  </script>
-  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-cream text-charcoal font-body antialiased relative overflow-x-hidden">
-  <div class="gradient-overlay" aria-hidden="true"></div>
-  <!-- Shared navigation -->
-  <header class="site-header is-transparent" data-nav>
-    <div class="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-6 py-6 lg:px-8">
-      <a href="index.html" class="brand" aria-label="sunnypreps. home">sunnypreps.</a>
-      <nav class="primary-nav" id="primary-navigation" aria-label="Primary navigation">
-        <a href="index.html#programs">Programs</a>
-        <a href="index.html#approach">Approach</a>
-        <a href="index.html#outcomes">Outcomes</a>
-        <a href="index.html#contact">Contact</a>
-        <a href="practice.html">Practice</a>
-      </nav>
-      <div class="flex items-center gap-3">
-        <a class="btn-muted hidden rounded-large border-2 border-white/40 px-5 py-3 text-sm font-semibold text-white/90 transition hover:-translate-y-0.5 hover:text-white lg:inline-flex" href="practice.html">Practice sets</a>
-        <button class="btn-primary hidden rounded-large px-5 py-3 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-1 lg:inline-flex" type="button" data-open-modal>
-          Book a call
-        </button>
-        <button class="nav-toggle" type="button" data-nav-toggle aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+<body>
+  <header class="site-header">
+    <div class="shell">
+      <div class="header-bar">
+        <a class="brand" href="index.html">sunnypreps.</a>
+        <nav class="primary-nav" aria-label="Primary navigation">
+          <a href="index.html#courses">Courses</a>
+          <a href="index.html#mission">Approach</a>
+          <a href="index.html#results">Results</a>
+          <a href="booking.html">Consultation</a>
+        </nav>
+        <div class="header-actions">
+          <a class="btn btn-outline" href="booking.html">Book a call</a>
+        </div>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- Hero -->
-    <section class="px-6 pt-36 pb-20 lg:px-8" data-animate>
-      <div class="mx-auto max-w-5xl text-center">
-        <span class="inline-flex items-center gap-2 rounded-full border border-midnight/15 bg-white/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-midnight/70 shadow-soft backdrop-blur">Beginner Studio</span>
-        <h1 class="mt-8 font-display text-4xl leading-tight text-midnight sm:text-5xl lg:text-6xl">Foundations that feel effortless.</h1>
-        <p class="mt-6 text-lg text-charcoal/80 sm:text-xl">A twelve-week arc designed to rebuild SAT math fundamentals with warmth, design-led feedback, and consistent mentor support.</p>
-        <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <a href="payment-beginner.html" class="btn-primary rounded-large px-8 py-3 text-base font-semibold text-white shadow-soft transition hover:-translate-y-1">Enroll for <span class="price ml-2 inline-block" data-usd="199">$199</span></a>
-          <button type="button" data-open-modal class="btn-outline rounded-large border border-midnight/20 bg-white/70 px-8 py-3 text-base font-semibold text-midnight transition hover:-translate-y-1 hover:bg-white">Talk with a mentor</button>
+    <div class="shell">
+      <section class="page-hero">
+        <span class="tag">Beginner · asynchronous</span>
+        <h1>Self-paced SAT math foundations.</h1>
+        <p>The Beginner track helps motivated students rebuild confidence with structured lessons, responsive practice sets, and gentle accountability delivered inside our Slack workspace.</p>
+        <div class="page-actions">
+          <a class="btn btn-primary" href="payment-beginner.html">Enroll for <span class="price" data-usd="199">$199</span></a>
+          <a class="btn btn-outline" href="booking.html">Talk to a mentor</a>
+          <span class="inline-note">Need a different pace? Explore the <a href="medium.html">medium</a> or <a href="intensive.html">intensive</a> tracks.</span>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Curriculum breakdown -->
-    <section class="section" data-animate>
-      <div class="mx-auto max-w-5xl px-6 lg:px-8">
-        <div class="section-heading">
-          <p class="eyebrow">What’s inside</p>
-          <h2 class="section-title">A progressive path through every SAT math domain.</h2>
-          <p class="section-copy">We soften steep learning curves with cinematic lesson kits, interactive whiteboards, and visual progress maps parents can follow.</p>
-        </div>
-        <div class="grid gap-6 sm:grid-cols-2">
-          <article class="feature-card">
-            <h3 class="feature-title">Weeks 1–4 · Number sense reset</h3>
-            <p class="feature-copy">Refresh core arithmetic, fractions, ratios, and percentages with motion-based explanations and quick wins.</p>
-          </article>
-          <article class="feature-card">
-            <h3 class="feature-title">Weeks 5–8 · Algebra alive</h3>
-            <p class="feature-copy">Students interact with dynamic graphs and visual manipulatives to master linear and quadratic relationships.</p>
-          </article>
-          <article class="feature-card">
-            <h3 class="feature-title">Weeks 9–10 · Geometry groove</h3>
-            <p class="feature-copy">Rounded canvases and overlays highlight shapes, angles, and coordinate geometry without the clutter.</p>
-          </article>
-          <article class="feature-card">
-            <h3 class="feature-title">Weeks 11–12 · Data storytelling</h3>
-            <p class="feature-copy">Mentors coach students to narrate their reasoning through charts, tables, and experiment design prompts.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+      <section class="page-section highlight-card">
+        <h2>What’s included</h2>
+        <ul>
+          <li>Daily lesson drops that cover linear and quadratic equations, exponentials, ratios, statistics, geometry, and more.</li>
+          <li>Adaptive question generator that expands practice sets based on performance.</li>
+          <li>Auto-graded assignments with progress tracking and weekly momentum nudges.</li>
+          <li>Access to our exclusive library of original SAT-style problems and walkthroughs.</li>
+        </ul>
+      </section>
 
-    <!-- Support layers -->
-    <section class="section" data-animate>
-      <div class="mx-auto max-w-6xl px-6 lg:px-8">
-        <div class="section-heading">
-          <p class="eyebrow">Support layers</p>
-          <h2 class="section-title">Designed to keep families confident.</h2>
-          <p class="section-copy">Every element—from reminders to recap videos—follows the Midnight Coral palette, ensuring a cohesive experience on desktop and mobile.</p>
-        </div>
-        <div class="grid gap-6 lg:grid-cols-3">
-          <article class="program-card">
-            <h3 class="program-title">Weekly mentor sync</h3>
-            <p class="program-copy">Students meet live for 30 minutes to refine strategies. Parents receive a two-minute Loom recap.</p>
-          </article>
-          <article class="program-card">
-            <h3 class="program-title">Practice hub access</h3>
-            <p class="program-copy">Curated beginner sets with instant hints, audio walkthroughs, and streak tracking built into the UI.</p>
-          </article>
-          <article class="program-card">
-            <h3 class="program-title">Calm accountability</h3>
-            <p class="program-copy">Friendly nudges via SMS and Slack remind students of upcoming checkpoints without pressure.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+      <section class="page-section">
+        <h2>How it works</h2>
+        <p>Each morning, you’ll receive a focused lesson with examples, a practice checklist, and checkpoints to confirm understanding. You move at your own pace, while our system calibrates difficulty and keeps a pulse on accuracy.</p>
+        <p>Parents receive optional weekly recaps summarizing mastered topics and suggested areas for extra review.</p>
+      </section>
 
-    <!-- Outcome timeline -->
-    <section class="section" data-animate>
-      <div class="mx-auto flex max-w-5xl flex-col gap-10 px-6 lg:flex-row lg:items-center lg:px-8">
-        <div class="lg:w-1/2">
-          <p class="eyebrow">Outcomes</p>
-          <h2 class="section-title text-left">See the lift in real time.</h2>
-          <p class="section-copy text-left">Our dashboards translate analytics into clear storytelling, so learners stay motivated and parents see tangible growth.</p>
+      <section class="page-section">
+        <h2>Ready to start?</h2>
+        <p>Checkout is handled securely through PayPal. You’ll receive access to the course portal and Slack workspace within 24 hours.</p>
+        <div class="page-actions">
+          <a class="btn btn-primary" href="payment-beginner.html">Proceed to secure payment</a>
+          <span class="inline-note">Questions? Email <a href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a>.</span>
         </div>
-        <div class="timeline-card">
-          <div class="timeline-step">
-            <span class="timeline-index">01</span>
-            <div>
-              <h3>Baseline snapshot</h3>
-              <p>Students complete a short diagnostic. We transform the data into a moodboard of next steps.</p>
-            </div>
-          </div>
-          <div class="timeline-step">
-            <span class="timeline-index">02</span>
-            <div>
-              <h3>Weekly reflections</h3>
-              <p>Mentors annotate work inside our canvas so students can replay feedback anytime.</p>
-            </div>
-          </div>
-          <div class="timeline-step">
-            <span class="timeline-index">03</span>
-            <div>
-              <h3>Confidence showcase</h3>
-              <p>Families receive a celebration reel summarizing mastery, opportunities, and the path ahead.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 
-  <footer class="border-t border-white/40 bg-midnight/90 py-12 text-white">
-    <div class="mx-auto flex max-w-6xl flex-col gap-8 px-6 lg:flex-row lg:items-start lg:justify-between lg:px-8">
-      <div class="max-w-sm space-y-4">
-        <a href="index.html#top" class="text-lg font-semibold tracking-tight">sunnypreps.</a>
-        <p class="text-sm text-white/70">&copy; 2025 sunnypreps. Crafted with the Midnight Coral system for calm, design-led learning.</p>
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div>
+        <a class="brand" href="index.html">sunnypreps.</a>
+        <p>&copy; 2025 sunnypreps. — founded by Sanmay Pachika &amp; co-founder Aswanth Nair.</p>
       </div>
-      <div class="grid gap-2 text-sm text-white/80 sm:grid-cols-2 lg:gap-4">
-        <a class="hover:text-white" href="index.html#programs">Programs</a>
-        <a class="hover:text-white" href="index.html#approach">Approach</a>
-        <a class="hover:text-white" href="index.html#outcomes">Outcomes</a>
-        <a class="hover:text-white" href="practice.html">Practice hub</a>
-        <a class="hover:text-white" href="portal.html">Portal preview</a>
-        <a class="hover:text-white" href="booking.html">Book a consultation</a>
-      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="index.html#courses">Courses</a>
+        <a href="index.html#mission">Approach</a>
+        <a href="index.html#results">Results</a>
+        <a href="booking.html">Consultation</a>
+      </nav>
     </div>
   </footer>
 
-  <div class="consult-modal" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="consult-title">
-      <button class="modal-close" type="button" data-close-modal aria-label="Close consultation modal">&times;</button>
-      <h2 id="consult-title" class="font-display text-2xl text-midnight">Schedule your sunnypreps. session</h2>
-      <p class="mt-4 text-sm text-charcoal/80">Choose a time that works best and we’ll confirm instantly. Prefer a quick hello? Email <a class="text-midnight underline" href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a>.</p>
-      <div class="calendly-inline-widget" data-url="https://calendly.com/sanmay-pachika/30min" style="min-width: 320px; height: 620px;"></div>
-    </div>
-  </div>
+  <script>
+    (function () {
+      const rates = { USD: 1, EUR: 0.94, GBP: 0.82, CAD: 1.36, AUD: 1.56, INR: 83.0, JPY: 149.0 };
+      const locale = navigator.language || navigator.userLanguage || 'en-US';
+      let currency = 'USD';
+      if (locale.startsWith('en-GB')) currency = 'GBP';
+      else if (locale.startsWith('fr') || locale.startsWith('de') || locale.startsWith('es')) currency = 'EUR';
+      else if (locale.startsWith('en-CA')) currency = 'CAD';
+      else if (locale.startsWith('en-AU')) currency = 'AUD';
+      else if (locale.startsWith('hi') || locale.startsWith('en-IN')) currency = 'INR';
+      else if (locale.startsWith('ja')) currency = 'JPY';
 
-  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-  <script src="script.js" defer></script>
+      const rate = rates[currency] || 1;
+      const formatter = new Intl.NumberFormat(locale, { style: 'currency', currency });
+
+      document.querySelectorAll('.price').forEach(function (el) {
+        const usdValue = parseFloat(el.getAttribute('data-usd'));
+        if (!usdValue) return;
+        const converted = usdValue * rate;
+        const formatted = formatter.format(converted);
+        el.textContent = formatted;
+      });
+    })();
+  </script>
 </body>
 </html>

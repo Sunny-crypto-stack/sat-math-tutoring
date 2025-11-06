@@ -2,193 +2,141 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>sunnypreps. — Portal Preview</title>
-  <meta name="description" content="Preview the sunnypreps. Midnight Coral portal with dashboards, messaging, and progress showcases." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sunnypreps. Portal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            midnight: '#1E2A5E',
-            coral: '#FF7A70',
-            cream: '#FAF7F2',
-            charcoal: '#1B1B1B',
-          },
-          fontFamily: {
-            display: ['Space Grotesk', 'Inter', 'sans-serif'],
-            body: ['Inter', 'system-ui', 'sans-serif'],
-          },
-          boxShadow: {
-            soft: '0 30px 80px -40px rgba(30, 42, 94, 0.55)',
-            panel: '0 40px 120px -50px rgba(30, 42, 94, 0.45)',
-          },
-          borderRadius: {
-            large: '24px',
-            medium: '20px',
-          },
-        },
-      },
-    };
-  </script>
-  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-cream text-charcoal font-body antialiased relative overflow-x-hidden">
-  <div class="gradient-overlay" aria-hidden="true"></div>
-  <!-- Shared navigation -->
-  <header class="site-header is-transparent" data-nav>
-    <div class="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-6 py-6 lg:px-8">
-      <a href="index.html" class="brand" aria-label="sunnypreps. home">sunnypreps.</a>
-      <nav class="primary-nav" id="primary-navigation" aria-label="Primary navigation">
-        <a href="index.html#programs">Programs</a>
-        <a href="index.html#approach">Approach</a>
-        <a href="index.html#outcomes">Outcomes</a>
-        <a href="index.html#contact">Contact</a>
-        <a href="practice.html">Practice</a>
-      </nav>
-      <div class="flex items-center gap-3">
-        <a class="btn-muted hidden rounded-large border-2 border-white/40 px-5 py-3 text-sm font-semibold text-white/90 transition hover:-translate-y-0.5 hover:text-white lg:inline-flex" href="practice.html">Practice sets</a>
-        <button class="btn-primary hidden rounded-large px-5 py-3 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-1 lg:inline-flex" type="button" data-open-modal>
-          Book a call
-        </button>
-        <button class="nav-toggle" type="button" data-nav-toggle aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+<body>
+  <header class="site-header">
+    <div class="shell">
+      <div class="header-bar">
+        <a class="brand" href="index.html">sunnypreps.</a>
+        <nav class="primary-nav" aria-label="Primary navigation">
+          <a href="index.html#courses">Courses</a>
+          <a href="index.html#mission">Approach</a>
+          <a href="index.html#results">Results</a>
+          <a href="booking.html">Consultation</a>
+        </nav>
+        <div class="header-actions">
+          <a class="btn btn-outline" href="index.html#contact">Book a call</a>
+        </div>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- Hero -->
-    <section class="px-6 pt-36 pb-16 lg:px-8" data-animate>
-      <div class="mx-auto max-w-5xl text-center">
-        <span class="inline-flex items-center gap-2 rounded-full border border-midnight/15 bg-white/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-midnight/70 shadow-soft backdrop-blur">Portal preview</span>
-        <h1 class="mt-8 font-display text-4xl leading-tight text-midnight sm:text-5xl">Where every detail stays calm and clear.</h1>
-        <p class="mt-6 text-lg text-charcoal/80">Our Midnight Coral portal keeps students focused and parents looped in—without noise. Scroll to explore the dashboards, messaging, and showcase flows.</p>
-      </div>
-    </section>
+    <div class="shell">
+      <section class="page-hero">
+        <span class="tag">Portal preview</span>
+        <h1>One calm hub for tutors, students, and parents.</h1>
+        <p>This demo portal illustrates how sunnypreps. keeps everyone aligned. We currently run the full experience through Slack, shared drives, and weekly reports while the dedicated app is in development.</p>
+      </section>
 
-    <!-- Dashboards overview -->
-    <section class="section" data-animate>
-      <div class="mx-auto max-w-6xl px-6 lg:px-8">
-        <div class="section-heading">
-          <p class="eyebrow">Dashboards</p>
-          <h2 class="section-title">Visualize the journey at a glance.</h2>
-          <p class="section-copy">Rounded panels, soft shadows, and contextual highlights make key insights impossible to miss.</p>
-        </div>
-        <div class="grid gap-6 lg:grid-cols-2">
-          <article class="program-card">
-            <h3 class="program-title">Student dashboard</h3>
-            <p class="program-copy">Focus cards, streak trackers, and playlist embeds align to the current mission.</p>
-            <ul class="program-list">
-              <li>Daily highlights with context</li>
-              <li>Upcoming assignments with timers</li>
-              <li>Quick link to mentor feedback</li>
-            </ul>
-          </article>
-          <article class="program-card">
-            <h3 class="program-title">Parent lounge</h3>
-            <p class="program-copy">Digestible recaps summarize wins, wobble alerts, and next steps in minutes.</p>
-            <ul class="program-list">
-              <li>Score momentum chart</li>
-              <li>Celebration prompts</li>
-              <li>Scheduling shortcuts</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Messaging timeline -->
-    <section class="section" data-animate>
-      <div class="mx-auto max-w-6xl px-6 lg:px-8">
-        <div class="section-heading">
-          <p class="eyebrow">Messaging</p>
-          <h2 class="section-title">Stay connected in real time.</h2>
-          <p class="section-copy">Mentors, students, and parents collaborate in threads with looping reactions and quick voice notes.</p>
-        </div>
-        <div class="timeline-card">
-          <div class="timeline-step">
-            <span class="timeline-index">A</span>
-            <div>
-              <h3>Focus threads</h3>
-              <p>Mentors respond with Loom walkthroughs and annotated files when students need clarity.</p>
-            </div>
+      <section class="page-section">
+        <h2>Tutors</h2>
+        <p>Draft assignments and announcements, then share them in Slack. Use these templates to keep tone and structure consistent.</p>
+        <div class="dashboard-grid">
+          <div class="dashboard-card">
+            <h3>Create assignment</h3>
+            <form onsubmit="alert('This is a demo form. Please post your assignment in Slack.'); return false;">
+              <label>Title<input type="text" required /></label>
+              <label>Description<textarea rows="4" required></textarea></label>
+              <label>Due date<input type="date" required /></label>
+              <button type="submit" class="btn btn-primary">Generate post</button>
+            </form>
           </div>
-          <div class="timeline-step">
-            <span class="timeline-index">B</span>
-            <div>
-              <h3>Celebration loops</h3>
-              <p>Progress badges trigger confetti overlays and gratitude prompts for parents to send.</p>
-            </div>
-          </div>
-          <div class="timeline-step">
-            <span class="timeline-index">C</span>
-            <div>
-              <h3>Schedule sync</h3>
-              <p>Smart reminders keep everyone aligned on workshops, diagnostics, and scholarship deadlines.</p>
-            </div>
+          <div class="dashboard-card">
+            <h3>Share announcement</h3>
+            <form onsubmit="alert('This is a demo form. Please post your announcement in Slack.'); return false;">
+              <label>Announcement<textarea rows="3" required></textarea></label>
+              <button type="submit" class="btn btn-primary">Generate post</button>
+            </form>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Showcase cards -->
-    <section class="section" data-animate>
-      <div class="mx-auto max-w-6xl px-6 lg:px-8">
-        <div class="section-heading">
-          <p class="eyebrow">Showcase</p>
-          <h2 class="section-title">Highlight progress like an art exhibition.</h2>
-          <p class="section-copy">Portfolio pages and celebration reels feature Midnight Coral gradients, soft frames, and strategic calls to action.</p>
+      <section class="page-section">
+        <h2>Students</h2>
+        <p>Assignments appear in a clean list with due dates and status. All submissions continue through Slack for now.</p>
+        <div class="highlight-card">
+          <table>
+            <thead>
+              <tr>
+                <th>Task</th>
+                <th>Due date</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Algebra practice set #5</td>
+                <td>Oct&nbsp;25, 2025</td>
+                <td>Not started</td>
+              </tr>
+              <tr>
+                <td>Reading comprehension quiz</td>
+                <td>Oct&nbsp;27, 2025</td>
+                <td>In progress</td>
+              </tr>
+              <tr>
+                <td>Geometry &amp; trigonometry test</td>
+                <td>Nov&nbsp;2, 2025</td>
+                <td>Completed</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="grid gap-6 lg:grid-cols-3">
-          <article class="feature-card">
-            <h3 class="feature-title">Progress reels</h3>
-            <p class="feature-copy">A looping video montage of the week’s proudest problem solves and reflections.</p>
-          </article>
-          <article class="feature-card">
-            <h3 class="feature-title">Portfolio tiles</h3>
-            <p class="feature-copy">Curated galleries let students annotate their favorite solutions and insights.</p>
-          </article>
-          <article class="feature-card">
-            <h3 class="feature-title">Scholarship spotlight</h3>
-            <p class="feature-copy">Families showcase awards with templated notes and shareable highlight reels.</p>
-          </article>
+      </section>
+
+      <section class="page-section">
+        <h2>Parents</h2>
+        <p>Parents receive concise summaries to track momentum without micromanaging. Live data is delivered via email while we build the connected dashboard.</p>
+        <div class="highlight-card">
+          <table>
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Average score</th>
+                <th>Strengths</th>
+                <th>Focus areas</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Student A</td>
+                <td>88%</td>
+                <td>Algebra, reading comprehension</td>
+                <td>Geometry, trigonometry</td>
+              </tr>
+              <tr>
+                <td>Student B</td>
+                <td>75%</td>
+                <td>Data analysis, vocabulary</td>
+                <td>Algebra, advanced math</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="inline-note">Request access to the weekly recap by emailing <a href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a>.</p>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 
-  <footer class="border-t border-white/40 bg-midnight/90 py-12 text-white">
-    <div class="mx-auto flex max-w-6xl flex-col gap-8 px-6 lg:flex-row lg:items-start lg:justify-between lg:px-8">
-      <div class="max-w-sm space-y-4">
-        <a href="index.html#top" class="text-lg font-semibold tracking-tight">sunnypreps.</a>
-        <p class="text-sm text-white/70">&copy; 2025 sunnypreps. Crafted with the Midnight Coral system for calm, design-led learning.</p>
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div>
+        <a class="brand" href="index.html">sunnypreps.</a>
+        <p>&copy; 2025 sunnypreps. — founded by Sanmay Pachika &amp; co-founder Aswanth Nair.</p>
       </div>
-      <div class="grid gap-2 text-sm text-white/80 sm:grid-cols-2 lg:gap-4">
-        <a class="hover:text-white" href="index.html#programs">Programs</a>
-        <a class="hover:text-white" href="index.html#approach">Approach</a>
-        <a class="hover:text-white" href="index.html#outcomes">Outcomes</a>
-        <a class="hover:text-white" href="practice.html">Practice hub</a>
-        <a class="hover:text-white" href="portal.html">Portal preview</a>
-        <a class="hover:text-white" href="booking.html">Book a consultation</a>
-      </div>
-    </div>
-  </footer>
-
-  <div class="consult-modal" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="consult-title">
-      <button class="modal-close" type="button" data-close-modal aria-label="Close consultation modal">&times;</button>
-      <h2 id="consult-title" class="font-display text-2xl text-midnight">Schedule your sunnypreps. session</h2>
-      <p class="mt-4 text-sm text-charcoal/80">Choose a time that works best and we’ll confirm instantly. Prefer a quick hello? Email <a class="text-midnight underline" href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a>.</p>
-      <div class="calendly-inline-widget" data-url="https://calendly.com/sanmay-pachika/30min" style="min-width: 320px; height: 620px;"></div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="index.html#courses">Courses</a>
+        <a href="index.html#mission">Approach</a>
+        <a href="index.html#results">Results</a>
+        <a href="booking.html">Consultation</a>
+      </nav>
     </div>
   </div>
 
