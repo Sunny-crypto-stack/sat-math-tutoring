@@ -1,156 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Book a Consultation · Sunnypreps</title>
-  <meta name="description" content="Free 30-minute consultation: outline goals, map a path, and get answers." />
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Tailwind (config first, then CDN) -->
-  <script>
-    window.tailwind = {
-      config: {
-        theme: {
-          extend: {
-            colors: {
-              midnight: {
-                blue: '#1E2A5E',
-                coral: '#FF7A70',
-                cream: '#FAF7F2',
-                charcoal: '#1B1B1B'
-              }
-            },
-            borderRadius: {
-              'xl': '16px',
-              '2xl': '24px'
-            },
-            boxShadow: {
-              soft: '0 10px 30px rgba(30,42,94,.10)',
-              card: '0 20px 50px rgba(30,42,94,.12)'
-            }
-          }
-        }
-      }
-    }
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Calendly styles -->
+  <title>Book a Consultation — Sunnypreps</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
-
-  <!-- Site tokens + effects -->
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="min-h-screen bg-[var(--bg)] text-[var(--text)] antialiased">
-  <!-- Ambient gradient -->
-  <div class="fixed inset-0 -z-10 pointer-events-none">
-    <div id="ambient"
-         class="w-[140vmax] h-[140vmax] rounded-full blur-3xl opacity-70 transition-transform duration-500 will-change-transform mx-auto"
-         style="--gx:50%; --gy:35%;"
-         aria-hidden="true"></div>
-  </div>
+<body>
+  <div id="progress-tracker"></div>
+  <div class="ambient-wrapper" aria-hidden="true"><div id="ambient" class="ambient"></div></div>
 
-  <!-- NAV -->
-  <header id="siteNav" class="nav transparent fixed top-0 inset-x-0 z-50 transition-all duration-300">
-    <nav class="max-w-7xl mx-auto px-6">
-      <div class="flex items-center gap-6 py-4">
-        <a href="index.html" class="inline-flex items-center gap-2 font-semibold tracking-tight text-[var(--text-strong)]" aria-label="Homepage">
-          <span class="inline-block h-9 w-9 rounded-2xl bg-[var(--primary)]/10 grid place-items-center ring-1 ring-[var(--primary)]/20">
-            <span class="h-2.5 w-2.5 rounded-full bg-[var(--accent)]"></span>
-          </span>
-        <span class="font-[600]" style="font-family:'Space Grotesk',sans-serif;">Sunnypreps</span>
-        </a>
-
-        <button id="navToggle"
-                class="ml-auto lg:hidden rounded-xl px-3 py-2 ring-1 ring-black/10 bg-white/40 text-[var(--charcoal)] hover:bg-white/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
-                aria-expanded="false" aria-controls="navMenu">
-          Menu
-        </button>
-
-        <ul id="navMenu" class="hidden lg:flex items-center gap-6 ml-auto text-sm">
-          <li><a class="nav-link" href="index.html#programs">Programs</a></li>
-          <li><a class="nav-link" href="index.html#approach">Approach</a></li>
-          <li><a class="nav-link" href="index.html#results">Outcomes</a></li>
-          <li><a class="btn btn-primary" href="#book">Book a Consultation</a></li>
-        </ul>
-      </div>
-
-      <!-- mobile drawer -->
-      <div id="navDrawer" class="hidden lg:hidden pb-4">
-        <ul class="grid gap-2">
-          <li><a class="nav-link block" href="index.html#programs">Programs</a></li>
-          <li><a class="nav-link block" href="index.html#approach">Approach</a></li>
-          <li><a class="nav-link block" href="index.html#results">Outcomes</a></li>
-          <li><a class="btn btn-primary mt-2 inline-flex" href="#book">Book a Consultation</a></li>
-        </ul>
-      </div>
-    </nav>
+  <header id="siteNav" class="nav transparent">
+    <div class="nav-shell">
+      <a class="brand" href="index.html#home"><span class="brand-glyph"></span>Sunnypreps</a>
+      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
+      <nav id="navMenu" class="nav-links">
+        <a href="index.html#programs">Programs</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#outcomes">Outcomes</a>
+        <a class="btn btn-outline" href="index.html#home">Back to site</a>
+      </nav>
+      <nav id="navDrawer" class="nav-drawer hidden">
+        <a href="index.html#programs">Programs</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#outcomes">Outcomes</a>
+        <a class="btn btn-outline" href="index.html#home">Back to site</a>
+      </nav>
+    </div>
   </header>
 
-  <main id="book">
-    <!-- HERO -->
-    <section class="pt-36 lg:pt-40 pb-10">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="max-w-3xl" data-reveal>
-          <p class="eyebrow">Consultation</p>
-          <h1 class="hero-title">Pick a time that fits your schedule</h1>
-          <p class="hero-sub">
-            Free 30-minute call. We’ll understand goals, outline a roadmap, and answer questions about the right track for your student.
-          </p>
-          <div class="mt-6 flex flex-wrap gap-3">
-            <a href="index.html#programs" class="btn btn-outline">View Programs</a>
-            <a href="#calendar" class="btn btn-accent">Open Calendar</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CALENDAR -->
-    <section id="calendar" class="section pt-4">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="surface p-6 lg:p-8 rounded-2xl shadow-card ring-1 ring-black/5" data-reveal>
-          <div class="calendly-inline-widget"
-               data-url="https://calendly.com/sanmay-pachika/30min"
-               style="min-width:320px; height: 680px;"></div>
-          <p class="section-sub mt-4">
-            If the calendar doesn’t load, email
-            <a class="link-accent" href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a>
-            or call <a class="link-accent" href="tel:+14703381677">+1&nbsp;470-338-1677</a>.
-          </p>
+  <main>
+    <section class="hero-edu" aria-labelledby="title">
+      <div class="hero-edu__stage" data-reveal>
+        <p class="hero-edu__eyebrow">Consultation</p>
+        <h1 id="title" class="hero-edu__title">
+          PICK A TIME
+          <span class="hero-edu__highlight">THAT WORKS FOR YOU</span>
+        </h1>
+        <p class="hero-edu__sub">Free 30-minute call. We’ll map goals and recommend the right track.</p>
+        <div class="cal-placeholder" style="background:#fff;margin-top:16px">
+          <div class="calendly-inline-widget" data-url="https://calendly.com/sanmay-pachika/30min" style="min-width:320px;height:650px;"></div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="mt-10 border-t border-black/5 bg-white/60 backdrop-blur supports-[backdrop-filter]:bg-white/40 text-[var(--charcoal)]">
-    <div class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-6">
-      <div>
-        <p class="font-semibold" style="font-family:'Space Grotesk',sans-serif;">Sunnypreps</p>
-        <p class="text-sm text-black/60 mt-2">Clean, modern tutoring built for outcomes.</p>
-      </div>
-      <div class="text-sm">
-        <p class="font-medium">Contact</p>
-        <p class="text-black/60 mt-1">hello@sunnypreps.example</p>
-      </div>
-      <div class="text-sm">
-        <p class="font-medium">Links</p>
-        <ul class="mt-1 space-y-1">
-          <li><a class="link-accent" href="index.html#programs">Programs</a></li>
-          <li><a class="link-accent" href="index.html#approach">Approach</a></li>
-          <li><a class="link-accent" href="index.html#results">Outcomes</a></li>
-        </ul>
-      </div>
+  <footer class="footer">
+    <div class="shell footer-grid">
+      <div><a class="brand" href="index.html#home">Sunnypreps</a><p class="foot-note">© <span id="y"></span> Sunnypreps.</p></div>
+      <nav class="foot-links"><a href="index.html#programs">Programs</a><a href="index.html#approach">Approach</a><a href="index.html#outcomes">Outcomes</a><a href="booking.html">Consultation</a></nav>
     </div>
-    <div class="max-w-7xl mx-auto px-6 pb-8 text-xs text-black/50">© <span id="y"></span> Sunnypreps. All rights reserved.</div>
   </footer>
 
-  <!-- Calendly script -->
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-  <!-- Global interactions (affects EVERY page) -->
   <script src="script.js" defer></script>
 </body>
 </html>
