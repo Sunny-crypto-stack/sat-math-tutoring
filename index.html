@@ -1,146 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sunnypreps — Learning Without Limits</title>
-  <meta name="description" content="Calm, high-intent SAT math mentoring built for students and easy for parents." />
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet"/>
+  <meta name="description" content="Calm, focused SAT math mentoring for students and parents—diagnostic-led plans, adaptive practice, and measurable outcomes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- progress bar -->
+  <!-- Progress bar -->
   <div id="progress-tracker" aria-hidden="true"></div>
 
-  <!-- ambient field -->
+  <!-- Ambient gradient (subtle motion via JS) -->
   <div class="ambient-wrapper" aria-hidden="true">
     <div class="ambient" id="ambient"></div>
   </div>
 
   <!-- NAV -->
   <header class="nav transparent" id="nav">
-    <div class="nav__row">
-      <a class="brand" href="#top">
+    <div class="nav-shell">
+      <a class="brand" href="#top" aria-label="Sunnypreps home">
         <span class="brand-glyph" aria-hidden="true"></span>
         Sunnypreps
       </a>
-      <nav class="nav__links" aria-label="Primary">
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navDrawer">
+        Menu
+      </button>
+
+      <nav class="nav-links" aria-label="Primary">
         <a href="#programs">Programs</a>
         <a href="#approach">Approach</a>
         <a href="#outcomes">Outcomes</a>
+        <button class="btn outline small" data-open-modal>Book a Consultation</button>
+        <a class="btn light small" href="practice.html">Practice Sets</a>
       </nav>
-      <div class="nav__actions">
-        <button class="btn btn--primary" data-open-modal>Book a Consultation</button>
-        <a class="btn btn--ghost" href="#practice">Practice Sets</a>
-      </div>
-      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="drawer">Menu</button>
     </div>
-    <div class="nav-drawer hidden" id="drawer" role="dialog" aria-label="Mobile menu">
-      <a href="#programs">Programs</a>
-      <a href="#approach">Approach</a>
-      <a href="#outcomes">Outcomes</a>
-      <button class="btn btn--primary" data-open-modal>Book a Consultation</button>
+
+    <!-- drawer for mobile -->
+    <div id="navDrawer" class="hidden" role="dialog" aria-label="Site Menu">
+      <div class="nav-drawer">
+        <a href="#programs">Programs</a>
+        <a href="#approach">Approach</a>
+        <a href="#outcomes">Outcomes</a>
+        <button class="btn outline" data-open-modal>Book a Consultation</button>
+        <a class="btn light" href="practice.html">Practice Sets</a>
+      </div>
     </div>
   </header>
 
   <main id="top">
     <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="stage" data-reveal>
-        <p class="eyebrow eyebrow--hero">SAT Math • Focused &amp; Friendly</p>
-        <h1 id="hero-title" class="hero__title">TO GET STARTED<br>
-          <span class="hero__banner">WITH CONFIDENCE</span>
-        </h1>
-        <p class="hero__lede">Learning without the noise. Calm lessons, adaptive practice, and mentors who actually listen — built for students and easy for parents.</p>
-        <div class="hero__ctas">
-          <a class="chip chip--solid" href="#students">I'm a Student</a>
-          <a class="chip chip--light" href="#parents">I'm a Parent</a>
-        </div>
+    <section class="hero-edu">
+      <div class="hero-edu__stage" role="region" aria-label="Intro">
+        <p class="hero-edu__eyebrow">SAT MATH • FOCUSED & FRIENDLY</p>
 
-        <!-- fun thumbs, optional -->
-        <div class="thumb thumb--left" aria-hidden="true">✌️</div>
-        <div class="thumb thumb--right" aria-hidden="true">👍</div>
+        <h1 class="hero-edu__title">
+          TO GET STARTED
+          <span class="hero-edu__highlight">WITH CONFIDENCE</span>
+        </h1>
+
+        <p class="hero-edu__sub">
+          Learning without the noise. Calm lessons, adaptive practice, and mentors who actually listen —
+          built for students and easy for parents.
+        </p>
+
+        <div class="hero-edu__ctas" role="group" aria-label="Primary actions">
+          <a class="btn-edu btn-edu--primary" href="beginner.html">I’m a Student</a>
+          <a class="btn-edu btn-edu--light" href="booking.html">I’m a Parent</a>
+        </div>
       </div>
     </section>
 
-    <!-- PROGRAMS (Cream panel) -->
-    <section id="programs" class="section section--cream" aria-labelledby="programs-title">
+    <!-- PROGRAMS -->
+    <section class="section" id="programs">
       <div class="shell">
-        <div class="section-head">
+        <header class="section-head" data-reveal>
           <p class="eyebrow">Programs</p>
-          <h2 id="programs-title" class="section-title">Three tracks, one standard of excellence.</h2>
-          <p class="section-sub">All include adaptive homework, analytics dashboards, and direct mentor access.</p>
-        </div>
+          <h2 class="section-title">Three tracks, one standard of excellence.</h2>
+          <p class="section-sub">Adaptive homework, analytics dashboards, and direct mentor access—across every plan.</p>
+        </header>
 
         <div class="cards" data-reveal>
           <article class="card">
             <span class="tag">Beginner · $199</span>
             <h3>Beginner</h3>
-            <p>Kickstart fundamentals with calm, self-paced lessons delivered via our private Slack workspace.</p>
+            <p>Rebuild foundations with calm, self-paced lessons delivered in our private Slack workspace.</p>
             <div class="card-actions">
-              <a class="btn btn--primary" href="payment-beginner.html">Enroll</a>
-              <a class="btn btn--ghost" href="beginner.html">See syllabus</a>
+              <a class="btn primary" href="payment-beginner.html">Enroll</a>
+              <a class="btn outline" href="beginner.html">See syllabus</a>
             </div>
           </article>
 
           <article class="card">
             <span class="tag">Medium · $599</span>
             <h3>Medium</h3>
-            <p>Live instruction + structured practice. Ideal for 1300–1450 targets.</p>
+            <p>Live instruction + structured practice for students targeting 1300–1450 scores.</p>
             <div class="card-actions">
-              <a class="btn btn--primary" href="payment-medium.html">Enroll</a>
-              <a class="btn btn--ghost" href="medium.html">See syllabus</a>
+              <a class="btn primary" href="payment-medium.html">Enroll</a>
+              <a class="btn outline" href="medium.html">See syllabus</a>
             </div>
           </article>
 
           <article class="card">
             <span class="tag">Intensive · $1,099</span>
             <h3>Intensive</h3>
-            <p>Dedicated 1:1 mentorship, exam simulations, and elite problem-solving deep dives.</p>
+            <p>Dedicated 1:1 mentorship, pressure-tested exams, and elite-level problem solving.</p>
             <div class="card-actions">
-              <a class="btn btn--primary" href="payment-intensive.html">Enroll</a>
-              <a class="btn btn--ghost" href="intense.html">See syllabus</a>
+              <a class="btn primary" href="payment-intensive.html">Enroll</a>
+              <a class="btn outline" href="intense.html">See syllabus</a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- APPROACH (Cream panel) -->
-    <section id="approach" class="section section--cream" aria-labelledby="approach-title">
+    <!-- APPROACH -->
+    <section class="section" id="approach">
       <div class="shell">
-        <div class="section-head">
+        <header class="section-head" data-reveal>
           <p class="eyebrow">Approach</p>
-          <h2 id="approach-title" class="section-title">Minimal noise. Maximum clarity.</h2>
-          <p class="section-sub">Simple interface → focused work. Students know exactly what to tackle and how to measure progress.</p>
-        </div>
+          <h2 class="section-title">Minimal noise. Maximum clarity.</h2>
+          <p class="section-sub">Students see exactly what to tackle, when to ask for help, and how to measure progress.</p>
+        </header>
+
         <div class="pillars" data-reveal>
           <article class="pillar">
             <h3>Personal diagnostics</h3>
-            <p>Full-length baseline to map strengths, gaps, and timing. Re-calibrated every 4 weeks.</p>
+            <p>We start with a full-length SAT to map strengths, gaps, and timing habits—and recalibrate every 4 weeks.</p>
           </article>
           <article class="pillar">
             <h3>Slack-first mentorship</h3>
-            <p>Ask questions, submit work, and get Loom walkthroughs without waiting days.</p>
+            <p>Students chat directly with their mentor, submit work, and get Loom walkthroughs without waiting days.</p>
           </article>
           <article class="pillar">
             <h3>Designed for calm</h3>
-            <p>Guided sprints and reflection prompts keep stress down and clarity up.</p>
+            <p>Clean dashboards, thoughtfully paced assignments, and reflection prompts keep stress down.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- OUTCOMES (Cream panel) -->
-    <section id="outcomes" class="section section--cream" aria-labelledby="outcomes-title">
+    <!-- OUTCOMES -->
+    <section class="section" id="outcomes">
       <div class="shell">
-        <div class="section-head">
+        <header class="section-head" data-reveal>
           <p class="eyebrow">Outcomes</p>
-          <h2 id="outcomes-title" class="section-title">Proof that precision prep works.</h2>
+          <h2 class="section-title">Proof that precision prep works.</h2>
           <p class="section-sub">Every milestone is tracked and shared with both student and family.</p>
-        </div>
+        </header>
 
         <div class="stats" data-reveal>
           <div class="stat">
@@ -148,7 +158,7 @@
             <strong>+210</strong>
           </div>
           <div class="stat">
-            <span>Practice problems</span>
+            <span>Practice problems solved</span>
             <strong>3,000+</strong>
           </div>
           <div class="stat">
@@ -157,47 +167,43 @@
           </div>
         </div>
 
-        <div class="cta-card" style="margin-top:24px" data-reveal>
+        <div class="cta-card" data-reveal>
           <div>
-            <h3 style="margin:0 0 6px">Let’s build a plan that fits your student.</h3>
-            <p class="section-sub" style="margin:0">Pick a time that works, or reach out with questions. We respond within one business day.</p>
+            <h3 class="section-title">Let’s build a plan that fits your student.</h3>
+            <p class="section-sub">Pick a time that works—or email and we’ll recommend the right track.</p>
           </div>
           <div class="cta-actions">
-            <button class="btn btn--primary" data-open-modal>Book a Consultation</button>
-            <a class="btn btn--ghost" href="mailto:sanmay.pachika@gmail.com">Email us</a>
+            <button class="btn primary" data-open-modal>Book a consultation</button>
+            <a class="btn outline" href="mailto:sanmay.pachika@gmail.com">Email us</a>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- PRACTICE placeholder (kept simple) -->
-    <section id="practice" class="section" aria-labelledby="practice-title" hidden>
-      <div class="shell">
-        <h2 id="practice-title" class="section-title">Practice Sets</h2>
-        <p>Coming soon.</p>
       </div>
     </section>
   </main>
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="shell footer__row">
-      <p class="foot-note">&copy; 2025 Sunnypreps — founded by Sanmay Pachika &amp; co-founder Aswanth Nair.</p>
-      <nav class="footer__links" aria-label="Footer">
+    <div class="shell footer-grid">
+      <div>
+        <a class="brand" href="#top"><span class="brand-glyph" aria-hidden="true"></span>Sunnypreps</a>
+        <p class="foot-note">© 2025 Sunnypreps — founded by Sanmay Pachika &amp; co-founder Aswanth Nair.</p>
+      </div>
+      <nav class="foot-links" aria-label="Footer">
         <a href="#programs">Programs</a>
         <a href="#approach">Approach</a>
         <a href="#outcomes">Outcomes</a>
+        <a href="booking.html">Consultation</a>
       </nav>
     </div>
   </footer>
 
-  <!-- MODAL -->
-  <div class="consult-modal" aria-hidden="true" id="modal">
+  <!-- CONSULTATION MODAL -->
+  <div class="consult-modal" aria-hidden="true">
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="consult-title">
       <button class="modal-close" type="button" aria-label="Close" data-close-modal>&times;</button>
-      <h2 id="consult-title">Book a Consultation</h2>
-      <p class="section-sub">Choose a time and we’ll confirm instantly. Prefer email? <a href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a></p>
-      <div class="cal-placeholder">Calendly embed goes here (optional)</div>
+      <h2 id="consult-title">Schedule with Sunnypreps</h2>
+      <p class="section-sub">Prefer email? Write to <a href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a>.</p>
+      <div class="cal-placeholder">Calendly embed ready — replace with your widget if needed.</div>
     </div>
   </div>
 
