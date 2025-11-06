@@ -2,63 +2,182 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Secure Payment | sunnypreps. Intensive Course</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  />
+  <title>Secure Payment · Intensive Track · Sunnypreps</title>
+  <meta name="description" content="Secure checkout for the Sunnypreps Intensive track. Pay via PayPal and receive onboarding within 24 hours." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind (config first, then CDN) -->
+  <script>
+    window.tailwind = {
+      config: {
+        theme: {
+          extend: {
+            colors: {
+              midnight: {
+                blue: '#1E2A5E',
+                coral: '#FF7A70',
+                cream: '#FAF7F2',
+                charcoal: '#1B1B1B'
+              }
+            },
+            borderRadius: { xl: '16px', '2xl': '24px' },
+            boxShadow: {
+              soft: '0 10px 30px rgba(30,42,94,.10)',
+              card: '0 20px 50px rgba(30,42,94,.12)'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Site tokens + effects -->
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <header class="site-header">
-    <div class="shell">
-      <div class="header-bar">
-        <a class="brand" href="index.html">sunnypreps.</a>
-        <nav class="primary-nav" aria-label="Primary navigation">
-          <a href="index.html#courses">Courses</a>
-          <a href="index.html#mission">Approach</a>
-          <a href="index.html#results">Results</a>
-          <a href="booking.html">Consultation</a>
-        </nav>
-        <div class="header-actions">
-          <a class="btn btn-outline" href="intensive.html">Course details</a>
-        </div>
+<body class="min-h-screen bg-[var(--bg)] text-[var(--text)] antialiased">
+  <!-- Ambient gradient -->
+  <div class="fixed inset-0 -z-10 pointer-events-none">
+    <div id="ambient"
+         class="w-[140vmax] h-[140vmax] rounded-full blur-3xl opacity-70 transition-transform duration-500 will-change-transform mx-auto"
+         style="--gx:50%; --gy:35%;"
+         aria-hidden="true"></div>
+  </div>
+
+  <!-- NAV -->
+  <header id="siteNav" class="nav transparent fixed top-0 inset-x-0 z-50 transition-all duration-300">
+    <nav class="max-w-7xl mx-auto px-6">
+      <div class="flex items-center gap-6 py-4">
+        <a href="index.html" class="inline-flex items-center gap-2 font-semibold tracking-tight text-[var(--text-strong)]" aria-label="Homepage">
+          <span class="inline-block h-9 w-9 rounded-2xl bg-[var(--primary)]/10 grid place-items-center ring-1 ring-[var(--primary)]/20">
+            <span class="h-2.5 w-2.5 rounded-full bg-[var(--accent)]"></span>
+          </span>
+          <span class="font-[600]" style="font-family:'Space Grotesk',sans-serif;">Sunnypreps</span>
+        </a>
+
+        <button id="navToggle"
+                class="ml-auto lg:hidden rounded-xl px-3 py-2 ring-1 ring-black/10 bg-white/40 text-[var(--charcoal)] hover:bg-white/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+                aria-expanded="false" aria-controls="navMenu">
+          Menu
+        </button>
+
+        <ul id="navMenu" class="hidden lg:flex items-center gap-6 ml-auto text-sm">
+          <li><a class="nav-link" href="index.html#programs">Programs</a></li>
+          <li><a class="nav-link" href="index.html#approach">Approach</a></li>
+          <li><a class="nav-link" href="index.html#results">Outcomes</a></li>
+          <li><a class="btn btn-outline" href="intensive.html">Course details</a></li>
+        </ul>
       </div>
-    </div>
+
+      <!-- mobile drawer -->
+      <div id="navDrawer" class="hidden lg:hidden pb-4">
+        <ul class="grid gap-2">
+          <li><a class="nav-link block" href="index.html#programs">Programs</a></li>
+          <li><a class="nav-link block" href="index.html#approach">Approach</a></li>
+          <li><a class="nav-link block" href="index.html#results">Outcomes</a></li>
+          <li><a class="btn btn-outline mt-2 inline-flex" href="intensive.html">Course details</a></li>
+        </ul>
+      </div>
+    </nav>
   </header>
 
   <main>
-    <div class="shell">
-      <section class="page-hero">
-        <span class="tag">Payment</span>
-        <h1>Reserve your Intensive track mentorship.</h1>
-        <p>We process payments through PayPal. Once completed, we’ll reach out within 24 hours to confirm scheduling and deliver your onboarding kit.</p>
-      </section>
-
-      <section class="page-section highlight-card">
-        <h2>Pay $1,099 USD</h2>
-        <p>Use the secure PayPal checkout below. Spots are limited to maintain high-touch coaching.</p>
-        <div class="page-actions">
-          <a class="btn btn-primary" href="https://www.paypal.com/ncp/payment/4Q7Y5JKAJMRML" target="_blank" rel="noopener">Pay securely via PayPal</a>
-          <span class="inline-note">Prefer to chat first? Email <a href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a>.</span>
+    <!-- HERO -->
+    <section class="pt-36 lg:pt-40 pb-10">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-3xl" data-reveal>
+          <p class="eyebrow">Payment</p>
+          <h1 class="hero-title">Reserve your Intensive track mentorship</h1>
+          <p class="hero-sub">
+            We process payments via PayPal. After payment, we’ll reach out within 24 hours to confirm scheduling and deliver your onboarding kit.
+          </p>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
+
+    <!-- PAYMENT CARD -->
+    <section class="section pt-4">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="surface p-6 lg:p-8 rounded-2xl shadow-card ring-1 ring-black/5 grid md:grid-cols-2 gap-8 items-start" data-reveal>
+          <div class="grid gap-3">
+            <h2 class="section-title">Pay <span class="price" data-price="1099">—</span></h2>
+            <p class="section-sub">Click below to open a secure PayPal checkout in a new tab. You’ll receive an immediate receipt.</p>
+            <a class="btn btn-primary w-fit"
+               href="https://www.paypal.com/ncp/payment/4Q7Y5JKAJMRML"
+               target="_blank" rel="noopener">
+              Pay securely via PayPal
+            </a>
+            <p class="text-sm text-[var(--text-soft)]">
+              Prefer to chat first? Email
+              <a class="link-accent" href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a>.
+            </p>
+          </div>
+
+          <aside class="grid gap-4">
+            <div class="rounded-2xl p-5 ring-1 ring-black/5 bg-white/60 text-[var(--charcoal)]">
+              <h3 class="font-semibold mb-2" style="font-family:'Space Grotesk',sans-serif;">What happens next</h3>
+              <ol class="list-decimal list-inside space-y-1 text-sm">
+                <li>PayPal sends your receipt.</li>
+                <li>You receive our onboarding email within 24 hours.</li>
+                <li>We confirm your first six-week plan and session slots.</li>
+              </ol>
+            </div>
+            <div class="rounded-2xl p-5 ring-1 ring-black/5 bg-white/60 text-[var(--charcoal)]">
+              <h3 class="font-semibold mb-2" style="font-family:'Space Grotesk',sans-serif;">Refunds</h3>
+              <p class="text-sm">Full refund within 7 days if you haven’t attended your second live session.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALT CTA -->
+    <section class="section pb-24">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="surface p-8 rounded-2xl shadow-card ring-1 ring-black/5 grid lg:grid-cols-2 gap-8 items-center" data-reveal>
+          <div>
+            <h3 class="section-title">Questions before enrolling?</h3>
+            <p class="section-sub">Book a free 30-minute call and we’ll map your first two weeks together.</p>
+          </div>
+          <div class="flex flex-wrap gap-3 lg:justify-end">
+            <a href="booking.html" class="btn btn-outline">Book a consultation</a>
+            <a href="intensive.html" class="btn btn-accent">View syllabus</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="shell footer-grid">
+  <!-- FOOTER -->
+  <footer class="mt-10 border-t border-black/5 bg-white/60 backdrop-blur supports-[backdrop-filter]:bg-white/40 text-[var(--charcoal)]">
+    <div class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-6">
       <div>
-        <a class="brand" href="index.html">sunnypreps.</a>
-        <p>&copy; 2025 sunnypreps. — founded by Sanmay Pachika &amp; co-founder Aswanth Nair.</p>
+        <p class="font-semibold" style="font-family:'Space Grotesk',sans-serif;">Sunnypreps</p>
+        <p class="text-sm text-black/60 mt-2">Clean, modern tutoring built for outcomes.</p>
       </div>
-      <nav class="footer-nav" aria-label="Footer navigation">
-        <a href="index.html#courses">Courses</a>
-        <a href="index.html#mission">Approach</a>
-        <a href="index.html#results">Results</a>
-        <a href="booking.html">Consultation</a>
-      </nav>
+      <div class="text-sm">
+        <p class="font-medium">Contact</p>
+        <p class="text-black/60 mt-1">hello@sunnypreps.example</p>
+      </div>
+      <div class="text-sm">
+        <p class="font-medium">Links</p>
+        <ul class="mt-1 space-y-1">
+          <li><a class="link-accent" href="index.html#programs">Programs</a></li>
+          <li><a class="link-accent" href="index.html#approach">Approach</a></li>
+          <li><a class="link-accent" href="index.html#results">Outcomes</a></li>
+        </ul>
+      </div>
     </div>
+    <div class="max-w-7xl mx-auto px-6 pb-8 text-xs text-black/50">© <span id="y"></span> Sunnypreps. All rights reserved.</div>
   </footer>
+
+  <!-- Global interactions (affects EVERY page) -->
+  <script src="script.js" defer></script>
 </body>
 </html>
