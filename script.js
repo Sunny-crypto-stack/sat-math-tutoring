@@ -1,142 +1,166 @@
-const modal = document.querySelector('.consult-modal');
-const modalCard = modal ? modal.querySelector('.modal-card') : null;
-const openModalButtons = document.querySelectorAll('[data-open-modal]');
-const closeModalButtons = document.querySelectorAll('[data-close-modal]');
+/* =========================
+   Core DOM handles
+========================= */
+const $ = (s, root = document) => root.querySelector(s);
+const $$ = (s, root = document) => Array.from(root.querySelectorAll(s));
 
-const openModal = () => {
+const docEl = document.documentElement;
+const body  = document.body;
+
+/* =========================
+   NAVBAR: transparent → solid
+========================= */
+const siteNav = $("#siteNav") || $(".navbar"); // support both ids/classes
+const SOLID_AT = 32;
+
+function setHeaderState() {
+  if (!siteNav) return;
+  const solid = window.scrollY > SOLID_AT;
+  siteNav.classList.toggle("opaque", solid);
+  siteNav.classList.toggle("transparent", !solid);
+}
+setHeaderState();
+window.addEventListener("scroll", setHeaderState, { passive: true });
+
+/* =========================
+   MOBILE NAV TOGGLE
+========================= */
+const navToggle = $("#navToggle");
+const navMenu   = $("#navMenu");
+const navDrawer = $("#navDrawer");
+
+function toggleNav(expanded) {
+  if (!navToggle) return;
+  const next = expanded ?? navToggle.getAttribute("aria-expanded") !== "true";
+  navToggle.setAttribute("aria-expanded", String(next));
+  if (navMenu)   navMenu.classList.toggle("hidden", !next);
+  if (navDrawer) navDrawer.classList.toggle("hidden", !next);
+}
+
+if (navToggle) {
+  navToggle.addEventListener("click", () => toggleNav());
+  // close on route click (mobile)
+  $$("#navDrawer a, #navMenu a").forEach(a =>
+    a.addEventListener("click", () => toggleNav(false))
+  );
+}
+
+/* =========================
+   MODALS (consult / sourcing)
+========================= */
+const modal = $(".consult-modal") || $(".sourcing-modal");
+const openModalButtons  = $$("[data-open-modal]");
+const closeModalButtons = $$("[data-close-modal]");
+let lastActiveElement = null;
+
+function openModal() {
   if (!modal) return;
-  modal.classList.add('open');
-  modal.setAttribute('aria-hidden', 'false');
-  if (modalCard) {
-    modalCard.setAttribute('tabindex', '-1');
-    modalCard.focus();
-  }
-};
-
-const closeModal = () => {
+  lastActiveElement = document.activeElement;
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+  const firstFocusable = $("input, textarea, button, [href], select", modal);
+  if (firstFocusable) firstFocusable.focus();
+}
+function closeModal() {
   if (!modal) return;
-  modal.classList.remove('open');
-  modal.setAttribute('aria-hidden', 'true');
-};
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden", "true");
+  if (lastActiveElement) lastActiveElement.focus?.();
+}
 
-openModalButtons.forEach((btn) => {
-  btn.addEventListener('click', openModal);
-});
-
-closeModalButtons.forEach((btn) => {
-  btn.addEventListener('click', closeModal);
-});
+openModalButtons.forEach(btn => btn.addEventListener("click", openModal));
+closeModalButtons.forEach(btn => btn.addEventListener("click", closeModal));
 
 if (modal) {
-  modal.addEventListener('click', (event) => {
-    if (event.target === modal) closeModal();
+  // click outside (on backdrop or modal wrapper)
+  modal.addEventListener("click", (e) => {
+    const isBackdrop = e.target === modal || e.target.classList.contains("modal-bg");
+    if (isBackdrop) closeModal();
   });
+  // ESC to close
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
+
+  // simple demo submit handler if a form exists
+  const modalForm = $(".modal-form", modal);
+  if (modalForm) {
+    modalForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Thank you! A Sunnypreps mentor will reach out within 48 hours.");
+      closeModal();
+    });
+  }
 }
 
-window.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') closeModal();
-});
-const navbar = document.querySelector('.navbar');
-window.addEventListener('scroll', () => {
-  if (!navbar) return;
-  if (window.scrollY > 32) navbar.classList.add('opaque');
-  else navbar.classList.remove('opaque');
-});
+/* =========================
+   SCROLL REVEAL
+========================= */
+const revealEls = [...$$("[data-reveal]"), ...$$(".reveal")];
 
-const root = document.documentElement;
-const themeToggle = document.getElementById('theme-toggle');
-if (themeToggle) {
-  themeToggle.addEventListener('click', () => {
-    const curr = root.getAttribute('data-theme') || 'light';
-    const next = curr === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', next);
-    themeToggle.setAttribute('aria-pressed', String(next === 'dark'));
-  });
+function setVisible(el) {
+  el.classList.add("visible");
+}
+function setHidden(el) {
+  el.classList.remove("visible");
 }
 
-const progressTracker = document.getElementById('progress-tracker');
+if ("IntersectionObserver" in window && revealEls.length) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(({ isIntersecting, target }) => {
+      if (isIntersecting) setVisible(target);
+      else setHidden(target);
+    });
+  }, { rootMargin: "0px 0px -80px 0px", threshold: 0.1 });
+  revealEls.forEach(el => io.observe(el));
+} else {
+  const revealOnScroll = () => {
+    revealEls.forEach(el => {
+      const r = el.getBoundingClientRect();
+      (r.top < window.innerHeight - 80) ? setVisible(el) : setHidden(el);
+    });
+  };
+  window.addEventListener("scroll", revealOnScroll, { passive: true });
+  window.addEventListener("load", revealOnScroll);
+  revealOnScroll();
+}
+
+/* =========================
+   AMBIENT GRADIENT (cursor-reactive)
+========================= */
+const ambient = $("#ambient");
+if (ambient) {
+  const updateAmbient = (x, y) => {
+    // Move/rotate softly based on cursor position
+    const tx = (x / window.innerWidth  - 0.5) * 24;
+    const ty = (y / window.innerHeight - 0.5) * 24;
+    ambient.style.transform = `translate(${tx}px, ${ty}px) rotate(${tx * 0.3}deg)`;
+    // Optional: hue shift with scroll
+    const hue = (window.scrollY / (document.body.scrollHeight - innerHeight)) * 20;
+    ambient.style.filter = `hue-rotate(${hue}deg)`;
+  };
+  window.addEventListener("mousemove", (e) => updateAmbient(e.clientX, e.clientY), { passive: true });
+  window.addEventListener("scroll",  () => updateAmbient(innerWidth/2, innerHeight/2), { passive: true });
+}
+
+/* =========================
+   PROGRESS TRACKER (top bar)
+========================= */
+const progressTracker = $("#progress-tracker");
 function updateProgress() {
   if (!progressTracker) return;
-  const height = document.documentElement.scrollHeight - window.innerHeight;
-  const scrolled = height > 0 ? (window.scrollY / height) * 100 : 0;
-  progressTracker.style.width = scrolled + '%';
+  const max = docEl.scrollHeight - window.innerHeight;
+  const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+  progressTracker.style.width = `${pct}%`;
 }
+updateProgress();
+window.addEventListener("scroll", updateProgress, { passive: true });
 
-const openModal = () => {
-  if (!modal) return;
-  modal.classList.add('open');
-  modal.setAttribute('aria-hidden', 'false');
-  if (modalCard) {
-    modalCard.setAttribute('tabindex', '-1');
-    modalCard.focus();
-  }
-};
-
-const closeModal = () => {
-  if (!modal) return;
-  modal.classList.remove('open');
-  modal.setAttribute('aria-hidden', 'true');
-  if (modalCard) {
-    modalCard.removeAttribute('tabindex');
-  }
-};
-
-openModalButtons.forEach((btn) => {
-  btn.addEventListener('click', openModal);
-});
-
-const revealOnScroll = () => {
-  document.querySelectorAll('.reveal').forEach((el) => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 80) el.classList.add('visible');
-    else el.classList.remove('visible');
-  });
-};
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
-
-const modal = document.querySelector('.consult-modal') || document.querySelector('.sourcing-modal');
-const openModalButtons = document.querySelectorAll('[data-open-modal]');
-const closeModalTriggers = document.querySelectorAll('[data-close-modal]');
-
-openModalButtons.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    if (!modal) return;
-    modal.classList.add('open');
-    modal.setAttribute('aria-hidden', 'false');
-    const firstField = modal.querySelector('input, textarea, button');
-    if (firstField instanceof HTMLElement) firstField.focus();
-  });
-});
-
-closeModalTriggers.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    if (!modal) return;
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden', 'true');
-  });
-});
-
-window.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    if (!modal) return;
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden', 'true');
-  }
-});
-
-const modalForm = document.querySelector('.modal-form');
-if (modalForm) {
-  modalForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Thank you! A Sunnypreps mentor will reach out within 48 hours.');
-    if (!modal) return;
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden', 'true');
-  });
-}
-
-// Tuition conversion helper
+/* =========================
+   PRICE LOCALIZATION
+   Use <span class="price" data-price="199"></span>
+   (Falls back to data-usd for older pages)
+========================= */
 const currencyRates = {
   USD: 1,
   EUR: 0.94,
@@ -147,35 +171,39 @@ const currencyRates = {
   JPY: 149,
 };
 
-const resolveCurrency = () => {
-  const locale = navigator.language || 'en-US';
-  if (locale.startsWith('en-GB')) return 'GBP';
-  if (locale.startsWith('fr') || locale.startsWith('de') || locale.startsWith('es')) return 'EUR';
-  if (locale.startsWith('en-CA')) return 'CAD';
-  if (locale.startsWith('en-AU')) return 'AUD';
-  if (locale.startsWith('hi') || locale.startsWith('en-IN')) return 'INR';
-  if (locale.startsWith('ja')) return 'JPY';
-  return 'USD';
-};
+function resolveCurrency() {
+  const locale = navigator.language || "en-US";
+  if (locale.startsWith("en-GB")) return "GBP";
+  if (locale.startsWith("fr") || locale.startsWith("de") || locale.startsWith("es")) return "EUR";
+  if (locale.startsWith("en-CA")) return "CAD";
+  if (locale.startsWith("en-AU")) return "AUD";
+  if (locale.startsWith("hi") || locale.startsWith("en-IN")) return "INR";
+  if (locale.startsWith("ja")) return "JPY";
+  return "USD";
+}
 
-const applyCurrencyConversion = () => {
+function localizePrices() {
   const currency = resolveCurrency();
-  const rate = currencyRates[currency] || 1;
-  const locale = navigator.language || 'en-US';
-  const formatter = new Intl.NumberFormat(locale, {
-    style: 'currency',
+  const rate     = currencyRates[currency] || 1;
+  const locale   = navigator.language || "en-US";
+  const maxFrac  = (currency === "JPY" || currency === "INR") ? 0 : 2;
+
+  const fmt = new Intl.NumberFormat(locale, {
+    style: "currency",
     currency,
-    maximumFractionDigits: ['JPY', 'INR'].includes(currency) ? 0 : 2,
+    maximumFractionDigits: maxFrac
   });
 
-  document.querySelectorAll('.price[data-usd]').forEach((priceEl) => {
-    const usdValue = parseFloat(priceEl.getAttribute('data-usd'));
-    if (Number.isNaN(usdValue)) return;
-    const converted = usdValue * rate;
-    priceEl.textContent = formatter.format(converted);
+  $$(".price").forEach(el => {
+    const usd = parseFloat(el.getAttribute("data-price") || el.getAttribute("data-usd"));
+    if (!isFinite(usd)) return;
+    el.textContent = fmt.format(usd * rate);
   });
-};
+}
+localizePrices();
 
-applyCurrencyConversion();
-setHeaderState();
-window.addEventListener('scroll', setHeaderState, { passive: true });
+/* =========================
+   FOOTER YEAR
+========================= */
+const yearSpan = $("#y");
+if (yearSpan) yearSpan.textContent = String(new Date().getFullYear());
