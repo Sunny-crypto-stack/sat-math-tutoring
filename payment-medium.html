@@ -1,183 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, viewport-fit=cover"
-  />
-  <title>Secure Payment · Medium Track · Sunnypreps</title>
-  <meta name="description" content="Secure checkout for the Sunnypreps Medium track. Pay via PayPal and receive onboarding within 24 hours." />
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Tailwind (config first, then CDN) -->
-  <script>
-    window.tailwind = {
-      config: {
-        theme: {
-          extend: {
-            colors: {
-              midnight: {
-                blue: '#1E2A5E',
-                coral: '#FF7A70',
-                cream: '#FAF7F2',
-                charcoal: '#1B1B1B'
-              }
-            },
-            borderRadius: { xl: '16px', '2xl': '24px' },
-            boxShadow: {
-              soft: '0 10px 30px rgba(30,42,94,.10)',
-              card: '0 20px 50px rgba(30,42,94,.12)'
-            }
-          }
-        }
-      }
-    }
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Site tokens + effects -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Secure Payment — Medium Track | Sunnypreps</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="min-h-screen bg-[var(--bg)] text-[var(--text)] antialiased">
-  <!-- Ambient gradient -->
-  <div class="fixed inset-0 -z-10 pointer-events-none">
-    <div id="ambient"
-         class="w-[140vmax] h-[140vmax] rounded-full blur-3xl opacity-70 transition-transform duration-500 will-change-transform mx-auto"
-         style="--gx:50%; --gy:35%;"
-         aria-hidden="true"></div>
-  </div>
+<body>
+  <div id="progress-tracker"></div>
+  <div class="ambient-wrapper" aria-hidden="true"><div id="ambient" class="ambient"></div></div>
 
-  <!-- NAV -->
-  <header id="siteNav" class="nav transparent fixed top-0 inset-x-0 z-50 transition-all duration-300">
-    <nav class="max-w-7xl mx-auto px-6">
-      <div class="flex items-center gap-6 py-4">
-        <a href="index.html" class="inline-flex items-center gap-2 font-semibold tracking-tight text-[var(--text-strong)]" aria-label="Homepage">
-          <span class="inline-block h-9 w-9 rounded-2xl bg-[var(--primary)]/10 grid place-items-center ring-1 ring-[var(--primary)]/20">
-            <span class="h-2.5 w-2.5 rounded-full bg-[var(--accent)]"></span>
-          </span>
-          <span class="font-[600]" style="font-family:'Space Grotesk',sans-serif;">Sunnypreps</span>
-        </a>
-
-        <button id="navToggle"
-                class="ml-auto lg:hidden rounded-xl px-3 py-2 ring-1 ring-black/10 bg-white/40 text-[var(--charcoal)] hover:bg-white/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
-                aria-expanded="false" aria-controls="navMenu">
-          Menu
-        </button>
-
-        <ul id="navMenu" class="hidden lg:flex items-center gap-6 ml-auto text-sm">
-          <li><a class="nav-link" href="index.html#programs">Programs</a></li>
-          <li><a class="nav-link" href="index.html#approach">Approach</a></li>
-          <li><a class="nav-link" href="index.html#results">Outcomes</a></li>
-          <li><a class="btn btn-outline" href="medium.html">Course details</a></li>
-        </ul>
-      </div>
-
-      <!-- mobile drawer -->
-      <div id="navDrawer" class="hidden lg:hidden pb-4">
-        <ul class="grid gap-2">
-          <li><a class="nav-link block" href="index.html#programs">Programs</a></li>
-          <li><a class="nav-link block" href="index.html#approach">Approach</a></li>
-          <li><a class="nav-link block" href="index.html#results">Outcomes</a></li>
-          <li><a class="btn btn-outline mt-2 inline-flex" href="medium.html">Course details</a></li>
-        </ul>
-      </div>
-    </nav>
+  <header id="siteNav" class="nav transparent">
+    <div class="nav-shell">
+      <a class="brand" href="index.html#home"><span class="brand-glyph"></span>Sunnypreps</a>
+      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
+      <nav id="navMenu" class="nav-links">
+        <a href="index.html#programs">Programs</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#outcomes">Outcomes</a>
+        <a class="btn btn-outline" href="medium.html">Course details</a>
+      </nav>
+      <nav id="navDrawer" class="nav-drawer hidden">
+        <a href="index.html#programs">Programs</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#outcomes">Outcomes</a>
+        <a class="btn btn-outline" href="medium.html">Course details</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <!-- HERO -->
-    <section class="pt-36 lg:pt-40 pb-10">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="max-w-3xl" data-reveal>
-          <p class="eyebrow">Payment</p>
-          <h1 class="hero-title">Secure your Medium track seat</h1>
-          <p class="hero-sub">
-            Checkout uses PayPal for trusted processing. After payment, we’ll confirm your cohort start date and onboarding timeline.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PAYMENT CARD -->
-    <section class="section pt-4">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="surface p-6 lg:p-8 rounded-2xl shadow-card ring-1 ring-black/5 grid md:grid-cols-2 gap-8 items-start" data-reveal>
-          <div class="grid gap-3">
-            <h2 class="section-title">Pay <span class="price" data-price="599">—</span></h2>
-            <p class="section-sub">Click below to open a secure PayPal checkout in a new tab. You’ll receive an immediate receipt.</p>
-            <a class="btn btn-primary w-fit"
-               href="https://www.paypal.com/ncp/payment/4Q7Y5JKAJMRML"
-               target="_blank" rel="noopener">
-              Pay securely via PayPal
-            </a>
-            <p class="text-sm text-[var(--text-soft)]">
-              Questions? Email
-              <a class="link-accent" href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a>.
-            </p>
-          </div>
-
-          <aside class="grid gap-4">
-            <div class="rounded-2xl p-5 ring-1 ring-black/5 bg-white/60 text-[var(--charcoal)]">
-              <h3 class="font-semibold mb-2" style="font-family:'Space Grotesk',sans-serif;">What happens next</h3>
-              <ol class="list-decimal list-inside space-y-1 text-sm">
-                <li>PayPal sends your receipt.</li>
-                <li>We email your onboarding within 24 hours.</li>
-                <li>You receive your session link + first week’s plan.</li>
-              </ol>
-            </div>
-            <div class="rounded-2xl p-5 ring-1 ring-black/5 bg-white/60 text-[var(--charcoal)]">
-              <h3 class="font-semibold mb-2" style="font-family:'Space Grotesk',sans-serif;">Refunds</h3>
-              <p class="text-sm">Full refund within 7 days if you haven’t attended your second live session.</p>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <!-- ALT CTA -->
-    <section class="section pb-24">
-      <div class="max-w-5xl mx-auto px-6">
-        <div class="surface p-8 rounded-2xl shadow-card ring-1 ring-black/5 grid lg:grid-cols-2 gap-8 items-center" data-reveal>
-          <div>
-            <h3 class="section-title">Want to talk first?</h3>
-            <p class="section-sub">Book a free 30-minute call. We’ll map your first two weeks together.</p>
-          </div>
-          <div class="flex flex-wrap gap-3 lg:justify-end">
-            <a href="booking.html" class="btn btn-outline">Book a consultation</a>
-            <a href="medium.html" class="btn btn-accent">View syllabus</a>
-          </div>
+    <section class="hero-edu" aria-labelledby="title">
+      <div class="hero-edu__stage" data-reveal>
+        <p class="hero-edu__eyebrow">Payment</p>
+        <h1 id="title" class="hero-edu__title">
+          SECURE YOUR SEAT
+          <span class="hero-edu__highlight">MEDIUM TRACK</span>
+        </h1>
+        <p class="hero-edu__sub">Trusted PayPal checkout. We’ll confirm your cohort start date within 24 hours.</p>
+        <div class="hero-edu__ctas">
+          <a class="btn-edu btn-edu--primary" href="https://www.paypal.com/ncp/payment/4Q7Y5JKAJMRML" target="_blank" rel="noopener">Pay — <span class="price" data-price="599">$599</span></a>
+          <a class="btn-edu btn-edu--light" href="booking.html">Questions?</a>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="mt-10 border-t border-black/5 bg-white/60 backdrop-blur supports-[backdrop-filter]:bg-white/40 text-[var(--charcoal)]">
-    <div class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-6">
-      <div>
-        <p class="font-semibold" style="font-family:'Space Grotesk',sans-serif;">Sunnypreps</p>
-        <p class="text-sm text-black/60 mt-2">Clean, modern tutoring built for outcomes.</p>
-      </div>
-      <div class="text-sm">
-        <p class="font-medium">Contact</p>
-        <p class="text-black/60 mt-1">hello@sunnypreps.example</p>
-      </div>
-      <div class="text-sm">
-        <p class="font-medium">Links</p>
-        <ul class="mt-1 space-y-1">
-          <li><a class="link-accent" href="index.html#programs">Programs</a></li>
-          <li><a class="link-accent" href="index.html#approach">Approach</a></li>
-          <li><a class="link-accent" href="index.html#results">Outcomes</a></li>
-        </ul>
-      </div>
+  <footer class="footer">
+    <div class="shell footer-grid">
+      <div><a class="brand" href="index.html#home">Sunnypreps</a><p class="foot-note">© <span id="y"></span> Sunnypreps.</p></div>
+      <nav class="foot-links"><a href="index.html#programs">Programs</a><a href="index.html#approach">Approach</a><a href="index.html#outcomes">Outcomes</a><a href="booking.html">Consultation</a></nav>
     </div>
-    <div class="max-w-7xl mx-auto px-6 pb-8 text-xs text-black/50">© <span id="y"></span> Sunnypreps. All rights reserved.</div>
   </footer>
 
-  <!-- Global interactions (affects EVERY page) -->
   <script src="script.js" defer></script>
 </body>
 </html>
