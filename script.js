@@ -1,75 +1,86 @@
-// ====== Nav behavior ======
-const nav = document.getElementById('nav');
-const toggle = document.getElementById('navToggle');
-const drawer = document.getElementById('drawer');
-
-function setNavState() {
-  if (window.scrollY > 16) nav.classList.add('opaque');
-  else nav.classList.remove('opaque');
-}
-setNavState();
-window.addEventListener('scroll', setNavState, { passive: true });
-
-// mobile drawer
-if (toggle && drawer) {
-  toggle.addEventListener('click', () => {
-    const open = drawer.classList.toggle('hidden') === false;
-    toggle.setAttribute('aria-expanded', String(open));
-  });
-}
-
-// ====== Progress bar ======
-const progress = document.getElementById('progress-tracker');
-function updateProgress() {
-  if (!progress) return;
-  const height = document.documentElement.scrollHeight - window.innerHeight;
-  const scrolled = height > 0 ? (window.scrollY / height) * 100 : 0;
-  progress.style.width = scrolled + '%';
-}
-updateProgress();
-window.addEventListener('scroll', updateProgress, { passive: true });
-
-// ====== Reveal on scroll ======
-function reveal() {
-  document.querySelectorAll('[data-reveal]').forEach(el => {
-    const r = el.getBoundingClientRect();
-    if (r.top < window.innerHeight - 80) el.classList.add('visible');
-  });
-}
-window.addEventListener('load', reveal);
-window.addEventListener('scroll', reveal, { passive: true });
-
-// ====== Ambient cursor parallax ======
-const ambient = document.getElementById('ambient');
-window.addEventListener('pointermove', (e) => {
-  if (!ambient) return;
-  const mx = (e.clientX / window.innerWidth) * 100;
-  const my = (e.clientY / window.innerHeight) * 100;
-  ambient.style.setProperty('--mx', `${mx}%`);
-  ambient.style.setProperty('--my', `${my}%`);
-}, { passive: true });
-
-// ====== Modal ======
-const modal = document.getElementById('modal');
-const openButtons = document.querySelectorAll('[data-open-modal]');
-const closeButtons = document.querySelectorAll('[data-close-modal]');
+/* ---------- Modal ---------- */
+const modal = document.querySelector('.consult-modal');
+const modalCard = modal?.querySelector('.modal-card');
+const openModalBtns = document.querySelectorAll('[data-open-modal]');
+const closeModalBtns = document.querySelectorAll('[data-close-modal]');
 
 function openModal() {
   if (!modal) return;
   modal.classList.add('open');
   modal.setAttribute('aria-hidden', 'false');
-  const first = modal.querySelector('button, [href], input, textarea, select');
-  if (first) first.focus();
+  modalCard?.setAttribute('tabindex', '-1');
+  modalCard?.focus();
 }
 function closeModal() {
   if (!modal) return;
   modal.classList.remove('open');
   modal.setAttribute('aria-hidden', 'true');
+  modalCard?.removeAttribute('tabindex');
 }
-
-openButtons.forEach(b => b.addEventListener('click', openModal));
-closeButtons.forEach(b => b.addEventListener('click', closeModal));
-if (modal) {
-  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-}
+openModalBtns.forEach(b => b.addEventListener('click', openModal));
+closeModalBtns.forEach(b => b.addEventListener('click', closeModal));
+modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+/* ---------- Nav: solid on scroll + mobile drawer ---------- */
+const nav = document.getElementById('nav');
+const navToggle = document.getElementById('navToggle');
+const navDrawer = document.getElementById('navDrawer');
+
+function setNavState() {
+  if (!nav) return;
+  if (window.scrollY > 24) nav.classList.add('opaque');
+  else nav.classList.remove('opaque');
+}
+setNavState();
+window.addEventListener('scroll', setNavState, { passive: true });
+
+navToggle?.addEventListener('click', () => {
+  const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+  navToggle.setAttribute('aria-expanded', String(!expanded));
+  navDrawer?.classList.toggle('hidden');
+});
+
+/* ---------- Scroll progress ---------- */
+const progress = document.getElementById('progress-tracker');
+function updateProgress() {
+  if (!progress) return;
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+  progress.style.width = pct + '%';
+}
+updateProgress();
+window.addEventListener('scroll', updateProgress, { passive: true });
+
+/* ---------- Reveal on scroll ---------- */
+const revealEls = [...document.querySelectorAll('[data-reveal]')];
+function reveal() {
+  const vh = window.innerHeight;
+  revealEls.forEach(el => {
+    const r = el.getBoundingClientRect();
+    if (r.top < vh - 80) el.classList.add('visible');
+  });
+}
+window.addEventListener('scroll', reveal, { passive: true });
+window.addEventListener('load', reveal);
+
+/* ---------- Ambient gradient reacts to cursor ---------- */
+const ambient = document.getElementById('ambient');
+window.addEventListener('pointermove', (e) => {
+  if (!ambient) return;
+  const x = (e.clientX / window.innerWidth - 0.5) * 6;  // -3..3 deg
+  const y = (e.clientY / window.innerHeight - 0.5) * 6;
+  ambient.style.transform = `translateZ(0) rotateX(${y}deg) rotateY(${-x}deg)`;
+});
+
+/* ---------- Small helper: smooth anchor scroll ---------- */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', (e) => {
+    const id = a.getAttribute('href');
+    const target = id && document.querySelector(id);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
