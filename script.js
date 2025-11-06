@@ -1,86 +1,47 @@
-/* ---------- Modal ---------- */
 const modal = document.querySelector('.consult-modal');
 const modalCard = modal?.querySelector('.modal-card');
-const openModalBtns = document.querySelectorAll('[data-open-modal]');
-const closeModalBtns = document.querySelectorAll('[data-close-modal]');
+const openBtns = document.querySelectorAll('[data-open-modal]');
+const closeBtns = document.querySelectorAll('[data-close-modal]');
 
 function openModal() {
   if (!modal) return;
   modal.classList.add('open');
-  modal.setAttribute('aria-hidden', 'false');
-  modalCard?.setAttribute('tabindex', '-1');
+  modal.setAttribute('aria-hidden','false');
   modalCard?.focus();
 }
 function closeModal() {
   if (!modal) return;
   modal.classList.remove('open');
-  modal.setAttribute('aria-hidden', 'true');
-  modalCard?.removeAttribute('tabindex');
+  modal.setAttribute('aria-hidden','true');
 }
-openModalBtns.forEach(b => b.addEventListener('click', openModal));
-closeModalBtns.forEach(b => b.addEventListener('click', closeModal));
-modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
-/* ---------- Nav: solid on scroll + mobile drawer ---------- */
-const nav = document.getElementById('nav');
-const navToggle = document.getElementById('navToggle');
-const navDrawer = document.getElementById('navDrawer');
+openBtns.forEach(btn => btn.addEventListener('click', openModal));
+closeBtns.forEach(btn => btn.addEventListener('click', closeModal));
+window.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+modal?.addEventListener('click', e => { if(e.target===modal) closeModal(); });
 
-function setNavState() {
-  if (!nav) return;
-  if (window.scrollY > 24) nav.classList.add('opaque');
+/* Scroll progress */
+const progress = document.getElementById('progress-tracker');
+function updateProgress(){
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  const pct=h>0?(window.scrollY/h)*100:0;
+  progress.style.width=pct+'%';
+}
+window.addEventListener('scroll',updateProgress);
+
+/* Nav scroll behavior */
+const nav=document.getElementById('nav');
+function setNavState(){
+  if(window.scrollY>20) nav.classList.add('opaque');
   else nav.classList.remove('opaque');
 }
-setNavState();
-window.addEventListener('scroll', setNavState, { passive: true });
+window.addEventListener('scroll',setNavState);
 
-navToggle?.addEventListener('click', () => {
-  const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-  navToggle.setAttribute('aria-expanded', String(!expanded));
-  navDrawer?.classList.toggle('hidden');
-});
-
-/* ---------- Scroll progress ---------- */
-const progress = document.getElementById('progress-tracker');
-function updateProgress() {
-  if (!progress) return;
-  const h = document.documentElement.scrollHeight - window.innerHeight;
-  const pct = h > 0 ? (window.scrollY / h) * 100 : 0;
-  progress.style.width = pct + '%';
-}
-updateProgress();
-window.addEventListener('scroll', updateProgress, { passive: true });
-
-/* ---------- Reveal on scroll ---------- */
-const revealEls = [...document.querySelectorAll('[data-reveal]')];
-function reveal() {
-  const vh = window.innerHeight;
-  revealEls.forEach(el => {
-    const r = el.getBoundingClientRect();
-    if (r.top < vh - 80) el.classList.add('visible');
-  });
-}
-window.addEventListener('scroll', reveal, { passive: true });
-window.addEventListener('load', reveal);
-
-/* ---------- Ambient gradient reacts to cursor ---------- */
-const ambient = document.getElementById('ambient');
-window.addEventListener('pointermove', (e) => {
-  if (!ambient) return;
-  const x = (e.clientX / window.innerWidth - 0.5) * 6;  // -3..3 deg
-  const y = (e.clientY / window.innerHeight - 0.5) * 6;
-  ambient.style.transform = `translateZ(0) rotateX(${y}deg) rotateY(${-x}deg)`;
-});
-
-/* ---------- Small helper: smooth anchor scroll ---------- */
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', (e) => {
-    const id = a.getAttribute('href');
-    const target = id && document.querySelector(id);
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
+/* Ambient rotation */
+const ambient=document.getElementById('ambient');
+window.addEventListener('pointermove',e=>{
+  if(!ambient)return;
+  const x=(e.clientX/window.innerWidth-0.5)*6;
+  const y=(e.clientY/window.innerHeight-0.5)*6;
+  ambient.style.transform=`rotateX(${y}deg) rotateY(${-x}deg)`;
 });
