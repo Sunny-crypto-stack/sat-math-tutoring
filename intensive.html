@@ -1,99 +1,105 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Intensive Track — Sunnypreps</title>
-  <meta name="description" content="Elite 1:1 mentorship, simulations, and deep problem-solving for perfection-seekers." />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="progress-tracker"></div>
-  <div class="ambient-wrapper" aria-hidden="true"><div id="ambient" class="ambient"></div></div>
+  <div class="bg-ambient" aria-hidden="true"></div>
 
-  <header id="siteNav" class="nav transparent">
-    <div class="nav-shell">
-      <a class="brand" href="index.html#home"><span class="brand-glyph"></span>Sunnypreps</a>
-      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
-      <nav id="navMenu" class="nav-links">
+  <header class="nav">
+    <div class="wrap nav__row">
+      <a class="brand" href="index.html">Sunnypreps</a>
+      <nav class="nav__links" aria-label="Primary">
         <a href="index.html#programs">Programs</a>
         <a href="index.html#approach">Approach</a>
         <a href="index.html#outcomes">Outcomes</a>
-        <button class="btn btn-primary" data-open-modal>Book a Consultation</button>
-        <a class="btn btn-outline" href="practice.html">Practice Sets</a>
       </nav>
-      <nav id="navDrawer" class="nav-drawer hidden">
-        <a href="index.html#programs">Programs</a>
-        <a href="index.html#approach">Approach</a>
-        <a href="index.html#outcomes">Outcomes</a>
-        <button class="btn btn-primary" data-open-modal>Book a Consultation</button>
-        <a class="btn btn-outline" href="practice.html">Practice Sets</a>
-      </nav>
+      <div class="nav__actions">
+        <a class="btn btn--primary" href="booking.html">Book a Consultation</a>
+        <a class="btn btn--ghost" href="practice.html">Practice Sets</a>
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-expanded="false">Menu</button>
     </div>
   </header>
 
-  <main>
-    <section class="hero-edu" aria-labelledby="title">
-      <div class="hero-edu__stage" data-reveal>
-        <p class="hero-edu__eyebrow">Intensive · 1:1 mentorship</p>
-        <h1 id="title" class="hero-edu__title">
-          ELITE COACHING
-          <span class="hero-edu__highlight">TAILORED FOR 1500+</span>
-        </h1>
-        <p class="hero-edu__sub">Dedicated coach, olympiad-grade workshops, and weekly simulations with forensic review.</p>
-        <div class="hero-edu__ctas">
-          <a class="btn-edu btn-edu--primary" href="payment-intensive.html">Enroll — <span class="price" data-price="1099">$1,099</span></a>
-          <a class="btn-edu btn-edu--light" href="booking.html">Discuss fit</a>
+  <main id="top">
+    <!-- Phamily-style hero -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="stage" role="group" aria-labelledby="hero-title">
+          <p class="eyebrow">Intensive · 1:1 Mentorship</p>
+
+          <h1 id="hero-title" class="hero__title">
+            LEARNING
+            <span class="hero__title--small">ELITE COACHING FOR TOP SCORES</span>
+            <span class="hero__banner">GO DEEP</span>
+            <span class="hero__banner hero__banner--dark">PUSH TO PERFECT</span>
+          </h1>
+
+          <p class="hero__lede">
+            Dedicated mentor, weekly simulations, and forensic reviews for students aiming 1500+.
+          </p>
+
+          <div class="hero__ctas">
+            <a class="chip chip--solid" href="payment-intensive.html" aria-label="Enroll Intensive">Enroll — $1,099</a>
+            <a class="chip" href="booking.html" aria-label="Discuss fit">Discuss fit</a>
+          </div>
+
+          <div class="thumb thumb--left" aria-hidden="true">🏆</div>
+          <div class="thumb thumb--right" aria-hidden="true">🧠</div>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="shell">
-        <header class="section-head" data-reveal>
-          <p class="eyebrow">Program pillars</p>
-          <h2 class="section-title">Depth, precision, and pace.</h2>
+      <div class="wrap">
+        <header class="section__head">
+          <h2>Program pillars</h2>
+          <p class="muted">Depth, precision, and accountability.</p>
         </header>
-        <div class="cards" data-reveal>
-          <article class="card"><h3>1:1 up to 3×/week</h3><p>Work directly with a 99th percentile mentor.</p></article>
-          <article class="card"><h3>Weekly simulations</h3><p>Timing, accuracy, and strategy analyzed line by line.</p></article>
-          <article class="card"><h3>Invite-only workshops</h3><p>Competition-style pattern recognition and heuristics.</p></article>
-          <article class="card"><h3>Concierge Slack</h3><p>Targeted drills and quick answers within hours.</p></article>
-        </div>
-      </div>
-    </section>
 
-    <section class="cta section">
-      <div class="shell">
-        <div class="cta-card" data-reveal>
-          <div>
-            <h2 class="section-title">Reserve your spot.</h2>
-            <p class="section-sub">Enrollment is capped to ensure depth. We’ll map your first six weeks after payment.</p>
-          </div>
-          <div class="cta-actions">
-            <a class="btn btn-primary" href="payment-intensive.html">Proceed to payment</a>
-            <a class="btn btn-outline" href="booking.html">Talk first</a>
-          </div>
+        <div class="cards">
+          <article class="card">
+            <span class="tag">1:1</span>
+            <h3>Dedicated mentor</h3>
+            <p>Up to three weekly sessions with 99th percentile coaches.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Sim</span>
+            <h3>Exam simulations</h3>
+            <p>Timing, accuracy, and decision reviews with surgical detail.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Concierge</span>
+            <h3>Slack access</h3>
+            <p>Targeted answers and drills within hours — not days.</p>
+          </article>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="shell footer-grid">
-      <div><a class="brand" href="index.html#home">Sunnypreps</a><p class="foot-note">© <span id="y"></span> Sunnypreps.</p></div>
-      <nav class="foot-links"><a href="index.html#programs">Programs</a><a href="index.html#approach">Approach</a><a href="index.html#outcomes">Outcomes</a><a href="booking.html">Consultation</a></nav>
+    <div class="wrap footer__row">
+      <a class="brand" href="#top">Sunnypreps</a>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="index.html#programs">Programs</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#outcomes">Outcomes</a>
+        <a href="booking.html">Consultation</a>
+      </nav>
+      <p class="muted">© <span id="year"></span> Sunnypreps.</p>
     </div>
   </footer>
-
-  <div class="consult-modal" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="consult-title">
-      <button class="modal-close" type="button" aria-label="Close" data-close-modal>&times;</button>
-      <h2 id="consult-title">Schedule with Sunnypreps</h2>
-      <div class="cal-placeholder"><p>Embed Calendly or visit <a href="booking.html">booking.html</a></p></div>
-    </div>
-  </div>
 
   <script src="script.js" defer></script>
 </body>
