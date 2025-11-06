@@ -2,108 +2,201 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Intensive Course | sunnypreps.</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  />
+  <title>Intensive Course · Sunnypreps</title>
+  <meta name="description" content="Elite 1:1 SAT prep with dedicated mentorship, exam simulations, and tailored analytics for 1500+ goals." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind (config first, then CDN) -->
+  <script>
+    window.tailwind = {
+      config: {
+        theme: {
+          extend: {
+            colors: {
+              midnight: {
+                blue: '#1E2A5E',
+                coral: '#FF7A70',
+                cream: '#FAF7F2',
+                charcoal: '#1B1B1B'
+              }
+            },
+            borderRadius: {
+              'xl': '16px',
+              '2xl': '24px'
+            },
+            boxShadow: {
+              soft: '0 10px 30px rgba(30,42,94,.10)',
+              card: '0 20px 50px rgba(30,42,94,.12)'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Site tokens + effects -->
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <header class="site-header">
-    <div class="shell">
-      <div class="header-bar">
-        <a class="brand" href="index.html">sunnypreps.</a>
-        <nav class="primary-nav" aria-label="Primary navigation">
-          <a href="index.html#courses">Courses</a>
-          <a href="index.html#mission">Approach</a>
-          <a href="index.html#results">Results</a>
-          <a href="booking.html">Consultation</a>
-        </nav>
-        <div class="header-actions">
-          <a class="btn btn-outline" href="booking.html">Book a call</a>
-        </div>
+<body class="min-h-screen bg-[var(--bg)] text-[var(--text)] antialiased">
+  <!-- Ambient gradient -->
+  <div class="fixed inset-0 -z-10 pointer-events-none">
+    <div id="ambient"
+         class="w-[140vmax] h-[140vmax] rounded-full blur-3xl opacity-70 transition-transform duration-500 will-change-transform mx-auto"
+         style="--gx:50%; --gy:35%;"
+         aria-hidden="true"></div>
+  </div>
+
+  <!-- NAV -->
+  <header id="siteNav" class="nav transparent fixed top-0 inset-x-0 z-50 transition-all duration-300">
+    <nav class="max-w-7xl mx-auto px-6">
+      <div class="flex items-center gap-6 py-4">
+        <a href="index.html" class="inline-flex items-center gap-2 font-semibold tracking-tight text-[var(--text-strong)]" aria-label="Homepage">
+          <span class="inline-block h-9 w-9 rounded-2xl bg-[var(--primary)]/10 grid place-items-center ring-1 ring-[var(--primary)]/20">
+            <span class="h-2.5 w-2.5 rounded-full bg-[var(--accent)]"></span>
+          </span>
+          <span class="font-[600]" style="font-family:'Space Grotesk',sans-serif;">Sunnypreps</span>
+        </a>
+
+        <button id="navToggle"
+                class="ml-auto lg:hidden rounded-xl px-3 py-2 ring-1 ring-black/10 bg-white/40 text-[var(--charcoal)] hover:bg-white/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+                aria-expanded="false" aria-controls="navMenu">
+          Menu
+        </button>
+
+        <ul id="navMenu" class="hidden lg:flex items-center gap-6 ml-auto text-sm">
+          <li><a class="nav-link" href="index.html#programs">Programs</a></li>
+          <li><a class="nav-link" href="index.html#approach">Approach</a></li>
+          <li><a class="nav-link" href="index.html#results">Outcomes</a></li>
+          <li><a class="btn btn-primary" href="booking.html">Book a Consultation</a></li>
+        </ul>
       </div>
-    </div>
+
+      <!-- mobile drawer -->
+      <div id="navDrawer" class="hidden lg:hidden pb-4">
+        <ul class="grid gap-2">
+          <li><a class="nav-link block" href="index.html#programs">Programs</a></li>
+          <li><a class="nav-link block" href="index.html#approach">Approach</a></li>
+          <li><a class="nav-link block" href="index.html#results">Outcomes</a></li>
+          <li><a class="btn btn-primary mt-2 inline-flex" href="booking.html">Book a Consultation</a></li>
+        </ul>
+      </div>
+    </nav>
   </header>
 
   <main>
-    <div class="shell">
-      <section class="page-hero">
-        <span class="tag">Intensive · 1:1 mentorship</span>
-        <h1>Elite prep for students aiming at perfection.</h1>
-        <p>The Intensive track pairs you with a dedicated coach for 1:1 sessions, olympiad-grade workshops, and tailored analytics that remove guesswork on your path to 1500+.</p>
-        <div class="page-actions">
-          <a class="btn btn-primary" href="payment-intensive.html">Enroll for <span class="price" data-usd="1099">$1,099</span></a>
-          <a class="btn btn-outline" href="booking.html">Discuss fit</a>
-          <span class="inline-note">Curious about other experiences? Compare the <a href="beginner.html">beginner</a> and <a href="medium.html">medium</a> tracks.</span>
+    <!-- HERO -->
+    <section class="pt-36 lg:pt-40 pb-16">
+      <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-7" data-reveal>
+          <p class="eyebrow">Intensive · 1:1 Mentorship</p>
+          <h1 class="hero-title">Elite prep for students aiming at perfection</h1>
+          <p class="hero-sub">
+            A dedicated coach, olympiad-grade workshops, and forensic analytics to remove guesswork on your path to 1500+.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a class="btn btn-primary" href="payment-intensive.html">Enroll — <span class="price" data-price="1099">—</span></a>
+            <a class="btn btn-outline" href="booking.html">Discuss fit</a>
+          </div>
+
+          <dl class="mt-10 stats">
+            <div><dt>Cadence</dt><dd>Up to 3× / week</dd></div>
+            <div><dt>Format</dt><dd>1:1 live + drills</dd></div>
+            <div><dt>Diagnostics</dt><dd>Weekly sims</dd></div>
+          </dl>
         </div>
-      </section>
 
-      <section class="page-section highlight-card">
-        <h2>Program pillars</h2>
-        <ul>
-          <li>Dedicated 1:1 sessions with 99th percentile mentors up to three times per week.</li>
-          <li>Weekly exam simulations with forensic reviews on timing, accuracy, and strategy.</li>
-          <li>Invite-only workshops digging into competition-level math and pattern recognition.</li>
-          <li>Concierge Slack access—get answers and targeted drills within hours.</li>
-        </ul>
-      </section>
-
-      <section class="page-section">
-        <h2>Reporting you can act on</h2>
-        <p>Every meeting yields a concise recap with insights, focus areas, and tailored practice sets. Parents receive optional check-ins to stay aligned without micromanaging.</p>
-      </section>
-
-      <section class="page-section">
-        <h2>Reserve your spot</h2>
-        <p>Enrollment is capped to ensure depth. Checkout securely via PayPal and we’ll connect within 24 hours to map your first six weeks.</p>
-        <div class="page-actions">
-          <a class="btn btn-primary" href="payment-intensive.html">Proceed to secure payment</a>
-          <span class="inline-note">Need to talk first? Email <a href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a>.</span>
+        <div class="lg:col-span-5" data-reveal style="--delay:.08s">
+          <div class="surface p-6 lg:p-8 rounded-2xl shadow-card ring-1 ring-black/5">
+            <div class="grid gap-5">
+              <div class="flex items-center gap-3">
+                <span class="icon-dot bg-[var(--accent)]"></span>
+                <h3 class="card-title">Program pillars</h3>
+              </div>
+              <ul class="grid gap-2 text-[var(--text-soft)] list-disc list-inside">
+                <li>Dedicated 1:1 sessions with 99th percentile mentors (up to three / week)</li>
+                <li>Weekly exam simulations with timing & accuracy reviews</li>
+                <li>Invite-only workshops on competition-level math & patterns</li>
+                <li>Concierge Slack access for rapid answers & targeted drills</li>
+              </ul>
+              <a href="#reporting" class="link-accent">See reporting →</a>
+            </div>
+          </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
+
+    <!-- REPORTING -->
+    <section id="reporting" class="section pt-10">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Reporting you can act on</p>
+          <h2 class="section-title">Clear recaps, focus areas, and tailored sets</h2>
+          <p class="section-sub">Every meeting yields a concise recap; parents can opt into weekly alignment notes without micromanaging.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <article class="card" data-reveal>
+            <h3 class="card-title">For students</h3>
+            <p class="card-copy">Specific next steps, annotated errors, and drill lists tuned to your blind spots.</p>
+          </article>
+
+          <article class="card" data-reveal style="--delay:.06s">
+            <h3 class="card-title">For families</h3>
+            <p class="card-copy">Short progress notes with momentum signals and what “good” looks like next week.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section pb-24">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="surface p-8 rounded-2xl shadow-card ring-1 ring-black/5 grid lg:grid-cols-2 gap-8 items-center" data-reveal>
+          <div>
+            <h3 class="section-title">Reserve your spot</h3>
+            <p class="section-sub">Enrollment is capped to ensure depth. Secure checkout; we’ll connect within 24 hours to map your first six weeks.</p>
+          </div>
+          <div class="flex flex-wrap gap-3 lg:justify-end">
+            <a href="payment-intensive.html" class="btn btn-primary">Proceed to secure payment</a>
+            <a href="mailto:sanmay.pachika@gmail.com" class="btn btn-outline">Email a question</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="shell footer-grid">
+  <!-- FOOTER -->
+  <footer class="mt-10 border-t border-black/5 bg-white/60 backdrop-blur supports-[backdrop-filter]:bg-white/40 text-[var(--charcoal)]">
+    <div class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-6">
       <div>
-        <a class="brand" href="index.html">sunnypreps.</a>
-        <p>&copy; 2025 sunnypreps. — founded by Sanmay Pachika &amp; co-founder Aswanth Nair.</p>
+        <p class="font-semibold" style="font-family:'Space Grotesk',sans-serif;">Sunnypreps</p>
+        <p class="text-sm text-black/60 mt-2">Clean, modern tutoring built for outcomes.</p>
       </div>
-      <nav class="footer-nav" aria-label="Footer navigation">
-        <a href="index.html#courses">Courses</a>
-        <a href="index.html#mission">Approach</a>
-        <a href="index.html#results">Results</a>
-        <a href="booking.html">Consultation</a>
-      </nav>
+      <div class="text-sm">
+        <p class="font-medium">Contact</p>
+        <p class="text-black/60 mt-1">hello@sunnypreps.example</p>
+      </div>
+      <div class="text-sm">
+        <p class="font-medium">Links</p>
+        <ul class="mt-1 space-y-1">
+          <li><a class="link-accent" href="index.html#programs">Programs</a></li>
+          <li><a class="link-accent" href="index.html#approach">Approach</a></li>
+          <li><a class="link-accent" href="index.html#results">Outcomes</a></li>
+        </ul>
+      </div>
     </div>
+    <div class="max-w-7xl mx-auto px-6 pb-8 text-xs text-black/50">© <span id="y"></span> Sunnypreps. All rights reserved.</div>
   </footer>
 
-  <script>
-    (function () {
-      const rates = { USD: 1, EUR: 0.94, GBP: 0.82, CAD: 1.36, AUD: 1.56, INR: 83.0, JPY: 149.0 };
-      const locale = navigator.language || navigator.userLanguage || 'en-US';
-      let currency = 'USD';
-      if (locale.startsWith('en-GB')) currency = 'GBP';
-      else if (locale.startsWith('fr') || locale.startsWith('de') || locale.startsWith('es')) currency = 'EUR';
-      else if (locale.startsWith('en-CA')) currency = 'CAD';
-      else if (locale.startsWith('en-AU')) currency = 'AUD';
-      else if (locale.startsWith('hi') || locale.startsWith('en-IN')) currency = 'INR';
-      else if (locale.startsWith('ja')) currency = 'JPY';
-
-      const rate = rates[currency] || 1;
-      const formatter = new Intl.NumberFormat(locale, { style: 'currency', currency });
-
-      document.querySelectorAll('.price').forEach(function (el) {
-        const usdValue = parseFloat(el.getAttribute('data-usd'));
-        if (!usdValue) return;
-        const converted = usdValue * rate;
-        const formatted = formatter.format(converted);
-        el.textContent = formatted;
-      });
-    })();
-  </script>
+  <!-- Global interactions (affects EVERY page) -->
+  <script src="script.js" defer></script>
 </body>
 </html>
