@@ -168,3 +168,67 @@ img{max-width:100%;display:block}
   .nav-toggle{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);border-radius:12px;padding:8px 12px;background:rgba(255,255,255,.06);font-weight:700;color:var(--text)}
   #navDrawer.hidden{display:none}
 }
+
+/* ===== Midnight + Mint palette override ===== */
+:root{
+  /* Primary brand */
+  --blue: #121C3B;             /* site background (unchanged) */
+  --blue-600: #1E2A5E;         /* hero/surface gradient (unchanged) */
+
+  /* NEW accent (was --coral) */
+  --accent: #2ED3B7;           /* Mint 500 */
+  --accent-600: #14B8A6;       /* Hover/darker mint */
+  --accent-700: #0EA5A3;       /* Active state */
+  --on-accent: #06201A;        /* Text on mint buttons/pills */
+
+  /* Keep cream for light chips / secondary surfaces */
+  --cream: #FAF7F2;
+
+  /* Text stays the same on navy */
+  --text: #F5F6FB;
+  --text-soft: #C9CDDC;
+
+  /* Update any shared uses that referenced coral */
+  --border: rgba(255,255,255,0.16);
+  --stroke: rgba(255,255,255,0.14);
+}
+
+/* Replace coral usages with the new --accent variables */
+.btn.primary,
+.btn-edu--primary{
+  background: var(--accent);
+  color: var(--on-accent);
+  box-shadow: 0 16px 34px rgba(46, 211, 183, 0.35);
+}
+.btn.primary:hover,
+.btn-edu--primary:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 20px 46px rgba(20, 184, 166, 0.45);
+}
+.btn.outline{
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.btn.outline:hover{
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+/* Hero highlighted word chip */
+.hero-edu__highlight{
+  background: var(--accent);
+  color: var(--on-accent);
+  box-shadow: 0 12px 28px rgba(46, 211, 183, .35);
+}
+
+/* Progress bar tint */
+#progress-tracker{
+  background: linear-gradient(90deg, #93F5E2, var(--accent));
+}
+
+/* Ambient glow tint (subtle mint shift) */
+.ambient{
+  background:
+    radial-gradient(40% 40% at 30% 30%, rgba(147,245,226,.16), transparent 60%),
+    radial-gradient(34% 34% at 70% 60%, rgba(46,211,183,.18), transparent 62%);
+}
