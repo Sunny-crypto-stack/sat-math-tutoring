@@ -1,112 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Medium Course | Sunnypreps</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    .btn-paypal {
-      display: inline-block;
-      background-color: #0070ba;
-      color: white;
-      font-weight: 600;
-      padding: 14px 28px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 17px;
-      box-shadow: 0 6px 18px rgba(0,0,0,.15);
-      transition: all .2s ease;
-    }
-    .btn-paypal:hover {
-      background-color: #005c96;
-      transform: translateY(-2px);
-    }
-    .btn-paypal:active {
-      transform: translateY(0);
-    }
-    .paynote {
-      font-size: 13px;
-      color: #444;
-      opacity: 0.85;
-      margin-top: 6px;
-      text-align: center;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>sunnypreps. — Momentum Lab</title>
+  <meta name="description" content="Momentum Lab by sunnypreps. pairs hybrid SAT mentorship with design-forward accountability for 1300–1450 goals." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            midnight: '#1E2A5E',
+            coral: '#FF7A70',
+            cream: '#FAF7F2',
+            charcoal: '#1B1B1B',
+          },
+          fontFamily: {
+            display: ['Space Grotesk', 'Inter', 'sans-serif'],
+            body: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            soft: '0 30px 80px -40px rgba(30, 42, 94, 0.55)',
+            panel: '0 40px 120px -50px rgba(30, 42, 94, 0.45)',
+          },
+          borderRadius: {
+            large: '24px',
+            medium: '20px',
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <header>
-    <div class="container">
-      <h1>Medium Course</h1>
-      <a href="index.html" style="color:#ffffff;text-decoration:underline;">← Back to Home</a>
+<body class="bg-cream text-charcoal font-body antialiased relative overflow-x-hidden">
+  <div class="gradient-overlay" aria-hidden="true"></div>
+  <!-- Shared navigation -->
+  <header class="site-header is-transparent" data-nav>
+    <div class="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-6 py-6 lg:px-8">
+      <a href="index.html" class="brand" aria-label="sunnypreps. home">sunnypreps.</a>
+      <nav class="primary-nav" id="primary-navigation" aria-label="Primary navigation">
+        <a href="index.html#programs">Programs</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#outcomes">Outcomes</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="practice.html">Practice</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a class="btn-muted hidden rounded-large border-2 border-white/40 px-5 py-3 text-sm font-semibold text-white/90 transition hover:-translate-y-0.5 hover:text-white lg:inline-flex" href="practice.html">Practice sets</a>
+        <button class="btn-primary hidden rounded-large px-5 py-3 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-1 lg:inline-flex" type="button" data-open-modal>
+          Book a call
+        </button>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
-  
-  <section>
-    <div class="container">
-      <h2>Course Details</h2>
-      <p>This medium-level course takes you further with advanced problems, personalized feedback, and powerful learning tools. More focus on algebraic manipulation, geometric reasoning, and data analysis along with hands-on quizzes and live solution walkthroughs.</p>
-      <ul>
-        <li>Topics: advanced algebra, geometric constructions, function behavior, probability, and statistics.</li>
-        <li>Assignments with instant grading, feedback, and review sessions for mistakes.</li>
-        <li>Interactive challenge problems and live group sessions included.</li>
-      </ul>
-      <p class="price" data-usd="599">Course Fee: <strong>$599</strong></p>
 
-      <!-- Payment Button Block -->
-      <div style="margin-top:1.5rem; text-align:center;">
-        <a href="payment-medium.html" class="btn-paypal" rel="noopener">
-          Proceed to Payment
-        </a>
-        <p class="paynote">
-          Secure checkout through PayPal — you’ll receive course access within 24 hours after payment.
-        </p>
+  <main>
+    <!-- Hero -->
+    <section class="hero hero--compact" data-animate>
+      <div class="hero-shell">
+        <div class="hero-card">
+          <span class="hero-badge">Momentum Lab</span>
+          <h1 class="hero-title">Hybrid coaching for 1300–1450 breakthroughs</h1>
+          <p class="hero-copy">Blend cinematic workshops with adaptive practice, mentor office hours, and family strategy sessions—all styled within our Midnight Coral system.</p>
+          <div class="hero-actions">
+            <a href="payment-medium.html" class="btn-primary hero-button">Enroll for <span class="price ml-2 inline-block" data-usd="599">$599</span></a>
+            <button type="button" data-open-modal class="btn-outline hero-button">Talk with a mentor</button>
+          </div>
+          <ul class="hero-highlights" role="list">
+            <li>
+              <span class="hero-icon hero-icon--spark" aria-hidden="true"></span>
+              <span>Weekly labs remix complex questions into digestible design stories</span>
+            </li>
+            <li>
+              <span class="hero-icon hero-icon--loop" aria-hidden="true"></span>
+              <span>Adaptive assignments flex with each diagnostic pulse</span>
+            </li>
+            <li>
+              <span class="hero-icon hero-icon--target" aria-hidden="true"></span>
+              <span>Mentor check-ins keep pacing high without the burnout</span>
+            </li>
+          </ul>
+        </div>
+        <div class="hero-ambient" aria-hidden="true">
+          <div class="hero-orbit hero-orbit--primary"></div>
+          <div class="hero-orbit hero-orbit--accent"></div>
+          <div class="hero-glyph hero-glyph--book"></div>
+          <div class="hero-glyph hero-glyph--thumb"></div>
+        </div>
       </div>
-      <!-- Optional backup PayPal button -->
-      <div style="margin-top:.75rem;text-align:center;">
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline-block;">
-          <input type="hidden" name="cmd" value="_xclick" />
-          <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL_OR_MERCHANT_ID" />
-          <input type="hidden" name="item_name" value="Sunnypreps Medium Course" />
-          <input type="hidden" name="amount" value="599.00" />
-          <input type="hidden" name="currency_code" value="USD" />
-          <button type="submit" class="btn-paypal">Pay $599 (Backup)</button>
-        </form>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Sunnypreps by founder Sanmay Pachika &amp; co-founder Aswanth Nair. All rights reserved.</p>
+    <!-- Weekly rhythm -->
+    <section class="section" data-animate>
+      <div class="surface mx-auto max-w-5xl px-6 lg:px-8">
+        <div class="section-heading">
+          <p class="eyebrow">Weekly rhythm</p>
+          <h2 class="section-title">A balanced cadence of live energy and focused flow.</h2>
+          <p class="section-copy">We choreograph each week around a signature blend of live intensives, async studio hours, and reflective storytelling that mirrors the Phamily-inspired UI.</p>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2">
+          <article class="feature-card">
+            <h3 class="feature-title">Live intensives</h3>
+            <p class="feature-copy">Four 60-minute workshops per week tackle high-leverage problem sets with collaborative whiteboarding.</p>
+          </article>
+          <article class="feature-card">
+            <h3 class="feature-title">Studio blocks</h3>
+            <p class="feature-copy">Students enter distraction-free digital rooms with curated playlists and check-in prompts.</p>
+          </article>
+          <article class="feature-card">
+            <h3 class="feature-title">Mentor office hours</h3>
+            <p class="feature-copy">Drop-in slots keep tough concepts from lingering; mentors respond with Loom breakdowns.</p>
+          </article>
+          <article class="feature-card">
+            <h3 class="feature-title">Family alignments</h3>
+            <p class="feature-copy">Monthly sessions translate growth metrics into game plans for the next milestone.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Toolkit -->
+    <section class="section" data-animate>
+      <div class="surface mx-auto max-w-6xl px-6 lg:px-8">
+        <div class="section-heading">
+          <p class="eyebrow">Momentum toolkit</p>
+          <h2 class="section-title">Everything speaks the same visual language.</h2>
+          <p class="section-copy">From slide decks to accountability texts, we deploy the Midnight Coral palette, rounded corners, and soft shadows to reinforce calm.</p>
+        </div>
+        <div class="grid gap-6 lg:grid-cols-3">
+          <article class="program-card">
+            <h3 class="program-title">Adaptive drills</h3>
+            <p class="program-copy">Each practice block reacts to student performance, surfacing question types that need another pass.</p>
+          </article>
+          <article class="program-card">
+            <h3 class="program-title">Progress cinema</h3>
+            <p class="program-copy">Weekly recap videos highlight wins, mindset moments, and specific metrics for families.</p>
+          </article>
+          <article class="program-card">
+            <h3 class="program-title">Scholarship signals</h3>
+            <p class="program-copy">Mentors map practice data to scholarship opportunities and stretch targets.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impact timeline -->
+    <section class="section" data-animate>
+      <div class="surface surface--split mx-auto flex max-w-5xl flex-col gap-10 px-6 lg:flex-row lg:items-center lg:px-8">
+        <div class="lg:w-1/2">
+          <p class="eyebrow">Impact</p>
+          <h2 class="section-title text-left">The numbers reflect the narrative.</h2>
+          <p class="section-copy text-left">Momentum Lab students average 180-point lifts, with parents reporting unparalleled clarity in how we communicate progress.</p>
+        </div>
+        <div class="timeline-card">
+          <div class="timeline-step">
+            <span class="timeline-index">01</span>
+            <div>
+              <h3>Kickoff canvas</h3>
+              <p>We design a shared dashboard with goal cards, upcoming intensives, and personalized rituals.</p>
+            </div>
+          </div>
+          <div class="timeline-step">
+            <span class="timeline-index">02</span>
+            <div>
+              <h3>Weekly heartbeat</h3>
+              <p>Every Friday, students receive a cinematic recap and micro-goals for the weekend.</p>
+            </div>
+          </div>
+          <div class="timeline-step">
+            <span class="timeline-index">03</span>
+            <div>
+              <h3>Month four summit</h3>
+              <p>Parent-mentor workshops align on scholarship strategy, test dates, and celebration plans.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/40 bg-midnight/90 py-12 text-white">
+    <div class="mx-auto flex max-w-6xl flex-col gap-8 px-6 lg:flex-row lg:items-start lg:justify-between lg:px-8">
+      <div class="max-w-sm space-y-4">
+        <a href="index.html#top" class="text-lg font-semibold tracking-tight">sunnypreps.</a>
+        <p class="text-sm text-white/70">&copy; 2025 sunnypreps. Crafted with the Midnight Coral system for calm, design-led learning.</p>
+      </div>
+      <div class="grid gap-2 text-sm text-white/80 sm:grid-cols-2 lg:gap-4">
+        <a class="hover:text-white" href="index.html#programs">Programs</a>
+        <a class="hover:text-white" href="index.html#approach">Approach</a>
+        <a class="hover:text-white" href="index.html#outcomes">Outcomes</a>
+        <a class="hover:text-white" href="practice.html">Practice hub</a>
+        <a class="hover:text-white" href="portal.html">Portal preview</a>
+        <a class="hover:text-white" href="booking.html">Book a consultation</a>
+      </div>
     </div>
   </footer>
-  
-  <!-- Currency auto-adjustment script -->
-  <script>
-  (function() {
-    const rates = { USD: 1, EUR: 0.94, GBP: 0.82, CAD: 1.36, AUD: 1.56, INR: 83.0, JPY: 149.0 };
-    const locale = navigator.language || navigator.userLanguage || 'en-US';
-    let currency = 'USD';
-    if (locale.startsWith('en-GB')) currency = 'GBP';
-    else if (locale.startsWith('fr') || locale.startsWith('de') || locale.startsWith('es')) currency = 'EUR';
-    else if (locale.startsWith('en-CA')) currency = 'CAD';
-    else if (locale.startsWith('en-AU')) currency = 'AUD';
-    else if (locale.startsWith('hi') || locale.startsWith('en-IN')) currency = 'INR';
-    else if (locale.startsWith('ja')) currency = 'JPY';
 
-    const rate = rates[currency] || 1;
-    const formatter = new Intl.NumberFormat(locale, { style: 'currency', currency: currency });
+  <div class="consult-modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="consult-title">
+      <button class="modal-close" type="button" data-close-modal aria-label="Close consultation modal">&times;</button>
+      <h2 id="consult-title" class="font-display text-2xl text-midnight">Schedule your sunnypreps. session</h2>
+      <p class="mt-4 text-sm text-charcoal/80">Choose a time that works best and we’ll confirm instantly. Prefer a quick hello? Email <a class="text-midnight underline" href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a>.</p>
+      <div class="calendly-inline-widget" data-url="https://calendly.com/sanmay-pachika/30min" style="min-width: 320px; height: 620px;"></div>
+    </div>
+  </div>
 
-    document.querySelectorAll('.price').forEach(function(el) {
-      const usdValue = parseFloat(el.getAttribute('data-usd'));
-      if (!usdValue) return;
-      const converted = usdValue * rate;
-      const formatted = formatter.format(converted);
-      const strong = el.querySelector('strong');
-      if (strong) strong.textContent = formatted;
-    });
-  })();
-  </script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
