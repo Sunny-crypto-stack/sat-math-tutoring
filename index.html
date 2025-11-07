@@ -4,33 +4,20 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sunnypreps — Learning Without Limits</title>
-  <meta name="description" content="Calm, focused SAT math mentoring for students and parents—diagnostic-led plans, adaptive practice, and measurable outcomes." />
+  <meta name="description" content="Calm, focused SAT math mentoring—diagnostic-led plans, adaptive practice, and measurable outcomes." />
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <!-- Progress bar -->
+<body id="top">
   <div id="progress-tracker" aria-hidden="true"></div>
+  <div class="ambient-wrapper" aria-hidden="true"><div class="ambient" id="ambient"></div></div>
 
-  <!-- Ambient gradient (subtle motion via JS) -->
-  <div class="ambient-wrapper" aria-hidden="true">
-    <div class="ambient" id="ambient"></div>
-  </div>
-
-  <!-- NAV -->
   <header class="nav transparent" id="nav">
     <div class="nav-shell">
-      <a class="brand" href="#top" aria-label="Sunnypreps home">
-        <span class="brand-glyph" aria-hidden="true"></span>
-        Sunnypreps
-      </a>
-
-      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navDrawer">
-        Menu
-      </button>
-
-      <nav class="nav-links" aria-label="Primary">
+      <a class="brand" href="#top"><span class="brand-glyph"></span>Sunnypreps</a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false">Menu</button>
+      <nav class="nav-links">
         <a href="#programs">Programs</a>
         <a href="#approach">Approach</a>
         <a href="#outcomes">Outcomes</a>
@@ -38,157 +25,119 @@
         <a class="btn light small" href="practice.html">Practice Sets</a>
       </nav>
     </div>
-
-    <!-- drawer for mobile -->
-    <div id="navDrawer" class="hidden" role="dialog" aria-label="Site Menu">
-      <div class="nav-drawer">
-        <a href="#programs">Programs</a>
-        <a href="#approach">Approach</a>
-        <a href="#outcomes">Outcomes</a>
-        <button class="btn outline" data-open-modal>Book a Consultation</button>
-        <a class="btn light" href="practice.html">Practice Sets</a>
-      </div>
-    </div>
   </header>
 
-  <main id="top">
-    <!-- HERO -->
-    <section class="hero-edu">
-      <div class="hero-edu__stage" role="region" aria-label="Intro">
-        <p class="hero-edu__eyebrow">SAT MATH • FOCUSED & FRIENDLY</p>
-
-        <h1 class="hero-edu__title">
-          TO GET STARTED
-          <span class="hero-edu__highlight">WITH CONFIDENCE</span>
-        </h1>
-
-        <p class="hero-edu__sub">
-          Learning without the noise. Calm lessons, adaptive practice, and mentors who actually listen —
-          built for students and easy for parents.
-        </p>
-
-        <div class="hero-edu__ctas" role="group" aria-label="Primary actions">
-          <a class="btn-edu btn-edu--primary" href="beginner.html">I’m a Student</a>
-          <a class="btn-edu btn-edu--light" href="booking.html">I’m a Parent</a>
-        </div>
+  <section class="hero-edu">
+    <div class="hero-edu__stage">
+      <p class="hero-edu__eyebrow">SAT MATH • FOCUSED & FRIENDLY</p>
+      <h1 class="hero-edu__title">TO GET STARTED <span class="hero-edu__highlight">WITH CONFIDENCE</span></h1>
+      <p class="hero-edu__sub">Calm lessons, adaptive practice, and mentors who actually listen — built for students and easy for parents.</p>
+      <div class="hero-edu__ctas">
+        <a class="btn-edu btn-edu--primary" href="beginner.html">I’m a Student</a>
+        <a class="btn-edu btn-edu--light" href="booking.html">I’m a Parent</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- PROGRAMS -->
-    <section class="section" id="programs">
-      <div class="shell">
-        <header class="section-head" data-reveal>
-          <p class="eyebrow">Programs</p>
-          <h2 class="section-title">Three tracks, one standard of excellence.</h2>
-          <p class="section-sub">Adaptive homework, analytics dashboards, and direct mentor access—across every plan.</p>
-        </header>
+  <section class="section" id="programs">
+    <div class="shell">
+      <header class="section-head" data-reveal>
+        <p class="eyebrow">Programs</p>
+        <h2 class="section-title">Three tracks, one standard of excellence.</h2>
+        <p class="section-sub">Adaptive homework, analytics dashboards, and direct mentor access—across every plan.</p>
+      </header>
 
-        <div class="cards" data-reveal>
-          <article class="card">
-            <span class="tag">Beginner · $199</span>
-            <h3>Beginner</h3>
-            <p>Rebuild foundations with calm, self-paced lessons delivered in our private Slack workspace.</p>
-            <div class="card-actions">
-              <a class="btn primary" href="payment-beginner.html">Enroll</a>
-              <a class="btn outline" href="beginner.html">See syllabus</a>
-            </div>
-          </article>
+      <div class="cards">
+        <article class="card">
+          <span class="tag">Beginner · $199</span>
+          <h3>Beginner</h3>
+          <p>Rebuild foundations with calm, self-paced lessons delivered in our private workspace.</p>
+          <div class="card-actions">
+            <a class="btn primary" href="payment-beginner.html">Enroll</a>
+            <a class="btn outline" href="beginner.html">See syllabus</a>
+          </div>
+        </article>
 
-          <article class="card">
-            <span class="tag">Medium · $599</span>
-            <h3>Medium</h3>
-            <p>Live instruction + structured practice for students targeting 1300–1450 scores.</p>
-            <div class="card-actions">
-              <a class="btn primary" href="payment-medium.html">Enroll</a>
-              <a class="btn outline" href="medium.html">See syllabus</a>
-            </div>
-          </article>
+        <article class="card">
+          <span class="tag">Medium · $599</span>
+          <h3>Medium</h3>
+          <p>Live instruction + structured practice for students targeting 1300–1450 scores.</p>
+          <div class="card-actions">
+            <a class="btn primary" href="payment-medium.html">Enroll</a>
+            <a class="btn outline" href="medium.html">See syllabus</a>
+          </div>
+        </article>
 
-          <article class="card">
-            <span class="tag">Intensive · $1,099</span>
-            <h3>Intensive</h3>
-            <p>Dedicated 1:1 mentorship, pressure-tested exams, and elite-level problem solving.</p>
-            <div class="card-actions">
-              <a class="btn primary" href="payment-intensive.html">Enroll</a>
-              <a class="btn outline" href="intense.html">See syllabus</a>
-            </div>
-          </article>
-        </div>
+        <article class="card">
+          <span class="tag">Intensive · $1,099</span>
+          <h3>Intensive</h3>
+          <p>Dedicated 1:1 mentorship, pressure-tested exams, and elite-level problem solving.</p>
+          <div class="card-actions">
+            <a class="btn primary" href="payment-intensive.html">Enroll</a>
+            <a class="btn outline" href="intensive.html">See syllabus</a>
+          </div>
+        </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- APPROACH -->
-    <section class="section" id="approach">
-      <div class="shell">
-        <header class="section-head" data-reveal>
-          <p class="eyebrow">Approach</p>
-          <h2 class="section-title">Minimal noise. Maximum clarity.</h2>
-          <p class="section-sub">Students see exactly what to tackle, when to ask for help, and how to measure progress.</p>
-        </header>
+  <section class="section" id="approach">
+    <div class="shell">
+      <header class="section-head" data-reveal>
+        <p class="eyebrow">Approach</p>
+        <h2 class="section-title">Minimal noise. Maximum clarity.</h2>
+        <p class="section-sub">Students know exactly what to tackle, when to ask for help, and how to measure progress.</p>
+      </header>
 
-        <div class="pillars" data-reveal>
-          <article class="pillar">
-            <h3>Personal diagnostics</h3>
-            <p>We start with a full-length SAT to map strengths, gaps, and timing habits—and recalibrate every 4 weeks.</p>
-          </article>
-          <article class="pillar">
-            <h3>Slack-first mentorship</h3>
-            <p>Students chat directly with their mentor, submit work, and get Loom walkthroughs without waiting days.</p>
-          </article>
-          <article class="pillar">
-            <h3>Designed for calm</h3>
-            <p>Clean dashboards, thoughtfully paced assignments, and reflection prompts keep stress down.</p>
-          </article>
-        </div>
+      <div class="cards">
+        <article class="card">
+          <h3>Personal diagnostics</h3>
+          <p>Start with a full digital SAT to map strengths, gaps, and timing—and recalibrate every four weeks.</p>
+        </article>
+        <article class="card">
+          <h3>Slack-first mentorship</h3>
+          <p>Direct messages, quick video walk-throughs, and same-day feedback keep momentum steady.</p>
+        </article>
+        <article class="card">
+          <h3>Designed for calm</h3>
+          <p>Clean dashboards, checklists, and reflection prompts keep stress down and clarity up.</p>
+        </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- OUTCOMES -->
-    <section class="section" id="outcomes">
-      <div class="shell">
-        <header class="section-head" data-reveal>
-          <p class="eyebrow">Outcomes</p>
-          <h2 class="section-title">Proof that precision prep works.</h2>
-          <p class="section-sub">Every milestone is tracked and shared with both student and family.</p>
-        </header>
+  <section class="section" id="outcomes">
+    <div class="shell">
+      <header class="section-head" data-reveal>
+        <p class="eyebrow">Outcomes</p>
+        <h2 class="section-title">Proof that precision prep works.</h2>
+        <p class="section-sub">Score jumps with clear reporting for both students and families.</p>
+      </header>
 
-        <div class="stats" data-reveal>
-          <div class="stat">
-            <span>Average score lift</span>
-            <strong>+210</strong>
-          </div>
-          <div class="stat">
-            <span>Practice problems solved</span>
-            <strong>3,000+</strong>
-          </div>
-          <div class="stat">
-            <span>Tutor percentile</span>
-            <strong>99th</strong>
-          </div>
-        </div>
-
-        <div class="cta-card" data-reveal>
-          <div>
-            <h3 class="section-title">Let’s build a plan that fits your student.</h3>
-            <p class="section-sub">Pick a time that works—or email and we’ll recommend the right track.</p>
-          </div>
-          <div class="cta-actions">
-            <button class="btn primary" data-open-modal>Book a consultation</button>
-            <a class="btn outline" href="mailto:sanmay.pachika@gmail.com">Email us</a>
-          </div>
-        </div>
+      <div class="cards">
+        <article class="card stat">
+          <span>Average score lift</span>
+          <strong>+210</strong>
+        </article>
+        <article class="card stat">
+          <span>Practice problems solved</span>
+          <strong>3,000+</strong>
+        </article>
+        <article class="card stat">
+          <span>Tutor percentile</span>
+          <strong>99th</strong>
+        </article>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="shell footer-grid">
       <div>
-        <a class="brand" href="#top"><span class="brand-glyph" aria-hidden="true"></span>Sunnypreps</a>
-        <p class="foot-note">© 2025 Sunnypreps — founded by Sanmay Pachika &amp; co-founder Aswanth Nair.</p>
+        <a class="brand" href="#top"><span class="brand-glyph"></span>Sunnypreps</a>
+        <p class="foot-note">© 2025 Sunnypreps — founded by Sanmay Pachika &amp; Aswanth Nair.</p>
       </div>
-      <nav class="foot-links" aria-label="Footer">
+      <nav class="foot-links">
         <a href="#programs">Programs</a>
         <a href="#approach">Approach</a>
         <a href="#outcomes">Outcomes</a>
@@ -197,16 +146,15 @@
     </div>
   </footer>
 
-  <!-- CONSULTATION MODAL -->
   <div class="consult-modal" aria-hidden="true">
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="consult-title">
       <button class="modal-close" type="button" aria-label="Close" data-close-modal>&times;</button>
-      <h2 id="consult-title">Schedule with Sunnypreps</h2>
-      <p class="section-sub">Prefer email? Write to <a href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a>.</p>
-      <div class="cal-placeholder">Calendly embed ready — replace with your widget if needed.</div>
+      <h2 id="consult-title">Book a Consultation</h2>
+      <p>Prefer email? Write to <a href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a>.</p>
+      <div class="cal-placeholder">Calendly embed placeholder</div>
     </div>
   </div>
 
-  <script src="script.js" defer></script>
+  <script src="script.js"></script>
 </body>
 </html>
