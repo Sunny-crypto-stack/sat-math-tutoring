@@ -1,103 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Beginner Track — Sunnypreps</title>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beginner Course | Sunnypreps</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="bg-ambient" aria-hidden="true"></div>
-
-  <header class="nav">
-    <div class="wrap nav__row">
-      <a class="brand" href="index.html">Sunnypreps</a>
-      <nav class="nav__links" aria-label="Primary">
+  <div id="progress-tracker" aria-hidden="true"></div>
+  <header class="nav transparent" id="nav">
+    <div class="nav-shell">
+      <a class="brand" href="index.html"><span class="brand-glyph"></span>Sunnypreps</a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navDrawer">Menu</button>
+      <nav class="nav-links">
         <a href="index.html#programs">Programs</a>
         <a href="index.html#approach">Approach</a>
         <a href="index.html#outcomes">Outcomes</a>
+        <a class="btn light small" href="booking.html">Consultation</a>
       </nav>
-      <div class="nav__actions">
-        <a class="btn btn--primary" href="booking.html">Book a Consultation</a>
-        <a class="btn btn--ghost" href="practice.html">Practice Sets</a>
+    </div>
+    <div id="navDrawer" class="hidden" role="dialog" aria-label="Site Menu">
+      <div class="nav-drawer">
+        <a href="index.html#programs">Programs</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#outcomes">Outcomes</a>
+        <a class="btn light" href="booking.html">Consultation</a>
       </div>
-      <button class="nav__toggle" id="navToggle" aria-expanded="false">Menu</button>
     </div>
   </header>
 
-  <main id="top">
-    <!-- Phamily-style hero -->
-    <section class="hero">
-      <div class="wrap">
-        <div class="stage" role="group" aria-labelledby="hero-title">
-          <p class="eyebrow">Beginner · Asynchronous Foundations</p>
+  <main class="hero-edu" id="top">
+    <div class="hero-edu__stage">
+      <p class="hero-edu__eyebrow">Beginner · asynchronous</p>
+      <h1 class="hero-edu__title">Self-paced SAT math <span class="hero-edu__highlight">foundations</span></h1>
+      <p class="hero-edu__sub">Structured lessons, responsive practice sets, and gentle accountability inside our Slack workspace.</p>
+      <div class="hero-edu__ctas">
+        <a class="btn-edu btn-edu--primary" href="payment-beginner.html">Enroll for <span class="price" data-usd="199">$199</span></a>
+        <a class="btn-edu btn-edu--light" href="booking.html">Talk to a mentor</a>
+      </div>
+    </div>
 
-          <h1 id="hero-title" class="hero__title">
-            LEARNING
-            <span class="hero__title--small">START WHERE CONFIDENCE STARTS</span>
-            <span class="hero__banner">BUILD THE BASICS</span>
-            <span class="hero__banner hero__banner--dark">AT YOUR OWN PACE</span>
-          </h1>
-
-          <p class="hero__lede">
-            Calm, self-paced lessons that rebuild SAT math fundamentals with adaptive practice and gentle accountability.
-          </p>
-
-          <div class="hero__ctas">
-            <a class="chip chip--solid" href="payment-beginner.html" aria-label="Enroll Beginner">Enroll — $199</a>
-            <a class="chip" href="booking.html" aria-label="Talk to a mentor">Talk to a mentor</a>
-          </div>
-
-          <div class="thumb thumb--left" aria-hidden="true">📘</div>
-          <div class="thumb thumb--right" aria-hidden="true">✨</div>
+    <section class="section">
+      <div class="shell">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">What’s included</p>
+          <h2 class="section-title">Everything you need to rebuild confidence.</h2>
+        </header>
+        <div class="pillars" data-reveal>
+          <article class="pillar"><h3>Daily lessons</h3><p>Linear & quadratic equations, exponentials, ratios, statistics, geometry.</p></article>
+          <article class="pillar"><h3>Adaptive practice</h3><p>Question sets expand/dial back based on accuracy and timing.</p></article>
+          <article class="pillar"><h3>Auto-graded</h3><p>Instant feedback with weekly momentum nudges and progress logs.</p></article>
+          <article class="pillar"><h3>Original problem bank</h3><p>Exam-style items with succinct solution walk-throughs.</p></article>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="wrap">
-        <header class="section__head">
-          <h2>What’s included</h2>
-          <p class="muted">A simple path to strong fundamentals.</p>
+      <div class="shell">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">How it works</p>
+          <h2 class="section-title">Calm pacing, clear checkpoints.</h2>
+          <p class="section-sub">Each morning you’ll get a focused lesson, examples, a practice checklist, and short checks for understanding.</p>
         </header>
+      </div>
+    </section>
 
-        <div class="cards">
-          <article class="card">
-            <span class="tag">Daily</span>
-            <h3>Focused lessons</h3>
-            <p>Short, clear concept drops across algebra, functions, geometry, and data.</p>
-          </article>
-          <article class="card">
-            <span class="tag">Adaptive</span>
-            <h3>Practice that adjusts</h3>
-            <p>Sets scale up or down based on accuracy so time is always well spent.</p>
-          </article>
-          <article class="card">
-            <span class="tag">Support</span>
-            <h3>Momentum nudges</h3>
-            <p>Weekly check-ins and progress snapshots to keep confidence growing.</p>
-          </article>
+    <section class="section">
+      <div class="shell">
+        <div class="cta-card" data-reveal>
+          <div>
+            <h3 class="section-title">Ready to start?</h3>
+            <p class="section-sub">Checkout is handled securely through PayPal. You’ll get access within 24 hours.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn primary" href="payment-beginner.html">Proceed to secure payment</a>
+            <a class="btn outline" href="mailto:sanmay.pachika@gmail.com">Questions? Email us</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="wrap footer__row">
-      <a class="brand" href="#top">Sunnypreps</a>
-      <nav class="footer__links" aria-label="Footer">
+    <div class="shell footer-grid">
+      <div><a class="brand" href="index.html"><span class="brand-glyph"></span>Sunnypreps</a></div>
+      <nav class="foot-links">
         <a href="index.html#programs">Programs</a>
         <a href="index.html#approach">Approach</a>
         <a href="index.html#outcomes">Outcomes</a>
         <a href="booking.html">Consultation</a>
       </nav>
-      <p class="muted">© <span id="year"></span> Sunnypreps.</p>
     </div>
   </footer>
 
