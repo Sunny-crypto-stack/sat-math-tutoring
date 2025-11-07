@@ -1,56 +1,57 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Secure Payment — Intensive Track | Sunnypreps</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secure Payment | Sunnypreps Intensive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="progress-tracker"></div>
-  <div class="ambient-wrapper" aria-hidden="true"><div id="ambient" class="ambient"></div></div>
-
-  <header id="siteNav" class="nav transparent">
+  <div id="progress-tracker" aria-hidden="true"></div>
+  <header class="nav transparent" id="nav">
     <div class="nav-shell">
-      <a class="brand" href="index.html#home"><span class="brand-glyph"></span>Sunnypreps</a>
-      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
-      <nav id="navMenu" class="nav-links">
+      <a class="brand" href="index.html"><span class="brand-glyph"></span>Sunnypreps</a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navDrawer">Menu</button>
+      <nav class="nav-links">
         <a href="index.html#programs">Programs</a>
         <a href="index.html#approach">Approach</a>
         <a href="index.html#outcomes">Outcomes</a>
-        <a class="btn btn-outline" href="intensive.html">Course details</a>
+        <a class="btn light small" href="intense.html">Course details</a>
       </nav>
-      <nav id="navDrawer" class="nav-drawer hidden">
+    </div>
+    <div id="navDrawer" class="hidden" role="dialog" aria-label="Site Menu">
+      <div class="nav-drawer">
         <a href="index.html#programs">Programs</a>
         <a href="index.html#approach">Approach</a>
         <a href="index.html#outcomes">Outcomes</a>
-        <a class="btn btn-outline" href="intensive.html">Course details</a>
-      </nav>
+        <a class="btn light" href="intense.html">Course details</a>
+      </div>
     </div>
   </header>
 
-  <main>
-    <section class="hero-edu" aria-labelledby="title">
-      <div class="hero-edu__stage" data-reveal>
-        <p class="hero-edu__eyebrow">Payment</p>
-        <h1 id="title" class="hero-edu__title">
-          RESERVE YOUR MENTORSHIP
-          <span class="hero-edu__highlight">INTENSIVE TRACK</span>
-        </h1>
-        <p class="hero-edu__sub">Spots are limited to maintain high-touch coaching. Secure checkout via PayPal.</p>
-        <div class="hero-edu__ctas">
-          <a class="btn-edu btn-edu--primary" href="https://www.paypal.com/ncp/payment/4Q7Y5JKAJMRML" target="_blank" rel="noopener">Pay — <span class="price" data-price="1099">$1,099</span></a>
-          <a class="btn-edu btn-edu--light" href="booking.html">Prefer to chat?</a>
-        </div>
+  <main class="hero-edu" id="top">
+    <div class="hero-edu__stage">
+      <p class="hero-edu__eyebrow">Payment</p>
+      <h1 class="hero-edu__title">Reserve your <span class="hero-edu__highlight">Intensive</span> mentorship</h1>
+      <p class="hero-edu__sub">We process payments through PayPal. Once completed, we’ll confirm scheduling and deliver your onboarding kit.</p>
+      <div class="hero-edu__ctas">
+        <a class="btn-edu btn-edu--primary" href="https://www.paypal.com/ncp/payment/4Q7Y5JKAJMRML" target="_blank" rel="noopener">Pay $1,099 via PayPal</a>
+        <a class="btn-edu btn-edu--light" href="mailto:sanmay.pachika@gmail.com">Prefer to chat first?</a>
       </div>
-    </section>
+    </div>
   </main>
 
   <footer class="footer">
     <div class="shell footer-grid">
-      <div><a class="brand" href="index.html#home">Sunnypreps</a><p class="foot-note">© <span id="y"></span> Sunnypreps.</p></div>
-      <nav class="foot-links"><a href="index.html#programs">Programs</a><a href="index.html#approach">Approach</a><a href="index.html#outcomes">Outcomes</a><a href="booking.html">Consultation</a></nav>
+      <div><a class="brand" href="index.html"><span class="brand-glyph"></span>Sunnypreps</a></div>
+      <nav class="foot-links">
+        <a href="index.html#programs">Programs</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#outcomes">Outcomes</a>
+        <a href="booking.html">Consultation</a>
+      </nav>
     </div>
   </footer>
 
