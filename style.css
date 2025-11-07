@@ -100,3 +100,45 @@ body{margin:0;background:var(--blue);color:var(--text);font-family:"Inter",syste
   .nav-links{display:none}
   .nav-toggle{display:block;background:var(--beige);border:none;border-radius:10px;padding:.5rem 1rem;font-weight:700}
 }
+/* -- Fix: kill default purple visited links & unify link colors -- */
+
+/* Global links inherit section color unless explicitly styled */
+a,
+a:link,
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Show underline only on hover/focus for accessibility */
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+}
+
+/* Brand + nav links stay readable (blue-on-beige palette) */
+.brand,
+.brand:link,
+.brand:visited { color: var(--text); }
+
+.nav-links a,
+.nav-links a:link,
+.nav-links a:visited { color: var(--text); }
+
+.nav-links a:hover,
+.nav-links a:focus-visible { color: var(--beige); }
+
+/* Footer links keep beige (no purple after click) */
+.foot-links a,
+.foot-links a:link,
+.foot-links a:visited { color: var(--beige); }
+
+/* Button-looking anchors keep their button colors across states */
+.btn,
+.btn:link,
+.btn:visited { color: inherit; text-decoration: none; }
+
+/* Optional: hero subheading links (if any) keep the soft text color */
+.hero-edu__stage a,
+.hero-edu__stage a:link,
+.hero-edu__stage a:visited { color: var(--text); }
