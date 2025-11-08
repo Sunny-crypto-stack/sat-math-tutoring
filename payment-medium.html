@@ -3,32 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Secure Payment | Medium · Sunnypreps</title>
+  <title>Secure Payment | FocusPrep Medium</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="nav" id="nav">
+  <header class="nav opaque" id="site-nav">
     <div class="nav-shell">
-      <a class="brand" href="index.html"><span class="brand-glyph"></span>Sunnypreps</a>
-      <nav class="nav-links"><a href="medium.html">Course details</a></nav>
+      <a class="brand" href="index.html"><span class="brand-dot"></span>FocusPrep</a>
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html#programs">Programs</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#outcomes">Outcomes</a>
+        <a href="booking.html" class="btn btn-pill btn-beige">Book a Consultation</a>
+      </nav>
     </div>
   </header>
 
-  <main class="section" style="padding-top:140px">
+  <main class="section" style="padding-top:120px">
     <div class="shell">
       <header class="section-head">
         <p class="eyebrow">Payment</p>
         <h1 class="section-title">Secure your Medium track seat</h1>
-        <p class="section-sub">We’ll confirm your cohort start date after payment.</p>
+        <p class="section-sub">Checkout via PayPal. We’ll confirm your cohort start date within 24 hours.</p>
       </header>
 
-      <div class="card">
-        <h3>Pay $599 USD</h3>
-        <div class="card-actions" style="margin-top:12px">
-          <a class="btn primary" href="https://www.paypal.com/ncp/payment/SATM5QB8DS7E4" target="_blank" rel="noopener">Pay via PayPal</a>
-          <a class="btn outline" href="booking.html">Ask a question</a>
+      <div class="cta" role="region" aria-label="Payment">
+        <div>
+          <h2 class="section-title" style="margin:0 0 8px;">Pay $599 USD</h2>
+          <p class="section-sub" style="margin:0;">Click below to complete the one-time payment.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-pill btn-beige" href="https://www.paypal.com/ncp/payment/4Q7Y5JKAJMRML" target="_blank" rel="noopener">Pay securely via PayPal</a>
         </div>
       </div>
     </div>
@@ -36,10 +44,15 @@
 
   <footer class="footer">
     <div class="shell footer-grid">
-      <div><a class="brand" href="index.html"><span class="brand-glyph"></span>Sunnypreps</a></div>
-      <nav class="foot-links"><a href="index.html#programs">Programs</a><a href="booking.html">Consultation</a></nav>
+      <p class="foot-note">© 2025 FocusPrep.</p>
+      <nav class="foot-links">
+        <a href="index.html#programs">Programs</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#outcomes">Outcomes</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
     </div>
   </footer>
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
