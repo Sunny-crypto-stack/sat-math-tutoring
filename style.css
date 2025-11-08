@@ -1,5 +1,6 @@
 /* ===========================
    Midnight Blue + Pro Beige
+   Brand: FocusPrep
 =========================== */
 :root{
   --blue-900:#0F1A37;      /* page background */
@@ -9,7 +10,6 @@
   --text:#F5F7FF;          /* main text */
   --text-soft:#C9D0E3;     /* muted text */
   --ink:#141414;           /* dark ink on beige */
-  --ring:rgba(255,255,255,.28);
   --stroke:rgba(255,255,255,.08);
   --shadow:0 22px 60px rgba(0,0,0,.35);
   --radius-lg:24px;
@@ -28,6 +28,10 @@ body{
   overflow-x:hidden;
 }
 
+/* Global link normalization (prevents purple visited) */
+a, a:visited { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
 /* Utility */
 .shell{width:min(1120px,92vw);margin:0 auto}
 .section{padding:84px 0; scroll-margin-top:100px;}
@@ -35,7 +39,7 @@ body{
 .section-title{font-family:"Space Grotesk","Inter",sans-serif;font-weight:800;letter-spacing:-.02em;margin:0 0 8px;font-size:clamp(1.8rem,4vw,2.4rem)}
 .section-sub{margin:0;color:var(--text-soft)}
 
-/* Ambient vignette (does not block clicks) */
+/* Ambient (non-interactive) */
 .ambient{
   position:fixed; inset:0; pointer-events:none; z-index:0;
   background:
@@ -56,15 +60,36 @@ body{
 .nav-links a{color:var(--text); text-decoration:none; font-weight:600}
 .nav-links a:hover{opacity:.9}
 
-/* Buttons */
+/* Buttons (lock visual states so they never turn purple) */
 .btn{cursor:pointer; border:1px solid transparent; transition:.2s; font-weight:700}
 .btn-pill{display:inline-flex; align-items:center; justify-content:center; padding:12px 20px; border-radius:999px}
-.btn-beige{background:var(--beige-500); color:var(--ink); box-shadow:0 14px 36px rgba(217,185,155,.28)}
-.btn-beige:hover{background:var(--beige-600); transform:translateY(-1px)}
-.btn-light{background:#fff; color:#0E152F; border:1px solid var(--stroke)}
-.btn-light:hover{box-shadow:0 10px 24px rgba(255,255,255,.18); transform:translateY(-1px)}
-.text-link{color:var(--text); text-decoration:none; font-weight:600}
-.text-link:hover{text-decoration:underline}
+
+/* Beige primary */
+.btn-beige,
+.btn-beige:link,
+.btn-beige:visited{
+  background:var(--beige-500);
+  color:var(--ink);
+  box-shadow:0 14px 36px rgba(217,185,155,.28);
+  border-color:transparent;
+}
+.btn-beige:hover,
+.btn-beige:focus-visible{background:var(--beige-600); transform:translateY(-1px); text-decoration:none}
+
+/* Light secondary */
+.btn-light,
+.btn-light:link,
+.btn-light:visited{
+  background:#fff;
+  color:#0E152F;
+  border:1px solid var(--stroke);
+}
+.btn-light:hover,
+.btn-light:focus-visible{box-shadow:0 10px 24px rgba(255,255,255,.18); transform:translateY(-1px); text-decoration:none}
+
+/* Text links in cards */
+.text-link, .text-link:visited { color: var(--text); text-decoration: none; font-weight: 600; }
+.text-link:hover { text-decoration: underline; }
 
 /* HERO */
 .hero{padding:140px 0 40px}
@@ -130,7 +155,7 @@ body{
 }
 .modal-close{position:absolute; top:10px; right:12px; background:transparent; color:var(--text-soft); border:0; font-size:1.6rem; cursor:pointer}
 .modal-close:hover{color:var(--text)}
-.modal-card a{color:#fff; text-decoration:underline}
+.modal-card a, .modal-card a:visited{color:#fff; text-decoration:underline}
 
 /* Responsive nav */
 @media (max-width: 880px){
