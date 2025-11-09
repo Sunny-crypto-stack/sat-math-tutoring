@@ -2,21 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FocusPrep — SAT Reading & Math Mastery</title>
-  <meta name="description" content="FocusPrep helps students master SAT Reading and Math through structured courses, personalized mentorship, and Google Classroom-based delivery." />
+  <meta name="description" content="FocusPrep helps students master SAT Reading & Math with calm lessons, adaptive practice, and Google Classroom-based delivery." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- ===============================
-       NAVIGATION
-  =============================== -->
+  <!-- Nav -->
   <header class="nav opaque" id="site-nav" aria-label="Primary">
     <div class="nav-shell">
-      <a class="brand" href="#home"><span class="brand-dot"></span>FocusPrep</a>
+      <a class="brand" href="#top"><span class="brand-dot"></span>FocusPrep</a>
       <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
       <nav class="nav-links" id="nav-links">
         <a href="#programs">Programs</a>
@@ -27,15 +25,18 @@
     </div>
   </header>
 
-  <!-- ===============================
-       HERO
-  =============================== -->
-  <main id="home">
+  <main id="top">
+    <!-- HERO (centered card, rounded, ambient gradient) -->
     <section class="hero-edu" aria-labelledby="hero-title">
       <div class="hero-edu__stage">
         <p class="hero-edu__eyebrow">SAT Reading & Math • Focused & Friendly</p>
-        <h1 class="hero-edu__title" id="hero-title">TO GET STARTED <br><span class="hero-edu__highlight">WITH CONFIDENCE</span></h1>
-        <p class="hero-edu__sub">Calm lessons, adaptive practice, and mentors who actually listen — built for students and easy for parents.</p>
+        <h1 class="hero-edu__title" id="hero-title">
+          TO GET STARTED<br />
+          <span class="hero-edu__highlight">WITH CONFIDENCE</span>
+        </h1>
+        <p class="hero-edu__sub">
+          Calm lessons, adaptive practice, and mentors who actually listen — built for students and easy for parents.
+        </p>
         <div class="hero-edu__ctas">
           <a class="btn-edu btn-edu--primary" href="#programs">I’m a Student</a>
           <a class="btn-edu btn-edu--light" href="#programs">I’m a Parent</a>
@@ -43,9 +44,7 @@
       </div>
     </section>
 
-    <!-- ===============================
-         PROGRAMS
-    =============================== -->
+    <!-- PROGRAMS -->
     <section id="programs" class="section">
       <div class="shell">
         <p class="eyebrow">Programs</p>
@@ -53,30 +52,34 @@
         <p class="section-sub">All include adaptive homework, analytics dashboards, and mentor access — delivered via Google Classroom.</p>
 
         <div class="cards">
-          <div class="card">
+          <article class="card">
             <h3>Beginner</h3>
             <p>Foundations for SAT Reading & Math with calm pacing, daily drills, and light mentor guidance.</p>
-            <a class="btn btn-pill btn-beige" href="payment-beginner.html">Enroll</a>
-          </div>
+            <div class="card-actions">
+              <a class="btn btn-pill btn-beige" href="payment-beginner.html">Enroll</a>
+            </div>
+          </article>
 
-          <div class="card">
+          <article class="card">
             <h3>Medium</h3>
             <p>Live sessions + structured practice for 1300–1450 targets across both sections. Ideal for disciplined learners.</p>
-            <a class="btn btn-pill btn-beige" href="payment-medium.html">Enroll</a>
-          </div>
+            <div class="card-actions">
+              <a class="btn btn-pill btn-beige" href="payment-medium.html">Enroll</a>
+            </div>
+          </article>
 
-          <div class="card">
+          <article class="card">
             <h3>Intensive</h3>
             <p>High-touch 1:1 mentorship, weekly simulations, and advanced strategy refinement for 1500+ aspirants.</p>
-            <a class="btn btn-pill btn-beige" href="payment-intensive.html">Enroll</a>
-          </div>
+            <div class="card-actions">
+              <a class="btn btn-pill btn-beige" href="payment-intensive.html">Enroll</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ===============================
-         APPROACH
-    =============================== -->
+    <!-- APPROACH -->
     <section id="approach" class="section">
       <div class="shell">
         <p class="eyebrow">Approach</p>
@@ -88,87 +91,68 @@
             <h3>Personal diagnostics</h3>
             <p>Start with a full digital SAT to map strengths and gaps; recalibrate every 4 weeks.</p>
           </div>
-
           <div class="pillar">
-            <h3>Google Classroom mentoring</h3>
-            <p>All lessons, assignments, and mentor feedback are organized in Google Classroom — clear, efficient, and accessible from any device.</p>
+            <h3>Google Classroom delivery</h3>
+            <p>Lessons, assignments, and mentor feedback are organized in Classroom — clear, efficient, and device-friendly.</p>
           </div>
-
           <div class="pillar">
             <h3>Calm, focused design</h3>
-            <p>Clean checklists and weekly progress snapshots keep stress low and momentum high.</p>
+            <p>Clean checklists and progress snapshots keep stress low and momentum high.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===============================
-         OUTCOMES
-    =============================== -->
+    <!-- OUTCOMES -->
     <section id="outcomes" class="section">
       <div class="shell">
         <p class="eyebrow">Outcomes</p>
         <h2 class="section-title">Confidence proven by results.</h2>
-        <p class="section-sub">Students regularly see 150+ point gains within 8–10 weeks of consistent mentorship and analytics-based learning.</p>
+        <p class="section-sub">Students regularly see 150+ point gains within 8–10 weeks of consistent mentorship.</p>
 
         <div class="stats">
-          <div class="stat">
-            <strong>+160 pts</strong>
-            <span>Average score improvement</span>
-          </div>
-          <div class="stat">
-            <strong>98%</strong>
-            <span>Completion rate</span>
-          </div>
-          <div class="stat">
-            <strong>1:1</strong>
-            <span>Mentor-to-student support ratio</span>
-          </div>
+          <div class="stat"><strong>+160 pts</strong><span>Average score improvement</span></div>
+          <div class="stat"><strong>98%</strong><span>Weekly completion</span></div>
+          <div class="stat"><strong>1:1</strong><span>Mentor support</span></div>
         </div>
       </div>
     </section>
 
-    <!-- ===============================
-         CTA
-    =============================== -->
+    <!-- CTA -->
     <section class="section">
       <div class="shell">
         <div class="cta-card">
           <div>
             <h3>Ready to start?</h3>
-            <p>Book a 15-minute consultation to see if FocusPrep is the right fit for your goals.</p>
+            <p>Book a 15-minute consultation to see if FocusPrep matches your goals.</p>
           </div>
           <div class="cta-actions">
-            <button class="btn btn-pill btn-beige" data-open-modal>Book a Consultation</button>
+            <button class="btn btn-pill btn-beige" data-open-modal type="button">Book a Consultation</button>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ===============================
-       FOOTER
-  =============================== -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="shell footer-grid">
-      <p class="foot-note">© 2025 FocusPrep — Elevating SAT Reading & Math Mastery.</p>
+      <p class="foot-note">© 2025 FocusPrep — SAT Reading & Math Mastery.</p>
       <nav class="foot-links" aria-label="Footer">
         <a href="#programs">Programs</a>
         <a href="#approach">Approach</a>
         <a href="#outcomes">Outcomes</a>
-        <a href="#home">Back to Top</a>
+        <a href="#top">Back to top</a>
       </nav>
     </div>
   </footer>
 
-  <!-- ===============================
-       MODAL
-  =============================== -->
+  <!-- MODAL -->
   <div class="consult-modal" id="consult-modal" aria-hidden="true">
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="consult-title">
       <button class="modal-close" type="button" data-close-modal aria-label="Close">×</button>
       <h2 id="consult-title">Connect with a FocusPrep Mentor</h2>
-      <p>Reserve a discovery call or email <a href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a> for quick questions.</p>
+      <p>Reserve a discovery call or email <a href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a>.</p>
       <div class="calendly-inline-widget" data-url="https://calendly.com/sanmay-pachika/30min" style="min-width:320px;height:630px;"></div>
     </div>
   </div>
