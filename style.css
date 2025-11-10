@@ -1,14 +1,15 @@
 /* Tokens */
-:root{
-  --blue:#0F1C3A;            /* background */
-  --blue-surface:#19264A;    /* hero card */
-  --beige:#DDBA9D;           /* accent */
-  --beige-ink:#2A1B12;
-  --text:#F5F7FA;
-  --text-soft:#C7CDDF;
-  --stroke:rgba(255,255,255,.12);
-  --shadow:0 28px 60px rgba(0,0,0,.35);
-  --radius-lg:24px; --radius:18px;
+:root {
+  --blue: #0F172A;            /* Deep navy background */
+  --blue-surface: #1E293B;    /* Card background */
+  --beige: #E3C8A8;           /* Softer beige accent */
+  --beige-ink: #2B1A10;       /* Dark ink for beige elements */
+  --text: #FAFAF9;            /* Warm ivory white */
+  --text-soft: #D4D4D4;       /* Muted text for subheadings */
+  --stroke: rgba(255, 255, 255, 0.12);
+  --shadow: 0 28px 60px rgba(0, 0, 0, 0.35);
+  --radius-lg: 24px;
+  --radius: 18px;
 }
 
 /* Base */
