@@ -1,34 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Secure Payment — Intensive | FocusPrep</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Intensive — Secure Payment | FocusPrep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="nav">
-    <div class="shell nav-shell">
-      <a class="brand" href="index.html#top"><span class="brand-glyph"></span>FocusPrep</a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="index.html#programs">Programs</a>
-        <a href="index.html#approach">Approach</a>
-        <a href="index.html#outcomes">Outcomes</a>
-        <a class="btn btn-beige" href="booking.html">Book a Consultation</a>
+  <div id="progress-bar"></div>
+
+  <header class="nav transparent">
+    <div class="nav-shell">
+      <a class="brand" href="index.html#top"><span class="brand-glyph"></span> FocusPrep</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
+      <nav class="nav-links">
+        <a class="nav-link" href="index.html#programs">Programs</a>
+        <a class="nav-link" href="index.html#approach">Approach</a>
+        <a class="nav-link" href="index.html#outcomes">Outcomes</a>
+        <a class="btn btn-beige" href="index.html#consult">Book a Consultation</a>
       </nav>
     </div>
+    <nav id="mobile-menu" class="nav-drawer" hidden>
+      <a class="nav-link" href="index.html#programs">Programs</a>
+      <a class="nav-link" href="index.html#approach">Approach</a>
+      <a class="nav-link" href="index.html#outcomes">Outcomes</a>
+      <a class="btn btn-beige" href="index.html#consult">Book a Consultation</a>
+    </nav>
   </header>
 
-  <main class="section">
+  <main class="hero">
     <div class="shell">
-      <div class="hero-card reveal" role="region" aria-labelledby="p-title">
-        <p class="eyebrow">Payment</p>
-        <h1 id="p-title">Intensive — $1,099 USD</h1>
-        <p>Secure checkout via PayPal. After payment, we’ll schedule your 1:1 kickoff and provide Classroom onboarding.</p>
-        <div class="ctas" style="margin-top:10px">
-          <a class="btn btn-beige" href="https://www.paypal.com/ncp/payment/4Q7Y5JKAJMRML" target="_blank" rel="noopener">Pay securely via PayPal</a>
-          <a class="btn btn-outline" href="intensive.html">View syllabus</a>
+      <div class="hero-card">
+        <p class="eyebrow">Intensive • 1:1 Mentorship</p>
+        <h1>Secure your mentorship</h1>
+        <p class="sub">Pay with PayPal. We’ll confirm your schedule and send your <strong>Google Classroom</strong> onboarding kit within 24 hours.</p>
+
+        <div class="cards" style="margin-top:20px">
+          <article class="card" style="grid-column:1/-1; max-width:840px; margin-inline:auto;">
+            <h3>Intensive Track — $1,099 USD</h3>
+            <ul>
+              <li>Dedicated 1:1 sessions & exam simulations</li>
+              <li>Elite-level problem solving & weekly deep dives</li>
+              <li>Concierge support + Classroom analytics</li>
+            </ul>
+            <div class="card-actions" style="margin-top:12px">
+              <a class="btn btn-beige" href="https://www.paypal.com/ncp/payment/4Q7Y5JKAJMRML" target="_blank" rel="noopener">Pay securely with PayPal</a>
+              <a class="btn btn-outline" href="intensive.html">View syllabus</a>
+              <a class="link" href="index.html#programs">Back to Programs</a>
+            </div>
+          </article>
         </div>
       </div>
     </div>
@@ -36,10 +59,20 @@
 
   <footer class="footer">
     <div class="shell footer-grid">
-      <div><a class="brand" href="index.html#top"><span class="brand-glyph"></span>FocusPrep</a></div>
-      <nav><a href="booking.html">Need help?</a></nav>
+      <div>
+        <a class="brand" href="index.html#top">FocusPrep</a>
+        <p class="muted">© 2025 FocusPrep · SAT Reading & Math mastery.</p>
+      </div>
+      <nav class="foot-links">
+        <a href="index.html#programs">Programs</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#outcomes">Outcomes</a>
+        <a href="index.html#consult">Consultation</a>
+      </nav>
     </div>
   </footer>
+
+  <div class="ambient-wrapper" aria-hidden="true"><div id="ambient" class="ambient"></div></div>
   <script src="script.js" defer></script>
 </body>
 </html>
