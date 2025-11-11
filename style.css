@@ -1,1 +1,148 @@
+/* ===============================
+   FocusPrep Theme (Navy + Beige)
+   =============================== */
+:root{
+  /* Palette */
+  --navy-900:#0F1A33;      /* page background */
+  --navy-800:#122048;      /* hero surface */
+  --navy-700:#1B2C60;      /* panels */
+  --beige-400:#DDBA9B;     /* primary accent (beige) */
+  --beige-500:#CFA882;     /* darker beige (hover) */
+  --ink-100:#F3F6FF;       /* headings on navy */
+  --ink-300:#D7DDEE;       /* body on navy */
+  --ink-500:#A9B2C9;       /* muted */
+  --ink-900:#141314;       /* text on beige */
+  --stroke: rgba(255,255,255,.08);
 
+  /* Layout */
+  --shell: 1120px;
+  --radius: 18px;
+  --radius-lg: 24px;
+  --shadow-lg: 0 30px 60px rgba(0,0,0,.35);
+  --shadow-md: 0 16px 32px rgba(0,0,0,.25);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--navy-900);
+  color: var(--ink-300);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x:hidden;
+}
+
+/* Typography */
+h1,h2,h3,h4{font-family: "Space Grotesk", Inter, sans-serif; color: var(--ink-100); letter-spacing:-.02em; margin:0 0 .4rem}
+h1{font-size:clamp(2.2rem,4.4vw,3rem)}
+h2{font-size:clamp(1.6rem,3.2vw,2rem)}
+p{margin:.4rem 0 1rem}
+small, .muted{color:var(--ink-500)}
+.eyebrow{font:600 .78rem/1 Inter, sans-serif; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-500)}
+
+/* Links (no purple states) */
+a{color:var(--ink-100); text-decoration:none}
+a:hover{opacity:.9; text-decoration:underline}
+a:visited{color:var(--ink-100)} /* kills purple */
+
+/* Containers */
+.shell{max-width:var(--shell); margin-inline:auto; width:calc(100% - 2rem)}
+.section{padding-block:72px}
+
+/* Progress bar */
+#progress-bar{position:fixed; inset:0 auto auto 0; height:3px; width:0; background:linear-gradient(90deg,#fff,var(--beige-400)); z-index:1000}
+
+/* Ambient */
+.ambient-wrapper{position:fixed; inset:0; pointer-events:none; z-index:-1}
+.ambient{width:140vmax; height:140vmax; margin:auto; background:
+  radial-gradient(40% 40% at 30% 35%, rgba(221,186,155,.16), transparent 60%),
+  radial-gradient(38% 38% at 70% 65%, rgba(255,255,255,.08), transparent 65%);
+  filter:saturate(1.05);}
+
+/* ================= NAV ================= */
+.nav{position:sticky; top:0; z-index:900; border-bottom:1px solid transparent; transition: backdrop-filter .25s ease, background .25s ease, border-color .25s}
+.nav.transparent{background:transparent}
+.nav.opaque{background:rgba(10,15,28,.6); backdrop-filter: blur(12px); border-color: var(--stroke)}
+.nav-shell{display:flex; align-items:center; justify-content:space-between; gap:18px; padding:14px 0; width:var(--shell); margin:0 auto}
+.brand{display:flex; align-items:center; gap:.55rem; font-weight:800; color:var(--ink-100)}
+.brand-glyph{width:10px; height:10px; border-radius:999px; background:var(--beige-400); box-shadow:0 0 0 4px rgba(221,186,155,.15)}
+.nav-links{display:flex; align-items:center; gap:22px}
+.nav-link{color:var(--ink-300); font-weight:600}
+.nav-link:hover{color:var(--ink-100)}
+.nav-toggle{display:none}
+
+/* Mobile drawer */
+.nav-drawer{display:grid; gap:10px; padding:10px 1rem}
+@media (max-width:900px){
+  .nav-links{display:none}
+  .nav-toggle{display:inline-flex; align-items:center; gap:8px; color:var(--ink-100); border:1px solid var(--stroke); background:transparent; padding:8px 12px; border-radius:12px; font-weight:700}
+  #mobile-menu[hidden]{display:none}
+}
+
+/* ================= HERO ================= */
+.hero{padding:clamp(56px,8vw,84px) 0 28px}
+.hero-card{
+  background: radial-gradient(140% 130% at 50% 0%, var(--navy-800), var(--navy-700));
+  border:1px solid var(--stroke);
+  border-radius: 28px;
+  box-shadow: var(--shadow-lg);
+  padding: clamp(32px,5.6vw,64px);
+  text-align:center;
+  width:min(100%, 980px);
+  margin:0 auto;
+}
+.hero h1{font-size: clamp(2.4rem, 5.6vw, 4rem)}
+.hero .sub{max-width:760px; margin: 12px auto 0}
+.badge{
+  display:inline-block; background:var(--beige-400); color:var(--ink-900);
+  padding:10px 16px; border-radius:14px; font-weight:800; letter-spacing:.04em; text-transform:uppercase;
+  box-shadow: 0 16px 30px rgba(221,186,155,.25)
+}
+
+/* CTAs */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:.45rem;
+  padding:.9rem 1.2rem; border-radius:999px; border:2px solid transparent; cursor:pointer;
+  font-weight:700; transition: transform .18s ease, box-shadow .18s ease, background .18s, color .18s;
+}
+.btn-beige{background:var(--beige-400); color:var(--ink-900); box-shadow:0 16px 30px rgba(221,186,155,.28)}
+.btn-beige:hover{background:var(--beige-500); transform:translateY(-1px)}
+.btn-outline{background:transparent; border-color:rgba(255,255,255,.45); color:var(--ink-100)}
+.btn-outline:hover{background:rgba(255,255,255,.08)}
+.btn-muted{background:#fff; color:#1B1B1B}
+.btn-row{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+
+/* Cards / Grids */
+.cards{display:grid; grid-template-columns: repeat(12, 1fr); gap:18px}
+.card{
+  grid-column: span 4;
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+  border:1px solid var(--stroke);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  box-shadow: var(--shadow-md);
+}
+.card h3{margin-top:.35rem}
+.card .tag{color:var(--ink-500); font-weight:700; font-size:.8rem}
+.card-actions{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+.link{color:var(--ink-300); text-decoration:underline}
+.link:hover{opacity:.9}
+
+@media (max-width: 900px){
+  .card{grid-column:1/-1}
+}
+
+/* CTA Strip / Footer */
+.cta{
+  background: linear-gradient(140deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+  border:1px solid var(--stroke);
+  border-radius:var(--radius-lg);
+  padding:20px;
+  display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap;
+}
+.footer{border-top:1px solid var(--stroke); padding:36px 0; background:rgba(255,255,255,.02)}
+.footer-grid{display:flex; align-items:center; justify-content:space-between; gap:18px}
+.foot-links a{margin-right:12px; color:var(--ink-300)}
