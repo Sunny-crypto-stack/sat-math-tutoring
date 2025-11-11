@@ -1,58 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FocusPrep — SAT Reading & Math Mastery</title>
-  <meta name="description" content="FocusPrep delivers calm, high-intent SAT Reading & Math tutoring with structured practice and measurable score gains — materials via Google Classroom." />
+  <meta name="description" content="Calm, high-intent SAT Reading & Math prep. Diagnostic-led plans, adaptive practice, and mentors who actually listen — delivered via Google Classroom." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body id="top">
 
-  <!-- NAV -->
-  <header class="nav">
-    <div class="shell nav-shell">
-      <a class="brand" href="#top"><span class="brand-glyph"></span>FocusPrep</a>
-      <nav class="nav-links" aria-label="Primary navigation">
+<body>
+  <div id="progress-bar"></div>
+
+  <header class="nav transparent" id="site-nav">
+    <div class="nav-shell">
+      <a class="brand" href="#top">
+        <span class="brand-glyph"></span> FocusPrep
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
+
+      <nav class="nav-links">
         <a class="nav-link" href="#programs">Programs</a>
         <a class="nav-link" href="#approach">Approach</a>
         <a class="nav-link" href="#outcomes">Outcomes</a>
-        <a class="btn btn-beige" href="booking.html">Book a Consultation</a>
+        <a class="btn btn-beige" href="#consult">Book a Consultation</a>
       </nav>
     </div>
+
+    <nav id="mobile-menu" class="nav-drawer" hidden>
+      <a class="nav-link" href="#programs">Programs</a>
+      <a class="nav-link" href="#approach">Approach</a>
+      <a class="nav-link" href="#outcomes">Outcomes</a>
+      <a class="btn btn-beige" href="#consult">Book a Consultation</a>
+    </nav>
   </header>
 
-  <!-- HERO -->
-  <main>
-    <section class="hero">
-      <div class="shell">
-        <div class="hero-card reveal">
-          <p class="eyebrow">SAT Reading & Math • Focused & Friendly</p>
-          <h1>TO GET STARTED <span class="sr-only">—</span></h1>
-          <span class="highlight" aria-hidden="true">WITH CONFIDENCE</span>
-          <p>Calm lessons, adaptive practice, and mentors who actually listen — built for students and easy for parents. All materials delivered via <strong>Google Classroom</strong>.</p>
-          <div class="ctas" role="group" aria-label="Choose your path">
-            <a class="btn btn-beige" href="#programs">I’m a Student</a>
-            <a class="btn btn-outline" href="#programs">I’m a Parent</a>
-          </div>
+  <main id="top">
+    <section class="hero-edu section">
+      <div class="hero-edu__stage">
+        <p class="hero-edu__eyebrow">SAT Reading & Math • Focused & Friendly</p>
+        <h1 class="hero-edu__title">
+          TO GET STARTED
+          <span class="hero-edu__highlight">WITH CONFIDENCE</span>
+        </h1>
+        <p class="hero-edu__sub">
+          Calm lessons, adaptive practice, and mentors who actually listen — built for students and easy for parents.
+        </p>
+        <div class="hero-edu__ctas">
+          <a class="btn-edu btn-edu--primary btn-lg" href="#programs">I’m a Student</a>
+          <a class="btn-edu btn-edu--light btn-lg" href="#consult">I’m a Parent</a>
         </div>
       </div>
     </section>
 
-    <!-- PROGRAMS -->
     <section id="programs" class="section">
       <div class="shell">
-        <p class="eyebrow">Programs</p>
-        <h2 class="section-title">Three tracks, one standard of excellence.</h2>
-        <p class="section-sub">All include adaptive homework, analytics dashboards, and mentor access — delivered via Google Classroom.</p>
+        <header class="section-head">
+          <p class="eyebrow">PROGRAMS</p>
+          <h2 class="section-title">Three tracks, one standard of excellence.</h2>
+          <p class="section-sub">
+            All include adaptive homework, analytics dashboards, and mentor access — delivered via Google Classroom.
+          </p>
+        </header>
 
-        <div class="cards" style="margin-top:18px">
-          <!-- Beginner -->
-          <article class="card reveal">
-            <div class="tag">Beginner · self-paced</div>
+        <div class="cards">
+          <article class="card">
+            <span class="tag">Beginner · self-paced</span>
             <h3>Beginner</h3>
             <p>Foundations for SAT Reading & Math with calm pacing, daily drills, and light mentor guidance.</p>
             <div class="card-actions">
@@ -61,9 +76,8 @@
             </div>
           </article>
 
-          <!-- Medium -->
-          <article class="card reveal" style="--delay:0.1s">
-            <div class="tag">Medium · live cohort</div>
+          <article class="card">
+            <span class="tag">Medium · live cohort</span>
             <h3>Medium</h3>
             <p>Live sessions + structured practice for 1300–1450 goals across both sections. Ideal for disciplined learners.</p>
             <div class="card-actions">
@@ -72,11 +86,10 @@
             </div>
           </article>
 
-          <!-- Intensive -->
-          <article class="card reveal" style="--delay:0.2s">
-            <div class="tag">Intensive · 1:1 mentorship</div>
+          <article class="card">
+            <span class="tag">Intensive · 1:1 mentorship</span>
             <h3>Intensive</h3>
-            <p>High-touch 1:1 mentorship, weekly simulations, and advanced strategy refinement for 1500+ aspirants.</p>
+            <p>High-touch 1:1 mentoring, weekly simulations, and advanced strategy refinement for 1500+ aspirants.</p>
             <div class="card-actions">
               <a class="btn btn-beige" href="payment-intensive.html">Enroll</a>
               <a class="link" href="intensive.html">View syllabus</a>
@@ -86,23 +99,24 @@
       </div>
     </section>
 
-    <!-- APPROACH -->
     <section id="approach" class="section">
       <div class="shell">
-        <p class="eyebrow">Approach</p>
-        <h2 class="section-title">Minimal noise. Maximum clarity.</h2>
-        <p class="section-sub">Diagnostics, calm pacing, and mentor feedback—so students always know the next best step.</p>
+        <header class="section-head">
+          <p class="eyebrow">APPROACH</p>
+          <h2 class="section-title">Minimal noise. Maximum clarity.</h2>
+          <p class="section-sub">Diagnostics, calm pacing, and mentor feedback — so students always know the next step.</p>
+        </header>
 
-        <div class="pillars" style="margin-top:18px">
-          <article class="pillar reveal">
+        <div class="pillars">
+          <article class="pillar">
             <h3>Personal diagnostics</h3>
-            <p>Start with a full digital SAT to map strengths and gaps; recalibrate every 4 weeks.</p>
+            <p>Start with a digital SAT to map strengths and gaps; recalibrate every 4 weeks.</p>
           </article>
-          <article class="pillar reveal" style="--delay:0.1s">
-            <h3>Google Classroom delivery</h3>
-            <p>All lessons, assignments, and feedback run through a single, familiar classroom space.</p>
+          <article class="pillar">
+            <h3>Mentorship that’s responsive</h3>
+            <p>Ask questions, submit work, and get quick feedback via Google Classroom and voice comments.</p>
           </article>
-          <article class="pillar reveal" style="--delay:0.2s">
+          <article class="pillar">
             <h3>Calm, focused design</h3>
             <p>Clear checklists and progress snapshots keep stress down and momentum up.</p>
           </article>
@@ -110,51 +124,54 @@
       </div>
     </section>
 
-    <!-- OUTCOMES -->
     <section id="outcomes" class="section">
       <div class="shell">
-        <p class="eyebrow">Outcomes</p>
-        <h2 class="section-title">Proof that precision prep works.</h2>
-        <div class="pillars" style="margin-top:18px">
-          <article class="pillar reveal">
-            <h3>+210 avg. score lift</h3>
-            <p>Three months of structured coaching and purposeful practice.</p>
-          </article>
-          <article class="pillar reveal" style="--delay:0.1s">
-            <h3>97% weekly completion</h3>
-            <p>Minimal, checklist-based workspace keeps students moving.</p>
-          </article>
-          <article class="pillar reveal" style="--delay:0.2s">
-            <h3>Transparent parent reports</h3>
-            <p>Concise recaps highlight wins, sticking points, and next steps.</p>
-          </article>
+        <header class="section-head">
+          <p class="eyebrow">OUTCOMES</p>
+          <h2 class="section-title">Proof that precision prep works.</h2>
+        </header>
+        <div class="stats">
+          <div class="stat"><span>Average score gain</span><strong>+210</strong></div>
+          <div class="stat"><span>Practice archive</span><strong>3,000+ qs</strong></div>
+          <div class="stat"><span>Tutor percentile</span><strong>99th</strong></div>
         </div>
+      </div>
+    </section>
 
-        <div class="cta" style="margin-top:24px">
-          <h3>Ready to start?</h3>
-          <p>Pick a time that fits your schedule. We’ll map a plan for Reading & Math together.</p>
-          <a class="btn btn-beige" href="booking.html">Book a Consultation</a>
+    <section id="consult" class="section">
+      <div class="shell">
+        <div class="cta-card">
+          <div>
+            <h3>Let’s build a plan that fits your student.</h3>
+            <p>Book a free consultation or email us your goals. We respond within one business day.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-beige" href="booking.html">Book a consultation</a>
+            <a class="btn btn-outline" href="mailto:support@focusprep.com">Email us</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="shell footer-grid">
       <div>
-        <a class="brand" href="#top"><span class="brand-glyph"></span>FocusPrep</a>
-        <p class="foot-note">© 2025 FocusPrep. Materials delivered via Google Classroom.</p>
+        <a class="brand" href="#top">FocusPrep</a>
+        <p class="foot-note">© 2025 FocusPrep. SAT Reading & Math tutoring via Google Classroom.</p>
       </div>
-      <nav aria-label="Footer">
-        <a href="#programs">Programs</a> ·
-        <a href="#approach">Approach</a> ·
-        <a href="#outcomes">Outcomes</a> ·
-        <a href="booking.html">Consultation</a>
+      <nav class="foot-links">
+        <a href="#programs">Programs</a>
+        <a href="#approach">Approach</a>
+        <a href="#outcomes">Outcomes</a>
+        <a href="#consult">Consultation</a>
       </nav>
     </div>
   </footer>
 
+  <div class="ambient-wrapper" aria-hidden="true">
+    <div class="ambient" id="ambient"></div>
+  </div>
   <script src="script.js" defer></script>
 </body>
 </html>
