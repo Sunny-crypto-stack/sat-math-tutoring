@@ -180,6 +180,49 @@
     <div class="ambient" id="ambient"></div>
   </div>
 
-  <script src="script.js" defer></script>
+  <script>
+    // Progress bar
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement.scrollHeight - innerHeight;
+      const p = h > 0 ? (scrollY / h) * 100 : 0;
+      bar.style.width = p + '%';
+    });
+
+    // Nav translucency
+    const nav = document.querySelector('.nav');
+    const updateNav = () => {
+      if (scrollY > 12) nav.classList.add('opaque'), nav.classList.remove('transparent');
+      else nav.classList.add('transparent'), nav.classList.remove('opaque');
+    };
+    addEventListener('scroll', updateNav);
+    addEventListener('load', updateNav);
+
+    // Mobile drawer fix
+    const toggle = document.querySelector('.nav-toggle');
+    const drawer = document.getElementById('mobile-menu');
+    if (toggle && drawer) {
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        drawer.hidden = expanded;
+        drawer.classList.toggle('show', !expanded);
+      });
+    }
+
+    // Smooth scroll for #anchors
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      const id = a.getAttribute('href');
+      if (id && id.startsWith('#')) {
+        const el = document.querySelector(id);
+        if (el) {
+          e.preventDefault();
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  </script>
 </body>
 </html>
