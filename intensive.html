@@ -2,14 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Intensive Course | FocusPrep</title>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet" />
+
+  <!-- Site CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <!-- NAV -->
   <header class="nav" id="nav">
     <div class="nav-shell">
       <a class="brand" href="index.html"><span class="brand-glyph"></span>FocusPrep</a>
@@ -17,52 +21,59 @@
         <a href="index.html#programs">Programs</a>
         <a href="index.html#approach">Approach</a>
         <a href="index.html#outcomes">Outcomes</a>
-        <button class="btn outline small" data-open-modal>Book a Consultation</button>
+        <a class="btn outline small"
+           href="https://calendly.com/sanmay-pachika/30min"
+           target="_blank" rel="noopener" data-open-modal>
+          Book a Consultation
+        </a>
       </nav>
     </div>
   </header>
 
+  <!-- MAIN -->
   <main class="section" style="padding-top:140px">
     <div class="shell">
       <header class="section-head">
-        <p class="eyebrow">Intensive · 1:1 Mentorship</p>
-        <h1 class="section-title">High-touch mentorship for 1500+ SAT mastery</h1>
+        <p class="eyebrow">Intensive · 1:1 mentorship</p>
+        <h1 class="section-title">Elite prep for students aiming at perfection</h1>
         <p class="section-sub">
-          Designed for top scorers seeking precision feedback, adaptive strategy, and calm execution.
-          Delivered via <strong>Google Classroom</strong> and personalized 1:1 guidance.
+          High-touch coaching across <strong>Reading & Math</strong> with weekly simulations and forensic review—
+          delivered through <strong>Google Classroom</strong>. Built for 1500+ aspirations.
         </p>
-        <div style="margin-top:1rem">
+        <div style="margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap">
           <a class="btn primary" href="payment-intensive.html">Enroll — $1,099</a>
-          <a class="btn outline" href="booking.html">Ask about availability</a>
+          <a class="btn outline" href="booking.html">Discuss fit</a>
         </div>
       </header>
 
-      <div class="cards" style="margin-top:24px">
+      <section class="cards" style="margin-top:24px">
         <article class="card">
-          <h3>Inside the program</h3>
+          <h3>Program pillars</h3>
           <ul>
-            <li>Weekly 1:1 mentoring sessions for both Reading and Math with expert instructors.</li>
-            <li>Full-length Digital SAT simulations with forensic timing and error analysis.</li>
-            <li>Curated drills for high-difficulty algebra, critical reading, and advanced grammar.</li>
-            <li>Performance dashboards updated through Google Classroom for instant feedback.</li>
+            <li>Dedicated 1:1 sessions up to three times per week with 99th-percentile mentors.</li>
+            <li>Weekly full-length exam simulations; deep dive reviews on accuracy & time management.</li>
+            <li>Invite-only workshops on competition-level math & advanced reading strategies.</li>
+            <li>Concierge support in Classroom comments—targeted drills within hours.</li>
           </ul>
         </article>
 
         <article class="card">
-          <h3>Elite preparation. Personalized refinement.</h3>
+          <h3>Reporting you can act on</h3>
           <p>
-            Every student follows a custom plan driven by diagnostics, score pacing, and feedback from 99th percentile mentors.
-            The goal is simple: score stability and excellence under pressure.
+            After every meeting you’ll get a concise recap, next-step drills, and a scoreboard update.
+            Parents can opt into clear progress briefs without adding noise to the student’s flow.
           </p>
         </article>
-      </div>
+      </section>
     </div>
   </main>
 
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="shell footer-grid">
       <div>
         <a class="brand" href="index.html"><span class="brand-glyph"></span>FocusPrep</a>
+        <p class="foot-note">© 2025 FocusPrep · focusprep.online</p>
       </div>
       <nav class="foot-links">
         <a href="index.html#programs">Programs</a>
@@ -71,20 +82,17 @@
     </div>
   </footer>
 
+  <!-- Calendly Modal -->
   <div class="consult-modal" aria-hidden="true">
-    <div class="modal-card">
-      <button class="modal-close" data-close-modal>&times;</button>
-      <h2>Schedule with FocusPrep</h2>
-      <div class="cal-placeholder">
-        <div class="calendly-inline-widget"
-          data-url="https://calendly.com/sanmay-pachika/30min"
-          style="min-width: 320px; height: 630px;">
-        </div>
-      </div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="consult-title" tabindex="-1">
+      <button class="modal-close" data-close-modal aria-label="Close">&times;</button>
+      <h2 id="consult-title">Schedule with FocusPrep</h2>
+      <div class="calendly-inline-widget"
+           data-url="https://calendly.com/sanmay-pachika/30min"
+           style="min-width:320px;height:630px;"></div>
     </div>
   </div>
-
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
