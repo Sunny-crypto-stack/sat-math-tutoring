@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Medium — Secure Payment | FocusPrep</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -10,69 +10,57 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="progress-bar"></div>
-
-  <header class="nav transparent">
+  <header class="nav opaque">
     <div class="nav-shell">
-      <a class="brand" href="index.html#top"><span class="brand-glyph"></span> FocusPrep</a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
+      <a class="brand" href="index.html"><span class="brand-glyph"></span> FocusPrep</a>
       <nav class="nav-links">
         <a class="nav-link" href="index.html#programs">Programs</a>
         <a class="nav-link" href="index.html#approach">Approach</a>
         <a class="nav-link" href="index.html#outcomes">Outcomes</a>
-        <a class="btn btn-beige" href="index.html#consult">Book a Consultation</a>
+        <a class="btn btn-beige" href="booking.html">Book a Consultation</a>
       </nav>
     </div>
-    <nav id="mobile-menu" class="nav-drawer" hidden>
-      <a class="nav-link" href="index.html#programs">Programs</a>
-      <a class="nav-link" href="index.html#approach">Approach</a>
-      <a class="nav-link" href="index.html#outcomes">Outcomes</a>
-      <a class="btn btn-beige" href="index.html#consult">Book a Consultation</a>
-    </nav>
   </header>
 
-  <main class="hero">
+  <main class="section">
     <div class="shell">
-      <div class="hero-card">
-        <p class="eyebrow">Medium • Live cohort</p>
-        <h1>Reserve your seat</h1>
-        <p class="sub">Pay with PayPal. Cohort details and Google Classroom invite are emailed within 24 hours.</p>
+      <header class="section-head">
+        <p class="eyebrow">PAYMENT</p>
+        <h1>Medium track — $599 USD</h1>
+        <p class="muted">Secure checkout via PayPal. We’ll confirm your cohort start date and send Classroom access within 24 hours.</p>
+      </header>
 
-        <div class="cards" style="margin-top:20px">
-          <article class="card" style="grid-column:1/-1; max-width:840px; margin-inline:auto;">
-            <h3>Medium Track — $599 USD</h3>
-            <ul>
-              <li>Live sessions + structured practice for both sections</li>
-              <li>Instructor feedback & analytics dashboards</li>
-              <li>Google Classroom delivery + weekly mentor check-ins</li>
-            </ul>
-            <div class="card-actions" style="margin-top:12px">
-              <a class="btn btn-beige" href="https://www.paypal.com/ncp/payment/SATM5QB8DS7E4" target="_blank" rel="noopener">Pay securely with PayPal</a>
-              <a class="btn btn-outline" href="medium.html">View syllabus</a>
-              <a class="link" href="index.html#programs">Back to Programs</a>
-            </div>
-          </article>
+      <article class="card" style="max-width:760px;margin-inline:auto;">
+        <h3>What you get</h3>
+        <ul class="muted" style="margin-top:.5rem">
+          <li>Live sessions + structured practice (Reading & Math)</li>
+          <li>Targets 1300–1450, instructor feedback</li>
+          <li>Delivered via Google Classroom</li>
+        </ul>
+
+        <div class="card-actions" style="margin-top:16px">
+          <a class="btn btn-beige" href="https://www.paypal.com/ncp/payment/4Q7Y5JKAJMRML" target="_blank" rel="noopener">Pay securely via PayPal</a>
+          <a class="btn btn-outline" href="medium.html">Back to details</a>
         </div>
-      </div>
+
+        <p class="muted" style="margin-top:10px">Questions? <a class="link" href="mailto:sanmay.pachika@gmail.com">sanmay.pachika@gmail.com</a></p>
+      </article>
     </div>
   </main>
 
   <footer class="footer">
     <div class="shell footer-grid">
       <div>
-        <a class="brand" href="index.html#top">FocusPrep</a>
-        <p class="muted">© 2025 FocusPrep · SAT Reading & Math mastery.</p>
+        <a class="brand" href="index.html">FocusPrep</a>
+        <p class="muted">© 2025 FocusPrep · SAT Reading & Math tutoring via Google Classroom.</p>
       </div>
       <nav class="foot-links">
         <a href="index.html#programs">Programs</a>
         <a href="index.html#approach">Approach</a>
         <a href="index.html#outcomes">Outcomes</a>
-        <a href="index.html#consult">Consultation</a>
+        <a href="booking.html">Consultation</a>
       </nav>
     </div>
   </footer>
-
-  <div class="ambient-wrapper" aria-hidden="true"><div id="ambient" class="ambient"></div></div>
-  <script src="script.js" defer></script>
 </body>
 </html>
