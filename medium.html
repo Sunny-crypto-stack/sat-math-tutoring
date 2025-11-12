@@ -1,1 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Medium Course | FocusPrep</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet" />
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="nav-shell">
+      <a class="brand" href="index.html"><span class="brand-glyph"></span>FocusPrep</a>
+      <nav class="nav-links">
+        <a href="index.html#programs">Programs</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#outcomes">Outcomes</a>
+        <a class="btn outline small"
+           href="https://calendly.com/sanmay-pachika/30min"
+           target="_blank" rel="noopener" data-open-modal>
+          Book a Consultation
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="section" style="padding-top:140px">
+    <div class="shell">
+      <header class="section-head">
+        <p class="eyebrow">Medium · live cohort</p>
+        <h1 class="section-title">Live instruction with structured accountability</h1>
+        <p class="section-sub">
+          Built for students targeting 1300–1450 across <strong>both Reading & Math</strong>.
+          Interactive sessions, rigorous practice, and personal coaching—delivered in <strong>Google Classroom</strong>.
+        </p>
+        <div style="margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap">
+          <a class="btn primary" href="payment-medium.html">Enroll — $599</a>
+          <a class="btn outline" href="booking.html">Ask about availability</a>
+        </div>
+      </header>
+
+      <section class="cards" style="margin-top:24px">
+        <article class="card">
+          <h3>Inside the program</h3>
+          <ul>
+            <li>Four weekly live sessions covering advanced algebra, functions, geometry, probability, & statistics.</li>
+            <li>Reading workshops on evidence, inference, data visuals, and rhetorical precision.</li>
+            <li>Instructor-graded assignments with written/voice feedback.</li>
+            <li>Weekly timed drills to sharpen pacing & decisions.</li>
+            <li>Small-group office hours to troubleshoot tricky problems.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Support that sticks</h3>
+          <p>
+            Each student is paired with a mentor who reviews progress, flags blind spots, and shares a personalized plan.
+            The classroom dashboard shows only what matters next to keep focus high and stress low.
+          </p>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="shell footer-grid">
+      <div>
+        <a class="brand" href="index.html"><span class="brand-glyph"></span>FocusPrep</a>
+        <p class="foot-note">© 2025 FocusPrep · focusprep.online</p>
+      </div>
+      <nav class="foot-links">
+        <a href="index.html#programs">Programs</a>
+        <a href="booking.html">Consultation</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Calendly Modal -->
+  <div class="consult-modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="consult-title" tabindex="-1">
+      <button class="modal-close" data-close-modal aria-label="Close">&times;</button>
+      <h2 id="consult-title">Schedule with FocusPrep</h2>
+      <div class="calendly-inline-widget"
+           data-url="https://calendly.com/sanmay-pachika/30min"
+           style="min-width:320px;height:630px;"></div>
+    </div>
+  </div>
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
 
