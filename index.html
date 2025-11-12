@@ -10,33 +10,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
-
-<body>
+<body id="top">
   <div id="progress-bar"></div>
 
-  <!-- NAV -->
+  <!-- NAV (no mobile drawer, no Menu button) -->
   <header class="nav transparent" id="site-nav">
     <div class="nav-shell">
       <a class="brand" href="#top"><span class="brand-glyph"></span> FocusPrep</a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
       <nav class="nav-links">
         <a class="nav-link" href="#programs">Programs</a>
         <a class="nav-link" href="#approach">Approach</a>
         <a class="nav-link" href="#outcomes">Outcomes</a>
-        <a class="btn btn-beige" href="#consult">Book a Consultation</a>
+        <a class="btn btn-beige" href="booking.html">Book a Consultation</a>
       </nav>
     </div>
-
-    <nav id="mobile-menu" class="nav-drawer" hidden>
-      <a class="nav-link" href="#programs">Programs</a>
-      <a class="nav-link" href="#approach">Approach</a>
-      <a class="nav-link" href="#outcomes">Outcomes</a>
-      <a class="btn btn-beige" href="#consult">Book a Consultation</a>
-    </nav>
   </header>
 
   <!-- HERO -->
-  <main id="top">
+  <main>
     <section class="hero">
       <div class="hero-card">
         <p class="eyebrow">SAT Reading & Math • Focused & Friendly</p>
@@ -44,7 +35,7 @@
         <p class="sub">Calm lessons, adaptive practice, and mentors who actually listen — built for students and easy for parents.</p>
         <div class="btn-row">
           <a class="btn btn-beige" href="#programs">I’m a Student</a>
-          <a class="btn btn-outline" href="#consult">I’m a Parent</a>
+          <a class="btn btn-outline" href="booking.html">I’m a Parent</a>
         </div>
       </div>
     </section>
@@ -70,7 +61,7 @@
           </article>
 
           <article class="card">
-            <span class="tag">Medium · Live Cohort</span>
+            <span class="tag">Medium · Live cohort</span>
             <h3>Medium</h3>
             <p>Live sessions + structured practice for 1300–1450 goals across both sections. Ideal for disciplined learners.</p>
             <div class="card-actions">
@@ -80,7 +71,7 @@
           </article>
 
           <article class="card">
-            <span class="tag">Intensive · 1:1 Mentorship</span>
+            <span class="tag">Intensive · 1:1 mentorship</span>
             <h3>Intensive</h3>
             <p>High-touch 1:1 mentoring, weekly simulations, and advanced strategy refinement for 1500+ aspirants.</p>
             <div class="card-actions">
@@ -170,58 +161,37 @@
         <a href="#programs">Programs</a>
         <a href="#approach">Approach</a>
         <a href="#outcomes">Outcomes</a>
-        <a href="#consult">Consultation</a>
+        <a href="booking.html">Consultation</a>
       </nav>
     </div>
   </footer>
 
-  <!-- BACKGROUND -->
+  <!-- Ambient BG -->
   <div class="ambient-wrapper" aria-hidden="true">
     <div class="ambient" id="ambient"></div>
   </div>
 
   <script>
-    // Progress bar
+    // progress bar
     const bar = document.getElementById('progress-bar');
-    window.addEventListener('scroll', () => {
+    addEventListener('scroll', () => {
       const h = document.documentElement.scrollHeight - innerHeight;
-      const p = h > 0 ? (scrollY / h) * 100 : 0;
-      bar.style.width = p + '%';
+      bar.style.width = (h > 0 ? (scrollY / h) * 100 : 0) + '%';
     });
 
-    // Nav translucency
-    const nav = document.querySelector('.nav');
-    const updateNav = () => {
-      if (scrollY > 12) nav.classList.add('opaque'), nav.classList.remove('transparent');
-      else nav.classList.add('transparent'), nav.classList.remove('opaque');
-    };
-    addEventListener('scroll', updateNav);
-    addEventListener('load', updateNav);
+    // nav translucency
+    const nav = document.getElementById('site-nav');
+    const setNav = () => (scrollY > 12 ? (nav.classList.add('opaque'), nav.classList.remove('transparent')) : (nav.classList.add('transparent'), nav.classList.remove('opaque')));
+    addEventListener('scroll', setNav);
+    addEventListener('load', setNav);
 
-    // Mobile drawer fix
-    const toggle = document.querySelector('.nav-toggle');
-    const drawer = document.getElementById('mobile-menu');
-    if (toggle && drawer) {
-      toggle.addEventListener('click', () => {
-        const expanded = toggle.getAttribute('aria-expanded') === 'true';
-        toggle.setAttribute('aria-expanded', String(!expanded));
-        drawer.hidden = expanded;
-        drawer.classList.toggle('show', !expanded);
-      });
-    }
-
-    // Smooth scroll for #anchors
+    // smooth in-page scroll
     document.addEventListener('click', (e) => {
       const a = e.target.closest('a[href^="#"]');
       if (!a) return;
       const id = a.getAttribute('href');
-      if (id && id.startsWith('#')) {
-        const el = document.querySelector(id);
-        if (el) {
-          e.preventDefault();
-          el.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
+      const el = document.querySelector(id);
+      if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
     });
   </script>
 </body>
